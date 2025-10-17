@@ -1,0 +1,304 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================
+   CSS Custom Properties (Design Tokens)
+   ============================================ */
+:root {
+  /* Colors */
+  --color-primary: #00B576;
+  --color-primary-dark: #008657;
+  --color-primary-darker: #006d45;
+  --color-primary-light: #00754C;
+  
+  --color-bg-primary: #10141F;
+  --color-bg-secondary: #161C29;
+  --color-bg-tertiary: #131824;
+  --color-bg-base: #0c0f16;
+  
+  --color-border: #1F283B;
+  --color-text-base: #FFFFFF;
+  --color-text-subdued: #97A3BF;
+  --color-text-muted: #ADBAD9;
+  
+  /* Spacing */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  --spacing-2xl: 2.5rem;
+  --spacing-3xl: 4rem;
+  
+  /* Border Radius */
+  --radius-sm: 0.75rem;
+  --radius-md: 1rem;
+  --radius-lg: 1.5rem;
+  
+  /* Transitions */
+  --transition-fast: 0.2s ease;
+  --transition-base: 0.3s ease;
+  --transition-slow: 0.5s ease;
+  
+  /* Shadows */
+  --shadow-glow: 0 0 10px rgba(0, 181, 118, 0.1);
+}
+
+/* ============================================
+   Base Styles & Utilities
+   ============================================ */
+
+/* Fix thick underline in Firefox and add offset */
+.hover\:underline:hover {
+  text-decoration-thickness: 1px;
+  text-underline-offset: 8px;
+}
+
+/* Ensure consistent dotted underline thickness across browsers */
+.decoration-dotted {
+  text-decoration-thickness: 1px;
+}
+
+/* Custom background with grain and radial gradient */
+.bg-grain {
+  background:
+    radial-gradient(circle at center, rgba(24, 37, 51, 0.4) 0%, transparent 70%),
+    url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100"><defs><filter id="noise"><feTurbulence baseFrequency="0.9" numOctaves="4" stitchTiles="stitch"/></filter></defs><rect width="100%" height="100%" filter="url(%23noise)" opacity="0.05"/></svg>'),
+    var(--color-bg-base);
+}
+
+/* ============================================
+   Component Styles
+   ============================================ */
+
+/* Button Variants */
+.btn-hover-green {
+  transition: all var(--transition-base);
+}
+
+.btn-hover-green:hover {
+  background-color: rgba(0, 181, 118, 0.05);
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+  box-shadow: var(--shadow-glow);
+}
+
+/* Navigation Button Icons */
+#prev-btn:hover svg path,
+#next-btn:hover svg path {
+  fill: var(--color-primary);
+  transition: fill var(--transition-fast);
+}
+
+/* Card Styles */
+.card-base {
+  background-color: var(--color-bg-secondary);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-lg);
+  transition: background-color var(--transition-base);
+}
+
+.card-base:hover {
+  background-color: var(--color-bg-tertiary);
+}
+
+/* Feature Card */
+.feature-card {
+  @apply card-base;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  text-align: left;
+}
+
+.feature-card-icon {
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: var(--spacing-md);
+}
+
+.feature-card-title {
+  color: var(--color-text-base);
+  font-size: 1.25rem;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.feature-card-description {
+  color: var(--color-text-subdued);
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+/* FAQ Item */
+.faq-item {
+  @apply card-base;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  max-width: 600px;
+  width: 100%;
+}
+
+.faq-question {
+  color: var(--color-text-base);
+  font-size: 1.25rem;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.faq-answer {
+  color: var(--color-text-subdued);
+  font-size: 1.125rem;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+/* Image Carousel */
+.carousel-card {
+  flex: none;
+  width: 344px;
+  height: 432px;
+  border-radius: var(--radius-md);
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all var(--transition-base);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.2);
+  background-size: cover;
+  background-position: center;
+  transform-origin: bottom center;
+}
+
+/* Responsive carousel cards */
+@media (max-width: 768px) {
+  .carousel-card {
+    width: 280px;
+    height: 351px;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .carousel-card {
+    width: 320px;
+    height: 400px;
+  }
+}
+
+.carousel-card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.6), transparent);
+}
+
+.carousel-card-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: var(--spacing-sm);
+}
+
+.carousel-card-info {
+  background-color: rgba(19, 24, 36, 0.75);
+  border-radius: var(--radius-sm);
+  padding: var(--spacing-md);
+}
+
+.carousel-card-title {
+  color: var(--color-text-base);
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.carousel-card-location {
+  color: var(--color-text-subdued);
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1.2;
+  margin-top: var(--spacing-xs);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+}
+
+/* Hide scrollbar for carousel */
+#image-grid::-webkit-scrollbar {
+  display: none;
+}
+
+#image-grid {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Circle Feature Section */
+.circle-feature-item {
+  border-bottom: 1px solid var(--color-border);
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+  padding-right: 32px;
+  margin-right: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  align-items: flex-start;
+}
+
+.circle-feature-icon {
+  flex-shrink: 0;
+}
+
+.circle-feature-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  flex: 1;
+}
+
+.circle-feature-title {
+  color: var(--color-text-base);
+  font-size: 1.5rem;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.circle-feature-description {
+  color: var(--color-text-subdued);
+  font-size: 1.125rem;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+/* ============================================
+   Utility Classes
+   ============================================ */
+
+/* Text Utilities */
+.text-primary {
+  color: var(--color-primary);
+}
+
+.text-subdued {
+  color: var(--color-text-subdued);
+}
+
+.text-muted {
+  color: var(--color-text-muted);
+}
+
+/* Link Utilities */
+.link-primary {
+  color: var(--color-primary);
+  text-decoration: underline;
+  text-decoration-style: dotted;
+  transition: color var(--transition-fast);
+}
+
+.link-primary:hover {
+  color: var(--color-primary-dark);
+}
