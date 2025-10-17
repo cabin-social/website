@@ -9,26 +9,40 @@ async function subscribeToKlaviyo(email, formElement) {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'revision': '2024-07-15'
+        'revision': '2024-10-15'
       },
       body: JSON.stringify({
         data: {
           type: 'subscription',
           attributes: {
-            list_id: KLAVIYO_LIST_ID,
-            email: email,
+            profile: {
+              data: {
+                type: 'profile',
+                attributes: {
+                  email: email
+                }
+              }
+            },
             custom_source: 'Cabin Waitlist'
+          },
+          relationships: {
+            list: {
+              data: {
+                type: 'list',
+                id: KLAVIYO_LIST_ID
+              }
+            }
           }
         }
       })
     });
 
-    if (response.ok) {
+    if (response.ok || response.status === 202) {
       showMessage(formElement, 'success', 'Thanks for joining the waitlist! Check your email for updates.');
       formElement.reset();
       return true;
     } else {
-      const errorData = await response.json();
+      const errorData = await response.json().catch(() => ({}));
       console.error('Klaviyo API Error:', errorData);
       showMessage(formElement, 'error', 'Something went wrong. Please try again.');
       return false;
