@@ -2,48 +2,32 @@
 const KLAVIYO_PUBLIC_KEY = 'R5d6Sm';
 const KLAVIYO_LIST_ID = 'UcNgUr';
 
-// Function to subscribe email to Klaviyo
+// Function to subscribe email to Klaviyo using their legacy API endpoint
 async function subscribeToKlaviyo(email, formElement) {
   try {
-    const response = await fetch('https://a.klaviyo.com/client/subscriptions/?company_id=' + KLAVIYO_PUBLIC_KEY, {
+    // Using Klaviyo's legacy subscribe endpoint which is more reliable for client-side
+    const formData = new URLSearchParams();
+    formData.append('g', KLAVIYO_LIST_ID);
+    formData.append('email', email);
+    formData.append('$fields', '$source');
+    formData.append('$source', 'Cabin Waitlist');
+
+    const response = await fetch(`https://manage.kmail-lists.com/ajax/subscriptions/subscribe`, {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json',
-        'revision': '2024-10-15'
+        'Content-Type': 'application/x-www-form-urlencoded',
       },
-      body: JSON.stringify({
-        data: {
-          type: 'subscription',
-          attributes: {
-            profile: {
-              data: {
-                type: 'profile',
-                attributes: {
-                  email: email
-                }
-              }
-            },
-            custom_source: 'Cabin Waitlist'
-          },
-          relationships: {
-            list: {
-              data: {
-                type: 'list',
-                id: KLAVIYO_LIST_ID
-              }
-            }
-          }
-        }
-      })
+      body: formData.toString()
     });
 
-    if (response.ok || response.status === 202) {
+    const data = await response.json();
+    
+    if (data.success || data.data?.is_subscribed) {
       showMessage(formElement, 'success', 'Thanks for joining the waitlist! Check your email for updates.');
       formElement.reset();
       return true;
     } else {
-      const errorData = await response.json().catch(() => ({}));
-      console.error('Klaviyo API Error:', errorData);
+      console.error('Klaviyo API Error:', data);
       showMessage(formElement, 'error', 'Something went wrong. Please try again.');
       return false;
     }
