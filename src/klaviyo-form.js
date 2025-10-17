@@ -1,34 +1,25 @@
 // Klaviyo Form Integration
-const KLAVIYO_PUBLIC_KEY = 'R5d6Sm';
-const KLAVIYO_LIST_ID = 'UcNgUr';
 
-// Function to subscribe email to Klaviyo using their legacy API endpoint
+// Function to subscribe email to Klaviyo using serverless function
 async function subscribeToKlaviyo(email, formElement) {
   try {
-    // Using Klaviyo's legacy subscribe endpoint which is more reliable for client-side
-    const formData = new URLSearchParams();
-    formData.append('g', KLAVIYO_LIST_ID);
-    formData.append('email', email);
-    formData.append('$fields', '$source');
-    formData.append('$source', 'Cabin Waitlist');
-
-    const response = await fetch(`https://manage.kmail-lists.com/ajax/subscriptions/subscribe`, {
+    const response = await fetch('/.netlify/functions/klaviyo-subscribe', {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/x-www-form-urlencoded',
+        'Content-Type': 'application/json',
       },
-      body: formData.toString()
+      body: JSON.stringify({ email })
     });
 
     const data = await response.json();
     
-    if (data.success || data.data?.is_subscribed) {
+    if (response.ok && data.success) {
       showMessage(formElement, 'success', 'Thanks for joining the waitlist! Check your email for updates.');
       formElement.reset();
       return true;
     } else {
       console.error('Klaviyo API Error:', data);
-      showMessage(formElement, 'error', 'Something went wrong. Please try again.');
+      showMessage(formElement, 'error', data.error || 'Something went wrong. Please try again.');
       return false;
     }
   } catch (error) {
