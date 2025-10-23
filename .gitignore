@@ -19,3 +19,6 @@ Thumbs.db
 # Editor directories
 .vscode/
 .idea/
+
+# Cline (AI assistant)
+.cline/
