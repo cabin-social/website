@@ -1,5 +1,4 @@
 exports.handler = async (event, context) => {
-  // Only allow POST requests
   if (event.httpMethod !== 'POST') {
     return {
       statusCode: 405,
@@ -31,22 +30,16 @@ exports.handler = async (event, context) => {
 
     if (!KLAVIYO_PRIVATE_KEY || !KLAVIYO_LIST_ID) {
       console.error('Missing Klaviyo credentials');
-      console.error('KLAVIYO_PRIVATE_KEY exists:', !!KLAVIYO_PRIVATE_KEY);
-      console.error('KLAVIYO_LIST_ID exists:', !!KLAVIYO_LIST_ID);
       return {
         statusCode: 500,
         body: JSON.stringify({ error: 'Server configuration error' })
       };
     }
 
-    // Log configuration (without exposing the full key)
-    console.log('Klaviyo List ID:', KLAVIYO_LIST_ID);
-    console.log('API Key starts with:', KLAVIYO_PRIVATE_KEY.substring(0, 3));
-    console.log('API Key length:', KLAVIYO_PRIVATE_KEY.length);
+    console.log('Subscribing email to list:', KLAVIYO_LIST_ID);
 
-    // Step 1: Create or get profile
-    console.log('Step 1: Creating/getting profile for email:', email);
-    const profileResponse = await fetch('https://a.klaviyo.com/api/profiles/', {
+    // Use the server-side subscription endpoint
+    const response = await fetch('https://a.klaviyo.com/api/profile-subscription-bulk-create-jobs/', {
       method: 'POST',
       headers: {
         'Authorization': `Klaviyo-API-Key ${KLAVIYO_PRIVATE_KEY}`,
@@ -55,99 +48,42 @@ exports.handler = async (event, context) => {
       },
       body: JSON.stringify({
         data: {
-          type: 'profile',
+          type: 'profile-subscription-bulk-create-job',
           attributes: {
-            email: email
+            profiles: {
+              data: [
+                {
+                  type: 'profile',
+                  attributes: {
+                    email: email
+                  }
+                }
+              ]
+            }
+          },
+          relationships: {
+            list: {
+              data: {
+                type: 'list',
+                id: KLAVIYO_LIST_ID
+              }
+            }
           }
         }
       })
     });
 
-    console.log('Profile response status:', profileResponse.status);
-    let profileId;
-    
-    if (profileResponse.ok) {
-      const profileData = await profileResponse.json();
-      profileId = profileData.data.id;
-      console.log('Profile created/found with ID:', profileId);
-    } else if (profileResponse.status === 409) {
-      // Profile already exists, get it by email
-      console.log('Profile exists (409), searching for it...');
-      const searchResponse = await fetch(`https://a.klaviyo.com/api/profiles/?filter=equals(email,"${email}")`, {
-        method: 'GET',
-        headers: {
-          'Authorization': `Klaviyo-API-Key ${KLAVIYO_PRIVATE_KEY}`,
-          'revision': '2024-10-15'
-        }
-      });
-      
-      console.log('Search response status:', searchResponse.status);
-      
-      if (!searchResponse.ok) {
-        const errorText = await searchResponse.text();
-        console.error('Failed to find existing profile:', errorText);
-        return {
-          statusCode: 500,
-          body: JSON.stringify({ error: 'Failed to process subscription' })
-        };
-      }
-      
-      const searchData = await searchResponse.json();
-      if (searchData.data && searchData.data.length > 0) {
-        profileId = searchData.data[0].id;
-        console.log('Found existing profile with ID:', profileId);
-      } else {
-        console.error('Profile exists but could not be found in search results');
-        return {
-          statusCode: 500,
-          body: JSON.stringify({ error: 'Failed to process subscription' })
-        };
-      }
-    } else {
-      const errorText = await profileResponse.text();
-      console.error('Failed to create profile. Status:', profileResponse.status);
-      console.error('Error response:', errorText);
-      return {
-        statusCode: 500,
-        body: JSON.stringify({ error: 'Failed to create profile' })
-      };
-    }
+    const responseData = await response.json();
 
-    // Step 2: Subscribe profile to list
-    console.log('Step 2: Subscribing profile to list...');
-    console.log('List ID being used:', KLAVIYO_LIST_ID);
-    console.log('Profile ID being subscribed:', profileId);
-    
-    const subscribeResponse = await fetch(`https://a.klaviyo.com/api/lists/${KLAVIYO_LIST_ID}/relationships/profiles/`, {
-      method: 'POST',
-      headers: {
-        'Authorization': `Klaviyo-API-Key ${KLAVIYO_PRIVATE_KEY}`,
-        'Content-Type': 'application/json',
-        'revision': '2024-10-15'
-      },
-      body: JSON.stringify({
-        data: [
-          {
-            type: 'profile',
-            id: profileId
-          }
-        ]
-      })
-    });
-
-    console.log('Subscribe response status:', subscribeResponse.status);
-
-    if (!subscribeResponse.ok) {
-      const errorText = await subscribeResponse.text();
-      console.error('Failed to subscribe to list. Status:', subscribeResponse.status);
-      console.error('Error response:', errorText);
+    if (!response.ok) {
+      console.error('Klaviyo API error:', response.status, JSON.stringify(responseData));
       return {
         statusCode: 500,
         body: JSON.stringify({ error: 'Failed to subscribe to waitlist' })
       };
     }
 
-    console.log('Successfully subscribed profile to list!');
+    console.log('Successfully subscribed profile:', JSON.stringify(responseData));
 
     return {
       statusCode: 200,
