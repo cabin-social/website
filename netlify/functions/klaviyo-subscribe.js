@@ -16,7 +16,6 @@ exports.handler = async (event, context) => {
       };
     }
 
-    // Validate email format
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
       return {
@@ -38,7 +37,6 @@ exports.handler = async (event, context) => {
 
     console.log('Subscribing email to list:', KLAVIYO_LIST_ID);
 
-    // Use the server-side subscription endpoint
     const response = await fetch('https://a.klaviyo.com/api/profile-subscription-bulk-create-jobs/', {
       method: 'POST',
       headers: {
@@ -73,17 +71,29 @@ exports.handler = async (event, context) => {
       })
     });
 
-    const responseData = await response.json();
+    console.log('Response status:', response.status);
+
+    // Handle response properly - might be empty
+    const text = await response.text();
+    let responseData = null;
+    
+    if (text) {
+      try {
+        responseData = JSON.parse(text);
+      } catch (e) {
+        console.error('Failed to parse response:', text);
+      }
+    }
 
     if (!response.ok) {
-      console.error('Klaviyo API error:', response.status, JSON.stringify(responseData));
+      console.error('Klaviyo API error:', response.status, responseData);
       return {
         statusCode: 500,
         body: JSON.stringify({ error: 'Failed to subscribe to waitlist' })
       };
     }
 
-    console.log('Successfully subscribed profile:', JSON.stringify(responseData));
+    console.log('Successfully subscribed profile');
 
     return {
       statusCode: 200,
