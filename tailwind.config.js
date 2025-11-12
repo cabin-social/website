@@ -4,7 +4,7 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        'sans': ['Mona Sans', 'system-ui', 'sans-serif'],
+        'sans': ['Geist', 'system-ui', 'sans-serif'],
       }
     },
   },
