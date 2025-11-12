@@ -1,4 +1,5 @@
 exports.handler = async (event, context) => {
+  // Only allow POST requests
   if (event.httpMethod !== 'POST') {
     return {
       statusCode: 405,
@@ -9,24 +10,18 @@ exports.handler = async (event, context) => {
   try {
     const { email } = JSON.parse(event.body);
 
-    if (!email) {
+    // Validate email
+    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
       return {
         statusCode: 400,
-        body: JSON.stringify({ error: 'Email is required' })
-      };
-    }
-
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email)) {
-      return {
-        statusCode: 400,
-        body: JSON.stringify({ error: 'Invalid email format' })
+        body: JSON.stringify({ error: 'Valid email is required' })
       };
     }
 
     const KLAVIYO_PRIVATE_KEY = process.env.KLAVIYO_PRIVATE_KEY;
     const KLAVIYO_LIST_ID = process.env.KLAVIYO_LIST_ID;
 
+    // Check environment variables
     if (!KLAVIYO_PRIVATE_KEY || !KLAVIYO_LIST_ID) {
       console.error('Missing Klaviyo credentials');
       return {
@@ -35,8 +30,7 @@ exports.handler = async (event, context) => {
       };
     }
 
-    console.log('Subscribing email to list:', KLAVIYO_LIST_ID);
-
+    // Subscribe to Klaviyo
     const response = await fetch('https://a.klaviyo.com/api/profile-subscription-bulk-create-jobs/', {
       method: 'POST',
       headers: {
@@ -71,9 +65,7 @@ exports.handler = async (event, context) => {
       })
     });
 
-    console.log('Response status:', response.status);
-
-    // Handle response properly - might be empty
+    // Handle response
     const text = await response.text();
     let responseData = null;
     
@@ -92,8 +84,6 @@ exports.handler = async (event, context) => {
         body: JSON.stringify({ error: 'Failed to subscribe to waitlist' })
       };
     }
-
-    console.log('Successfully subscribed profile');
 
     return {
       statusCode: 200,

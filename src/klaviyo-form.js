@@ -1,107 +1,55 @@
-// Klaviyo Form Integration
-
-// Function to subscribe email to Klaviyo using serverless function
-async function subscribeToKlaviyo(email, formElement) {
-  try {
-    const response = await fetch('/.netlify/functions/klaviyo-subscribe', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ email })
-    });
-
-    const data = await response.json();
-    
-    if (response.ok && data.success) {
-      showMessage(formElement, 'success', 'Thanks for joining the waitlist! Check your email for updates.');
-      formElement.reset();
-      return true;
-    } else {
-      console.error('Klaviyo API Error:', data);
-      showMessage(formElement, 'error', data.error || 'Something went wrong. Please try again.');
-      return false;
-    }
-  } catch (error) {
-    console.error('Network Error:', error);
-    showMessage(formElement, 'error', 'Network error. Please check your connection and try again.');
-    return false;
-  }
-}
-
-// Function to show success/error messages
-function showMessage(formElement, type, message) {
-  // Remove any existing message
-  const existingMessage = formElement.parentElement.querySelector('.form-message');
-  if (existingMessage) {
-    existingMessage.remove();
-  }
-
-  // Create new message element
-  const messageDiv = document.createElement('div');
-  messageDiv.className = 'form-message mt-4 p-4 rounded-lg text-center font-medium';
-  
-  if (type === 'success') {
-    messageDiv.classList.add('bg-[#008657]', 'bg-opacity-20', 'text-[#00B576]', 'border', 'border-[#00B576]');
-  } else {
-    messageDiv.classList.add('bg-red-900', 'bg-opacity-20', 'text-red-400', 'border', 'border-red-400');
-  }
-  
-  messageDiv.textContent = message;
-  formElement.parentElement.appendChild(messageDiv);
-
-  // Auto-remove message after 5 seconds
-  setTimeout(() => {
-    messageDiv.style.transition = 'opacity 0.5s';
-    messageDiv.style.opacity = '0';
-    setTimeout(() => messageDiv.remove(), 500);
-  }, 5000);
-}
-
-// Function to validate email
-function isValidEmail(email) {
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  return emailRegex.test(email);
-}
-
-// Function to handle form submission
-function handleFormSubmit(event) {
-  event.preventDefault();
-  
-  const form = event.target;
-  const emailInput = form.querySelector('input[type="email"]');
-  const submitButton = form.querySelector('button[type="submit"]');
-  const email = emailInput.value.trim();
-
-  // Validate email
-  if (!email) {
-    showMessage(form, 'error', 'Please enter your email address.');
-    return;
-  }
-
-  if (!isValidEmail(email)) {
-    showMessage(form, 'error', 'Please enter a valid email address.');
-    return;
-  }
-
-  // Disable button during submission
-  const originalButtonText = submitButton.textContent;
-  submitButton.disabled = true;
-  submitButton.textContent = 'Joining...';
-
-  // Submit to Klaviyo
-  subscribeToKlaviyo(email, form).finally(() => {
-    submitButton.disabled = false;
-    submitButton.textContent = originalButtonText;
-  });
-}
-
-// Initialize forms when DOM is loaded
 document.addEventListener('DOMContentLoaded', function() {
-  // Get all waitlist forms
+  // Get all waitlist forms on the page
   const forms = document.querySelectorAll('.waitlist-form');
   
   forms.forEach(form => {
-    form.addEventListener('submit', handleFormSubmit);
+    form.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      
+      const emailInput = this.querySelector('input[type="email"]');
+      const submitButton = this.querySelector('button[type="submit"]');
+      const email = emailInput.value.trim();
+      
+      // Disable form during submission
+      submitButton.disabled = true;
+      const originalButtonText = submitButton.textContent;
+      submitButton.textContent = 'Joining...';
+      
+      try {
+        const response = await fetch('/.netlify/functions/klaviyo-subscribe', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ email })
+        });
+        
+        const data = await response.json();
+        
+        if (response.ok) {
+          // Success!
+          submitButton.textContent = '✓ Joined!';
+          submitButton.style.backgroundColor = '#00B576';
+          emailInput.value = '';
+          
+          // Reset button after 3 seconds
+          setTimeout(() => {
+            submitButton.textContent = originalButtonText;
+            submitButton.disabled = false;
+            submitButton.style.backgroundColor = '';
+          }, 3000);
+        } else {
+          // Error from server
+          alert(data.error || 'Failed to join waitlist. Please try again.');
+          submitButton.textContent = originalButtonText;
+          submitButton.disabled = false;
+        }
+      } catch (error) {
+        console.error('Error:', error);
+        alert('Something went wrong. Please try again.');
+        submitButton.textContent = originalButtonText;
+        submitButton.disabled = false;
+      }
+    });
   });
 });
