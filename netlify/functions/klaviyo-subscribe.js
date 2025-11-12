@@ -37,9 +37,8 @@ exports.handler = async (event, context) => {
       };
     }
 
-    // Step 1: Create or update profile using the subscribe endpoint
-    // This endpoint handles both new and existing profiles automatically
-    const subscribeResponse = await fetch(`https://a.klaviyo.com/api/profile-subscription-bulk-create-jobs/`, {
+    // Step 1: Create or get profile
+    const profileResponse = await fetch('https://a.klaviyo.com/api/profiles/', {
       method: 'POST',
       headers: {
         'Authorization': `Klaviyo-API-Key ${KLAVIYO_PRIVATE_KEY}`,
@@ -48,37 +47,78 @@ exports.handler = async (event, context) => {
       },
       body: JSON.stringify({
         data: {
-          type: 'profile-subscription-bulk-create-job',
+          type: 'profile',
           attributes: {
-            profiles: {
-              data: [
-                {
-                  type: 'profile',
-                  attributes: {
-                    email: email,
-                    properties: {
-                      source: 'Cabin Waitlist'
-                    }
-                  }
-                }
-              ]
-            }
-          },
-          relationships: {
-            list: {
-              data: {
-                type: 'list',
-                id: KLAVIYO_LIST_ID
-              }
-            }
+            email: email
           }
         }
       })
     });
 
+    let profileId;
+    
+    if (profileResponse.ok) {
+      const profileData = await profileResponse.json();
+      profileId = profileData.data.id;
+    } else if (profileResponse.status === 409) {
+      // Profile already exists, get it by email
+      const searchResponse = await fetch(`https://a.klaviyo.com/api/profiles/?filter=equals(email,"${email}")`, {
+        method: 'GET',
+        headers: {
+          'Authorization': `Klaviyo-API-Key ${KLAVIYO_PRIVATE_KEY}`,
+          'revision': '2024-10-15'
+        }
+      });
+      
+      if (!searchResponse.ok) {
+        const errorText = await searchResponse.text();
+        console.error('Failed to find existing profile:', errorText);
+        return {
+          statusCode: 500,
+          body: JSON.stringify({ error: 'Failed to process subscription' })
+        };
+      }
+      
+      const searchData = await searchResponse.json();
+      if (searchData.data && searchData.data.length > 0) {
+        profileId = searchData.data[0].id;
+      } else {
+        console.error('Profile exists but could not be found');
+        return {
+          statusCode: 500,
+          body: JSON.stringify({ error: 'Failed to process subscription' })
+        };
+      }
+    } else {
+      const errorText = await profileResponse.text();
+      console.error('Failed to create profile:', errorText);
+      return {
+        statusCode: 500,
+        body: JSON.stringify({ error: 'Failed to create profile' })
+      };
+    }
+
+    // Step 2: Subscribe profile to list
+    const subscribeResponse = await fetch(`https://a.klaviyo.com/api/lists/${KLAVIYO_LIST_ID}/relationships/profiles/`, {
+      method: 'POST',
+      headers: {
+        'Authorization': `Klaviyo-API-Key ${KLAVIYO_PRIVATE_KEY}`,
+        'Content-Type': 'application/json',
+        'revision': '2024-10-15'
+      },
+      body: JSON.stringify({
+        data: [
+          {
+            type: 'profile',
+            id: profileId
+          }
+        ]
+      })
+    });
+
     if (!subscribeResponse.ok) {
       const errorText = await subscribeResponse.text();
-      console.error('Klaviyo subscription failed:', errorText);
+      console.error('Failed to subscribe to list:', errorText);
       return {
         statusCode: 500,
         body: JSON.stringify({ error: 'Failed to subscribe to waitlist' })
