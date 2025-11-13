@@ -69,11 +69,11 @@
   </head>
 
   <body class="overflow-x-hidden">
-    <header>
+    <header class="px-[1.25rem]">
       <!--Top Navigation-->
       <nav
         aria-label="global"
-        class="flex m-auto items-center justify-between max-w-[1440px] h-[96px]"
+        class="flex m-auto items-center justify-between max-w-[1440px] h-[64px] sm:h-[80px] lg:h-[96px] px-[4] sm:px-6"
       >
         <div class="flex-1">
           <a href="#" class="-m-1.5 p-1.5"
@@ -116,13 +116,13 @@
             type="button"
             command="show-modal"
             commandfor="mobile-menu"
-            class="m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-200"
+            class="inline-flex items-center justify-center rounded-md"
           >
             <span class="sr-only">Open main menu</span>
             <svg
-              width="32"
-              height="32"
-              viewBox="0 0 32 32"
+              width="24"
+              height="24"
+              viewBox="5 5 24 24"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
             >
@@ -163,59 +163,58 @@
         </div>
       </nav>
 
-      <el-dialog>
+     <el-dialog>
         <dialog id="mobile-menu" class="backdrop:bg-transparent lg:hidden">
           <div tabindex="0" class="fixed inset-0 focus:outline-none">
             <el-dialog-panel
-              class="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-[#131824] p-6 sm:max-w-sm sm:ring-1 sm:ring-[#1D2637]"
+              class="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-[#0D0F1A] px-0 py-[1.25rem] sm:max-w-sm sm:ring-1 sm:ring-[#1D2637]"
             >
               <!-- Logo + Close Button -->
-              <div class="flex items-center justify-between">
-                <a href="#" class="-m-1.5 p-1.5">
-                  <span class="sr-only">Cabin</span>
-                  <svg
-                    width="106"
-                    height="24"
-                    viewBox="0 0 106 24"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M31.6865 22.9712C30.3416 22.2892 29.2963 21.3442 28.5505 20.1301C27.8016 18.919 27.4287 17.5459 27.4287 16.0137C27.4287 14.4815 27.8016 13.1115 28.5505 11.9096C29.2963 10.7077 30.3416 9.77187 31.6865 9.09906C33.0283 8.42625 34.5535 8.08984 36.256 8.08984C37.9585 8.08984 39.499 8.46294 40.7675 9.21221C42.036 9.96148 42.9346 10.9982 43.4634 12.3224L39.2912 14.451C38.5912 13.0686 37.5703 12.3775 36.2255 12.3775C35.2596 12.3775 34.4618 12.6986 33.8261 13.3439C33.1934 13.9861 32.8755 14.8761 32.8755 16.0137C32.8755 17.1514 33.1934 18.0719 33.8261 18.7264C34.4588 19.3808 35.2596 19.705 36.2255 19.705C37.5673 19.705 38.5912 19.0138 39.2912 17.6315L43.4634 19.7601C42.9346 21.0843 42.036 22.121 40.7675 22.8703C39.499 23.6195 37.9952 23.9926 36.256 23.9926C34.5169 23.9926 33.0314 23.6532 31.6865 22.9712Z"
-                      fill="#00BD7B"
-                    />
-                    <path
-                      d="M57.9071 9.83694C56.5652 8.67481 54.6152 8.09375 52.0629 8.09375C50.8342 8.09375 49.6085 8.24972 48.3859 8.56166C47.1663 8.87054 46.1302 9.31092 45.2774 9.87976L47.096 13.5435C47.6248 13.1276 48.2667 12.8004 49.0247 12.5618C49.7827 12.3263 50.5316 12.2071 51.2652 12.2071C53.2336 12.2071 54.3156 12.938 54.5051 14.3968C54.5143 14.4579 54.5235 16.9718 54.5265 18.1706C54.5265 18.9474 54.175 19.6997 53.524 20.1248C53.5179 20.1248 53.5148 20.1309 53.5087 20.134C53.0349 20.4368 52.4848 20.5897 51.8612 20.5897C51.2377 20.5897 50.7456 20.449 50.388 20.1646C50.0242 19.8802 49.8469 19.504 49.8469 19.0269C49.8469 17.9871 50.4919 17.4672 51.6473 17.4672H52.9157V16.1094C52.9157 15.3081 52.2647 14.6567 51.4639 14.6567C49.1378 14.6567 47.4139 15.0573 46.3013 15.8617C45.1857 16.669 44.6294 17.7975 44.6294 19.2563C44.6294 20.1646 44.8495 20.975 45.2927 21.6876C45.7359 22.394 46.3961 22.9598 47.2672 23.3757C48.1383 23.7916 49.1684 23.9996 50.3604 23.9996C52.6131 23.9996 54.1261 23.2503 54.8994 21.7579V23.7458H59.9244V15.2011C59.9244 12.7942 59.252 11.0113 57.9071 9.84611V9.83694Z"
-                      fill="#00BD7B"
-                    />
-                    <path
-                      d="M75.5583 9.05674C76.7015 9.69897 77.6123 10.6226 78.2817 11.8244C78.9541 13.0263 79.2903 14.4239 79.2903 16.0142C79.2903 17.6045 78.9541 19.0052 78.2817 20.2162C77.6092 21.4273 76.7015 22.36 75.5583 23.0145C74.4121 23.669 73.1406 23.9931 71.7406 23.9931C69.7172 23.9931 68.2012 23.3968 67.1986 22.2041V23.7362H62.0605V2.66504H67.4523V9.67756C68.4915 8.61635 69.922 8.08728 71.7376 8.08728C73.1375 8.08728 74.409 8.40839 75.5552 9.05368L75.5583 9.05674ZM72.9327 18.7269C73.5379 18.0724 73.8405 17.1702 73.8405 16.0142C73.8405 14.8582 73.5379 13.9897 72.9327 13.3444C72.3275 12.7021 71.5512 12.378 70.6067 12.378C69.6622 12.378 68.8858 12.6991 68.2806 13.3444C67.6754 13.9866 67.3728 14.8766 67.3728 16.0142C67.3728 17.1519 67.6754 18.0724 68.2806 18.7269C68.8858 19.3813 69.6622 19.7055 70.6067 19.7055C71.5512 19.7055 72.3275 19.3783 72.9327 18.7269Z"
-                      fill="#00BD7B"
-                    />
-                    <path
-                      d="M104.212 9.79633C105.376 10.9309 105.957 12.6466 105.957 14.9372V23.7388H100.565V15.8149C100.565 13.7139 99.7247 12.6619 98.0405 12.6619C97.1144 12.6619 96.3716 12.9647 95.8123 13.5702C95.2529 14.1757 94.9748 15.084 94.9748 16.2951V23.7358H89.583V8.34367H94.7211V10.0196C95.3263 9.39571 96.0446 8.91862 96.879 8.58528C97.7104 8.25499 98.6182 8.08984 99.6024 8.08984C101.513 8.08984 103.05 8.65868 104.215 9.79328L104.212 9.79633Z"
-                      fill="#00BD7B"
-                    />
-                    <path
-                      d="M86.9312 23.7393H81.3062V8.74023C81.3121 8.74152 83.0117 9.10545 84.1187 9.10547C85.2211 9.10547 86.9116 8.74443 86.9312 8.74023V23.7393ZM84.1187 0C84.1187 0 86.7856 3.23333 86.7856 4.70605C86.7855 6.17865 85.5913 7.37207 84.1187 7.37207C82.6461 7.37199 81.4518 6.1786 81.4517 4.70605C81.4517 3.23734 84.1042 0.0175403 84.1187 0Z"
-                      fill="#00BD7B"
-                    />
-                    <path
-                      d="M19.7706 10.4728C20.2783 10.8837 20.5714 11.5026 20.5714 12.1585V19.2934C20.5714 23.2389 16.0311 25.4276 12.9772 22.9518L11.4463 21.7113L13.5581 20.0019C14.1312 19.5384 14.9477 19.5384 15.5208 20.0019L16.6277 20.9001V12.9407L10.2844 7.80214L3.94104 12.9407V20.9001L7.19384 18.2663L9.30567 16.5569C9.87877 16.0934 10.6952 16.0934 11.2683 16.5569L13.3802 18.2663L10.287 20.771L7.59422 22.9518C4.54031 25.4249 0 23.2362 0 19.2934V12.1585C0 11.5026 0.295708 10.8837 0.800769 10.4728L7.19384 5.29739L8.8922 3.92255C9.70605 3.2641 10.8653 3.2641 11.6792 3.92255L13.3776 5.29739L19.7706 10.4728Z"
-                      fill="#00BD7B"
-                    />
-                  </svg>
-                </a>
+              <div class="flex justify-between items-center px-5">
+                <div class="flex">
+                    <span class="sr-only">Cabin</span>
+                    <svg
+              height="24"
+              viewBox="0 0 124 28"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M36.9674 26.8003C35.3984 26.0046 34.1788 24.9021 33.3087 23.4856C32.435 22.0727 32 20.4707 32 18.6831C32 16.8956 32.435 15.2971 33.3087 13.8949C34.1788 12.4927 35.3984 11.4009 36.9674 10.6159C38.5329 9.83095 40.3123 9.43848 42.2986 9.43848C44.2848 9.43848 46.0821 9.87376 47.562 10.7479C49.0418 11.6221 50.0902 12.8316 50.7072 14.3766L45.8396 16.8599C45.023 15.2472 43.8319 14.4408 42.2629 14.4408C41.136 14.4408 40.2053 14.8154 39.4636 15.5683C38.7254 16.3176 38.3546 17.3558 38.3546 18.6831C38.3546 20.0104 38.7254 21.0844 39.4636 21.8479C40.2018 22.6115 41.136 22.9897 42.2629 22.9897C43.8284 22.9897 45.023 22.1833 45.8396 20.5706L50.7072 23.0539C50.0902 24.5989 49.0418 25.8084 47.562 26.6826C46.0821 27.5567 44.3276 27.992 42.2986 27.992C40.2695 27.992 38.5364 27.596 36.9674 26.8003Z"
+                fill="#00BD7B"
+              />
+              <path
+                d="M67.559 11.4761C65.9935 10.1203 63.7184 9.44238 60.7408 9.44238C59.3073 9.44238 57.8774 9.62435 56.451 9.98828C55.0281 10.3487 53.8193 10.8624 52.8244 11.5261L54.9461 15.8005C55.563 15.3153 56.3119 14.9335 57.1962 14.6552C58.0806 14.3805 58.9543 14.2413 59.8101 14.2413C62.1066 14.2413 63.369 15.0941 63.5901 16.796C63.6008 16.8674 63.6115 19.8002 63.615 21.1989C63.615 22.1052 63.2049 22.9829 62.4454 23.4788C62.4383 23.4788 62.4347 23.486 62.4276 23.4895C61.8748 23.8428 61.233 24.0212 60.5055 24.0212C59.778 24.0212 59.2039 23.857 58.7867 23.5252C58.3623 23.1934 58.1555 22.7545 58.1555 22.1979C58.1555 20.9848 58.9079 20.3783 60.2559 20.3783H61.7358V18.7941C61.7358 17.8593 60.9762 17.0993 60.0419 17.0993C57.3282 17.0993 55.317 17.5667 54.019 18.5051C52.7174 19.447 52.0684 20.7636 52.0684 22.4655C52.0684 23.5252 52.3251 24.4707 52.8422 25.3021C53.3593 26.1263 54.1295 26.7864 55.1458 27.2716C56.1621 27.7569 57.3638 27.9995 58.7546 27.9995C61.3827 27.9995 63.1479 27.1253 64.0501 25.3841V27.7033H69.9126V17.7344C69.9126 14.9264 69.128 12.8462 67.559 11.4868V11.4761Z"
+                fill="#00BD7B"
+              />
+              <path
+                d="M88.1512 10.5665C89.4849 11.3157 90.5475 12.3933 91.3285 13.7955C92.113 15.1977 92.5053 16.8283 92.5053 18.6836C92.5053 20.539 92.113 22.1731 91.3285 23.5861C90.544 24.999 89.4849 26.0872 88.1512 26.8508C86.814 27.6143 85.3305 27.9925 83.6973 27.9925C81.3366 27.9925 79.5679 27.2968 78.3982 25.9052V27.6928H72.4038V3.10938H78.6942V11.2908C79.9066 10.0527 81.5755 9.43541 83.6937 9.43541C85.3269 9.43541 86.8104 9.81005 88.1476 10.5629L88.1512 10.5665ZM85.088 21.8484C85.7941 21.0849 86.1471 20.0323 86.1471 18.6836C86.1471 17.3349 85.7941 16.3216 85.088 15.5688C84.382 14.8195 83.4762 14.4413 82.3743 14.4413C81.2724 14.4413 80.3667 14.8159 79.6606 15.5688C78.9545 16.3181 78.6015 17.3564 78.6015 18.6836C78.6015 20.0109 78.9545 21.0849 79.6606 21.8484C80.3667 22.612 81.2724 22.9902 82.3743 22.9902C83.4762 22.9902 84.382 22.6084 85.088 21.8484Z"
+                fill="#00BD7B"
+              />
+              <path
+                d="M121.58 11.4294C122.939 12.7531 123.617 14.7548 123.617 17.4272V27.6959H117.326V18.4512C117.326 16 116.346 14.7726 114.381 14.7726C113.3 14.7726 112.434 15.1258 111.781 15.8323C111.129 16.5388 110.804 17.5985 110.804 19.0114V27.6923H104.514V9.73461H110.508V11.6899C111.214 10.962 112.052 10.4054 113.026 10.0165C113.996 9.63115 115.055 9.43848 116.203 9.43848C118.432 9.43848 120.225 10.1021 121.584 11.4258L121.58 11.4294Z"
+                fill="#00BD7B"
+              />
+              <path
+                d="M101.42 27.6973H94.8574V10.1973C94.8574 10.1973 96.8449 10.624 98.1387 10.624C99.4315 10.624 101.417 10.1978 101.42 10.1973V27.6973ZM98.1387 0C98.1576 0.0229619 101.25 3.77729 101.25 5.49023C101.25 7.20833 99.8568 8.60145 98.1387 8.60156C96.4205 8.60156 95.0274 7.2084 95.0273 5.49023C95.0273 3.77203 98.1387 0 98.1387 0Z"
+                fill="#00BD7B"
+              />
+              <path
+                d="M23.0658 12.2183C23.6581 12.6976 24 13.4197 24 14.1849V22.5091C24 27.1122 18.703 29.6657 15.1401 26.7773L13.354 25.33L15.8178 23.3357C16.4865 22.7949 17.439 22.7949 18.1076 23.3357L19.3991 24.3835V15.0975L11.9985 9.10241L4.59789 15.0975V24.3835L8.39282 21.3107L10.8566 19.3165C11.5253 18.7756 12.4778 18.7756 13.1464 19.3165L15.6102 21.3107L12.0015 24.233L8.85994 26.7773C5.29703 29.6626 0 27.1091 0 22.5091V14.1849C0 13.4197 0.344994 12.6976 0.934232 12.2183L8.39282 6.18016L10.3742 4.57615C11.3237 3.80795 12.6763 3.80795 13.6258 4.57615L15.6072 6.18016L23.0658 12.2183Z"
+                fill="#00BD7B"
+              />
+            </svg>
+                </div>
                 <button
                   type="button"
                   command="close"
                   commandfor="mobile-menu"
-                  class="-m-2.5 rounded-md p-2.5 text-gray-200"
+                  class="mr-0 rounded-md p-0"
                 >
                   <span class="sr-only">Close menu</span>
                   <svg
-                    width="32"
-                    height="32"
+                    width="24"
+                    height="24"
                     viewBox="0 0 32 32"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
@@ -231,34 +230,34 @@
 
               <!-- Primary Links -->
               <div class="mt-[1rem] flow-root">
-                <div class="flex flex-col items-start space-y-[2rem] py-6">
+                <div class="flex flex-col items-start space-y-[3rem] py-[3rem] px-[1.25rem]">
                   <a
                     href="#what-is-cabin"
-                    class="text-[1.125rem] font-medium text-[#97A3BF] hover:underline hover:decoration-dotted hover:text-white"
+                    class="text-[1.25rem] font-normal text-[#7780A3] hover:underline hover:decoration-dotted hover:text-white"
                   >
                     What is Cabin?
                   </a>
                   <a
                     href="#faq"
-                    class="text-[1.125rem] font-medium text-[#97A3BF] hover:underline hover:decoration-dotted hover:text-white"
+                    class="text-[1.25rem] font-normal text-[#7780A3] hover:underline hover:decoration-dotted hover:text-white"
                   >
                     FAQ
                   </a>
                   <a
                     href="https://github.com/cabin-social"
-                    class="text-[1.125rem] font-medium text-[#97A3BF] hover:underline hover:decoration-dotted hover:text-white"
+                    class="text-[1.25rem] font-normal text-[#7780A3] hover:underline hover:decoration-dotted hover:text-white"
                   >
                     Contribute
                   </a>
                   <a
                     href="#"
-                    class="text-[1.125rem] font-medium text-[#97A3BF] hover:underline hover:decoration-dotted hover:text-white"
+                    class="text-[1.25rem] font-normal text-[#7780A3] hover:underline hover:decoration-dotted hover:text-white"
                   >
                     Privacy policy
                   </a>
                   <a
                     href="#"
-                    class="text-[1.125rem] font-medium text-[#97A3BF] hover:underline hover:decoration-dotted hover:text-white"
+                    class="text-[1.25rem] font-normal text-[#7780A3] hover:underline hover:decoration-dotted hover:text-white"
                   >
                     Terms of service
                   </a>
@@ -268,10 +267,10 @@
             </el-dialog-panel>
           </div>
         </dialog>
-      </el-dialog>
+      </el-dialog> 
     </header>
 
-    <div class="relative bg-[#111524] rounded-t-2xl rounded-b-2xl border-t border-b border-[#B1C8FF]/10 isolate pt-14">
+    <div class="relative bg-[#111524] rounded-t-2xl rounded-b-2xl border-t border-b border-[#B1C8FF]/10 isolate pt-6 sm:pt-14">
       <div
         aria-hidden="true"
         class="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
@@ -304,30 +303,26 @@
         <div class="hidden sm:mb-8 sm:flex sm:justify-center"></div>
         <div class="text-center">
           <h1
-            class="font-semibold mx-auto tracking-tight max-w-[800px] text-balance text-white text-[3.5rem]/[120%]"
+            class="font-bold mx-auto tracking-tight max-w-[900px] text-balance text-[#BFC7E4] text-[2.15rem]/[110%] sm:text-[2.75rem]/[110%] md:text-[3rem]/[110%] lg:text-[3.5rem]/[110%]"
           >
-            Meet the privacy-focused, open-source social network
-          </h1>
+Meet the open source, privacy-focused social network         </h1>
           <p
-            class="mt-[1rem] text-[1.5rem] font-normal text-pretty text-[#ADBAD9]"
+            class="mt-[1rem] text-[1.125rem] sm:text-[1.25rem] md:text-[1.5rem] font-normal text-pretty text-[#9FABD7]"
           >
-            Join the waitlist for early access to Cabin
-          </p>
+Made with ♥️ around the 🌎          </p>
 
           <!-- Email Subscription Form -->
-          <div class="mt-6 flex justify-center">
-            <form class="waitlist-form flex max-w-lg w-full">
+          <div class="mt-6 flex justify-center px-4">
+            <form class="waitlist-form flex flex-col max-w-lg w-full gap-3 sm:flex-row sm:gap-0">
               <input
                 type="email"
                 placeholder="Enter your email"
-                class="flex-1 bg-[#121523] h-[64px] px-6 py-3 text-white text-[1.125rem]/[150%] font-medium placeholder-[#ADBAD9] border border-[#1A2034] focus:outline-none focus:ring-2 focus:border-[#008657]"
-                style="border-radius: 16px 0 0 16px"
+                class="w-full sm:flex-1 text-[1.125rem] bg-[#131829] h-[56px] sm:h-[56px] lg:h-[72px] px-4 sm:px-6 py-3 text-white text-[1rem] sm:text-[1.125rem] lg:text-[1.25rem] leading-[150%] font-medium placeholder-[#ADBAD9] border border-[#242D4D] focus:outline-none focus:ring-2 focus:border-[#008657] rounded-2xl sm:rounded-l-2xl sm:rounded-r-none"
                 required
               />
               <button
                 type="submit"
-                class="px-6 py-3 bg-[#008657] text-white font-medium hover:bg-[#006d45] text-[1.125rem]/[150%] focus:outline-none focus:ring-2 focus:ring-[#008657] focus:ring-offset-2 focus:ring-offset-[#171D2B] whitespace-nowrap"
-                style="border-radius: 0 16px 16px 0"
+                class="w-full sm:w-auto text-[1.125rem] px-6 py-3 h-[56px] bg-[#24775A] text-white font-medium hover:bg-[#006d45] text-[1rem] sm:text-[1.125rem] lg:text-[1.25rem] leading-[150%] focus:outline-none focus:ring-2 focus:ring-[#008657] focus:ring-offset-2 focus:ring-offset-[#171D2B] whitespace-nowrap rounded-2xl sm:rounded-l-none sm:rounded-r-2xl min-h-[48px] sm:min-h-[56px] lg:min-h-0"
               >
                 Join the waitlist
               </button>
@@ -379,26 +374,33 @@
       </div>
 
       <!-- App Preview Image-->
-      <div class="content-center">
+      <div class="content-center px-5 sm:px-0">
+        <!-- Desktop Image -->
         <img
-          class="relative object-cover w-full max-w-[1280px] mx-auto overflow-hidden"
+          class="hidden sm:block relative object-cover w-full max-w-[1280px] mx-auto overflow-hidden"
           src="hero-image.png"
+          alt="A preview of Cabin's user interface"
+        />
+        <!-- Mobile Image -->
+        <img
+          class="block sm:hidden relative object-cover w-full overflow-hidden"
+          src="preview-mobile.png"
           alt="A preview of Cabin's user interface"
         />
       </div>
 
       <!-- What is Cabin? -->
-      <div id="what-is-cabin" class="mt-[96px] px-[2rem] py-[6rem]">
+      <div id="what-is-cabin" class="mt-[48px] sm:mt-[64px] lg:mt-[96px] px-4 sm:px-6 lg:px-8 py-[3rem] sm:py-[4rem] lg:py-[6rem]">
         <div class="mx-auto max-w-[1280px]">
-          <div class="text-center mb-[3rem]">
-            <h2 class="text-white">
+          <div class="text-center mb-[2rem] sm:mb-[2.5rem] lg:mb-[3rem]">
+            <h2 class="text-white text-[2rem] sm:text-[2rem] lg:text-[2.5rem]">
               We're doing things. Differently.
             </h2>
-            <p class="mt-[1rem] text-[1.25rem] text-[#97A3BF]">
-            We’re on a mission to build a safer, more transparent social network
+            <p class="mt-[1rem] text-[1.125rem] sm:text-[1.125rem] lg:text-[1.25rem] text-[#97A3BF]">
+            We're on a mission to build a safer, more transparent social network
           </p>
           </div>
-          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
             <!-- Feature Card | Privacy-focused -->
             <div class="feature-card">
               <div class="feature-card-icon">
@@ -566,7 +568,7 @@
       </div>
     </div>
 
-<div id="faq" class="mx-auto items-center max-w-[600px] pt-[6rem] pb-[0rem] px-6 lg:px-8">
+<div id="faq" class="mx-auto items-center max-w-[600px] pt-[3rem] sm:pt-[4rem] lg:pt-[6rem] pb-[0rem] px-4 sm:px-6 lg:px-8">
       <div class="flex justify-center mb-4">
         <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path opacity="0.2" d="M9.59961 31.9996C9.59961 44.3696 19.6296 54.3996 31.9996 54.3996C44.3696 54.3996 54.3996 44.3696 54.3996 31.9996C54.3996 19.6296 44.3696 9.59961 31.9996 9.59961C19.6296 9.59961 9.59961 19.6296 9.59961 31.9996ZM23.9996 27.1996C23.9996 22.7796 27.5796 19.1996 31.9996 19.1996C36.4196 19.1996 39.9996 22.7796 39.9996 27.1996C39.9996 31.1596 37.4296 33.2296 35.3796 34.2096C34.2296 34.7596 33.5996 35.6596 33.5996 36.4296V36.9996C33.5996 37.8796 32.8796 38.5996 31.9996 38.5996C31.1196 37.8796 30.3996 36.9996 30.3996 36.4296V36.4296C30.3996 33.9696 32.2296 32.1696 33.9996 31.3296C35.4496 30.6396 36.7996 29.4496 36.7996 27.2096C36.7996 24.5596 34.6496 22.4096 31.9996 22.4096C29.3496 22.4096 27.1996 24.5596 27.1996 27.2096C27.1996 28.0896 26.4796 28.8096 25.5996 28.8096C24.7196 28.8096 23.9996 28.0896 23.9996 27.2096V27.1996ZM34.3996 43.9996C34.3996 45.3296 33.3296 46.3996 31.9996 46.3996C30.6696 46.3996 29.5996 45.3296 29.5996 43.9996C29.5996 42.6696 30.6696 41.5996 31.9996 41.5996C33.3296 41.5996 34.3996 42.6696 34.3996 43.9996Z" fill="#00B576"/>
@@ -575,44 +577,44 @@
       </div>
 
 
-      <div class="text-center mb-8">
-        <h2 class="text-white">
+      <div class="text-center mb-6 sm:mb-8">
+        <h2 class="text-white text-[1.75rem] sm:text-[2rem] lg:text-[2.5rem]">
         Frequent questions
         </h2>
-        <p class="mt-[1rem] text-[1.25rem] text-[#97A3BF] pb-[2rem]">
+        <p class="mt-[1rem] text-[1rem] sm:text-[1.125rem] lg:text-[1.25rem] text-[#97A3BF] pb-[1.5rem] sm:pb-[2rem]">
           For additional inquiries, contact us at hello@cabin.social
         </p>
       </div>
       <div class="flex flex-col items-center">
-        <div class="text-[white] text-left text-[1.25rem] leading-normal font-semibold w-full">
+        <div class="text-[white] text-left text-[1rem] sm:text-[1.125rem] lg:text-[1.25rem] leading-normal font-semibold w-full">
           General
         </div>
-        <div class="w-full mt-4 h-[4px] bg-[#006E48]"></div>
+        <div class="w-full mt-3 sm:mt-4 h-[3px] sm:h-[4px] bg-[#006E48]"></div>
         <div
-          class="faq-card py-[2rem] flex flex-col gap-[.75rem] items-start justify-center w-full relative border-b border-dashed border-[#20293D]"
+          class="faq-card py-[1.5rem] sm:py-[2rem] flex flex-col gap-[.75rem] items-start justify-center w-full relative border-b border-dashed border-[#20293D]"
         >
           <div
-            class="text-[#7780A3] text-left text-[1.25rem] leading-[150%] font-semibold relative self-stretch"
+            class="text-[#7780A3] text-left text-[1rem] sm:text-[1.125rem] lg:text-[1.25rem] leading-[150%] font-semibold relative self-stretch"
           >
             When can I sign up?
           </div>
           <div
-            class="text-left text-[#7780A3] hover:text-[#B0BBE6] text-[1.25rem] leading-normal font-normal relative self-stretch"
+            class="text-left text-[#7780A3] hover:text-[#B0BBE6] text-[1rem] sm:text-[1.125rem] lg:text-[1.25rem] leading-normal font-normal relative self-stretch"
           >
             You can join the waitlist now! We'll email you with updates as work
             on Cabin progresses.
           </div>
         </div>
         <div
-          class="faq-card py-[2rem] flex flex-col gap-[.75rem] items-start justify-center w-full relative border-b border-dashed border-[#20293D]"
+          class="faq-card py-[1.5rem] sm:py-[2rem] flex flex-col gap-[.75rem] items-start justify-center w-full relative border-b border-dashed border-[#20293D]"
         >
           <div
-            class="text-[#7780A3] text-left text-[1.25rem] leading-[150%] font-semibold relative self-stretch"
+            class="text-[#7780A3] text-left text-[1rem] sm:text-[1.125rem] lg:text-[1.25rem] leading-[150%] font-semibold relative self-stretch"
           >
             Will Cabin be free?
           </div>
           <div
-            class="text-left text-[#7780A3] hover:text-[#B0BBE6] text-[1.25rem] leading-normal font-normal relative self-stretch"
+            class="text-left text-[#7780A3] hover:text-[#B0BBE6] text-[1rem] sm:text-[1.125rem] lg:text-[1.25rem] leading-normal font-normal relative self-stretch"
           >
             Yep, Cabin will forever be free to use. We will naturally have to
             figure out a sustainable monetization strategy because apps like
@@ -621,15 +623,15 @@
           </div>
         </div>
         <div
-          class="faq-card py-[2rem] flex flex-col gap-[.75rem] items-start justify-center w-full relative border-b border-dashed border-[#20293D]"
+          class="faq-card py-[1.5rem] sm:py-[2rem] flex flex-col gap-[.75rem] items-start justify-center w-full relative border-b border-dashed border-[#20293D]"
         >
           <div
-            class="text-[#7780A3] text-left text-[1.25rem] leading-[150%] font-semibold relative self-stretch"
+            class="text-[#7780A3] text-left text-[1rem] sm:text-[1.125rem] lg:text-[1.25rem] leading-[150%] font-semibold relative self-stretch"
           >
             Is Cabin similar to Facebook?
           </div>
           <div
-            class="text-left text-[#7780A3] hover:text-[#B0BBE6] text-[1.25rem] leading-normal font-normal relative self-stretch"
+            class="text-left text-[#7780A3] hover:text-[#B0BBE6] text-[1rem] sm:text-[1.125rem] lg:text-[1.25rem] leading-normal font-normal relative self-stretch"
           >
             Cabin and Facebook are both social networks, but with fundamentally
             different approaches to operating. Cabin is fully transparent, and
@@ -637,29 +639,29 @@
           </div>
         </div>
         <div
-          class="faq-card py-[2rem] flex flex-col gap-[.75rem] items-start justify-center w-full relative border-b border-dashed border-[#20293D]"
+          class="faq-card py-[1.5rem] sm:py-[2rem] flex flex-col gap-[.75rem] items-start justify-center w-full relative border-b border-dashed border-[#20293D]"
         >
           <div
-            class="text-[#7780A3] text-left text-[1.25rem] leading-[150%] font-semibold relative self-stretch"
+            class="text-[#7780A3] text-left text-[1rem] sm:text-[1.125rem] lg:text-[1.25rem] leading-[150%] font-semibold relative self-stretch"
           >
             Will Cabin have mobile apps?
           </div>
           <div
-            class="text-left text-[#7780A3] hover:text-[#B0BBE6] text-[1.25rem] leading-normal font-normal relative self-stretch"
+            class="text-left text-[#7780A3] hover:text-[#B0BBE6] text-[1rem] sm:text-[1.125rem] lg:text-[1.25rem] leading-normal font-normal relative self-stretch"
           >
             Cabin will be available on iOS, Android, and web.
           </div>
         </div>
         <div
-          class="faq-card py-[2rem] flex flex-col gap-[.75rem] items-start justify-center w-full relative mb-[2rem] border-dashed border-[#20293D]"
+          class="faq-card py-[1.5rem] sm:py-[2rem] flex flex-col gap-[.75rem] items-start justify-center w-full relative mb-[1.5rem] sm:mb-[2rem] border-dashed border-[#20293D]"
         >
           <div
-            class="text-[#7780A3] text-left text-[1.25rem] leading-[150%] font-semibold relative self-stretch"
+            class="text-[#7780A3] text-left text-[1rem] sm:text-[1.125rem] lg:text-[1.25rem] leading-[150%] font-semibold relative self-stretch"
           >
             Can I contribute to the development of Cabin?
           </div>
           <div
-            class="text-left text-[#7780A3] text-[1.25rem] leading-normal font-normal relative self-stretch"
+            class="text-left text-[#7780A3] text-[1rem] sm:text-[1.125rem] lg:text-[1.25rem] leading-normal font-normal relative self-stretch"
           >
             Absolutely! Please get in touch with us and we'll respond to you
             within 24-48 hours. In the meantime, check out our
@@ -678,21 +680,21 @@
           </div>
         </div>
         <div
-          class="text-[white] text-left text-[1.25rem] leading-normal font-semibold w-full"
+          class="text-[white] text-left text-[1rem] sm:text-[1.125rem] lg:text-[1.25rem] leading-normal font-semibold w-full"
         >
           Circles
         </div>
-        <div class="w-full mt-4 h-[4px] bg-[#006E48]"></div>
+        <div class="w-full mt-3 sm:mt-4 h-[3px] sm:h-[4px] bg-[#006E48]"></div>
         <div
-          class="faq-card py-[2rem] flex flex-col gap-[.75rem] items-start justify-center w-full relative border-b border-dashed border-[#20293D]"
+          class="faq-card py-[1.5rem] sm:py-[2rem] flex flex-col gap-[.75rem] items-start justify-center w-full relative border-b border-dashed border-[#20293D]"
         >
           <div
-            class="text-[#7780A3] text-left text-[1.25rem] leading-[150%] font-semibold relative self-stretch"
+            class="text-[#7780A3] text-left text-[1rem] sm:text-[1.125rem] lg:text-[1.25rem] leading-[150%] font-semibold relative self-stretch"
           >
             What is a Circle?
           </div>
           <div
-            class="text-left text-[#7780A3] hover:text-[#B0BBE6] text-[1.25rem] leading-normal font-normal relative self-stretch"
+            class="text-left text-[#7780A3] hover:text-[#B0BBE6] text-[1rem] sm:text-[1.125rem] lg:text-[1.25rem] leading-normal font-normal relative self-stretch"
           >
             A circle is simply a group of Cabin users. Circles are a place for
             friends to share photos or videos of lived experiences, or to have
@@ -700,50 +702,50 @@
           </div>
         </div>
         <div
-          class="faq-card py-[2rem] flex flex-col gap-[.75rem] items-start justify-center w-full relative border-b border-dashed border-[#20293D]"
+          class="faq-card py-[1.5rem] sm:py-[2rem] flex flex-col gap-[.75rem] items-start justify-center w-full relative border-b border-dashed border-[#20293D]"
         >
           <div
-            class="text-[#7780A3] text-left text-[1.25rem] leading-[150%] font-semibold relative self-stretch"
+            class="text-[#7780A3] text-left text-[1rem] sm:text-[1.125rem] lg:text-[1.25rem] leading-[150%] font-semibold relative self-stretch"
           >
             Can anyone create a Circle?
           </div>
           <div
-            class="text-left text-[#7780A3] hover:text-[#B0BBE6] text-[1.25rem] leading-normal font-normal relative self-stretch"
+            class="text-left text-[#7780A3] hover:text-[#B0BBE6] text-[1rem] sm:text-[1.125rem] lg:text-[1.25rem] leading-normal font-normal relative self-stretch"
           >
             Any Cabin user can create a Circle at any time.
           </div>
         </div>
         <div
-          class="faq-card py-[2rem] flex flex-col gap-[.75rem] items-start justify-center w-full relative mb-[2rem] border-dashed border-[#20293D]"
+          class="faq-card py-[1.5rem] sm:py-[2rem] flex flex-col gap-[.75rem] items-start justify-center w-full relative mb-[1.5rem] sm:mb-[2rem] border-dashed border-[#20293D]"
         >
           <div
-            class="text-[#7780A3] text-left text-[1.25rem] leading-[150%] font-semibold relative self-stretch"
+            class="text-[#7780A3] text-left text-[1rem] sm:text-[1.125rem] lg:text-[1.25rem] leading-[150%] font-semibold relative self-stretch"
           >
             Do I have to pay to create a circle?
           </div>
           <div
-            class="text-left text-[#7780A3] hover:text-[#B0BBE6] text-[1.25rem] leading-normal font-normal relative self-stretch"
+            class="text-left text-[#7780A3] hover:text-[#B0BBE6] text-[1rem] sm:text-[1.125rem] lg:text-[1.25rem] leading-normal font-normal relative self-stretch"
           >
             Never. Circles will always be free. That said, we may explore
             monetization in the form of power-up's (think Trello).
           </div>
         </div>
         <div
-          class="text-[white] text-left text-[1.25rem] leading-[150%] font-semibold w-full"
+          class="text-[white] text-left text-[1rem] sm:text-[1.125rem] lg:text-[1.25rem] leading-[150%] font-semibold w-full"
         >
           Privacy and security
         </div>
-        <div class="w-full mt-4 h-[4px] bg-[#006E48]"></div>
+        <div class="w-full mt-3 sm:mt-4 h-[3px] sm:h-[4px] bg-[#006E48]"></div>
         <div
-          class="faq-card py-[2rem] flex flex-col gap-[.75rem] items-start justify-center w-full relative"
+          class="faq-card py-[1.5rem] sm:py-[2rem] flex flex-col gap-[.75rem] items-start justify-center w-full relative"
         >
           <div
-            class="text-[#7780A3] text-left text-[1.25rem] leading-[150%] font-semibold relative self-stretch"
+            class="text-[#7780A3] text-left text-[1rem] sm:text-[1.125rem] lg:text-[1.25rem] leading-[150%] font-semibold relative self-stretch"
           >
             How does Cabin protect my data?
           </div>
           <div
-            class="text-left text-[#7780A3] hover:text-[#B0BBE6] text-[1.25rem] leading-[150%] font-normal relative self-stretch"
+            class="text-left text-[#7780A3] hover:text-[#B0BBE6] text-[1rem] sm:text-[1.125rem] lg:text-[1.25rem] leading-[150%] font-normal relative self-stretch"
           >
             Cabin uses end-to-end encryption for all communications and stores
             minimal data necessary for operation. We are committed to
@@ -754,29 +756,32 @@
     </div></div>
 
     <!-- Newsletter Signup Section -->
-    <div class="w-full max-w-[1184px] bg-[#0F121F] border border-[#191E33] rounded-[16px] py-[6rem] mt-[96px] mx-auto">
-      <div id="waitlist-hero" class="mx-auto max-w-[600px] px-6 lg:px-8">
+    <div class="w-full max-w-[90vw] sm:max-w-[1184px] bg-[#0F121F] border border-[#191E33] rounded-[16px] py-[2rem] sm:py-[2rem] lg:py-[4rem] mt-[32px] sm:mt-[64px] lg:mt-[96px] mx-4 sm:mx-6 lg:mx-auto">
+      <div id="waitlist-hero" class="mx-auto max-w-[600px] px-[1rem] sm:px-6 lg:px-8">
         <div class="text-center">
-          <h2 class="text-[2.5rem] text-white">
-            Reserve your spot—it's free
+          <svg class="mx-auto mb-[1rem]" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g opacity="0.8">
+<path d="M23.0658 8.21825C23.6581 8.69761 24 9.41972 24 10.1849V18.5091C24 23.1122 18.703 25.6657 15.1401 22.7773L13.354 21.33L15.8178 19.3357C16.4865 18.7949 17.439 18.7949 18.1076 19.3357L19.3991 20.3835V11.0975L11.9985 5.10241L4.59789 11.0975V20.3835L8.39282 17.3107L10.8566 15.3165C11.5253 14.7756 12.4778 14.7756 13.1464 15.3165L15.6102 17.3107L12.0015 20.233L8.85994 22.7773C5.29703 25.6626 0 23.1091 0 18.5091V10.1849C0 9.41972 0.344994 8.69761 0.934232 8.21825L8.39282 2.18016L10.3742 0.576153C11.3237 -0.192051 12.6763 -0.192051 13.6258 0.576153L15.6072 2.18016L23.0658 8.21825Z" fill="#00BD7B"/>
+</g>
+</svg>
+          <h2 class="text-[1.5rem] sm:text-[2rem] lg:text-[2.5rem] text-white">
+            Become a Cabineer
           </h2>
-          <p class="mt-[1rem] text-[1.25rem] text-[#97A3BF] pb-[1.5rem]">
-            We'll keep you up-to-date on Cabin's progress
+          <p class="mt-[.5rem] text-[1rem] sm:text-[1.125rem] lg:text-[1.25rem] text-[#97A3BF] pb-[1.5rem]">
+            We'll reach out with updates on Cabin's progress and early access
           </p>
         </div>
         <div class="flex justify-center">
-          <form class="waitlist-form flex max-w-lg w-full">
+          <form class="waitlist-form flex flex-col max-w-lg w-full gap-3 sm:flex-row sm:gap-0">
             <input
               type="email"
               placeholder="Enter your email"
-              class="flex-1 bg-[#131824] h-[56px] px-4 py-3 text-white text-[1.125rem]/[150%] font-medium placeholder-[#ADBAD9] border border-[#1F283B] focus:outline-none focus:ring-2 focus:border-[#008657]"
-              style="border-radius: 12px 0 0 12px"
+              class="w-full sm:flex-1 bg-[#151C2B] h-[56px] sm:h-[56px] px-4 py-3 text-white text-[1rem] sm:text-[1.125rem] leading-[150%] font-normal placeholder-[#7780A3] border border-[#1F283B] focus:outline-none focus:ring-2 focus:border-[#008657] rounded-xl sm:rounded-l-xl sm:rounded-r-none"
               required
             />
             <button
               type="submit"
-              class="px-6 py-3 bg-[#008657] text-white font-medium hover:bg-[#006d45] text-[1.125rem]/[150%] focus:outline-none focus:ring-2 focus:ring-[#008657] focus:ring-offset-2 focus:ring-offset-[#171D2B] whitespace-nowrap"
-              style="border-radius: 0 12px 12px 0"
+              class="w-full sm:w-auto px-6 py-3 h-[56px] bg-[#008657] text-white font-medium hover:bg-[#006d45] text-[1rem] sm:text-[1.125rem] leading-[150%] focus:outline-none focus:ring-2 focus:ring-[#008657] focus:ring-offset-2 focus:ring-offset-[#171D2B] whitespace-nowrap rounded-xl sm:rounded-l-none sm:rounded-r-xl min-h-[48px] sm:min-h-0"
             >
               Join the waitlist
             </button>
@@ -785,15 +790,15 @@
       </div>
     </div>
     <div
-        class="bg-[#0D0F1A] py-12 pr-32 pb-6 pl-32 flex flex-row gap-12 items-center justify-start self-stretch shrink-0 relative overflow-hidden"
+        class="bg-[#0D0F1A] py-8 sm:py-12 px-4 sm:px-8 lg:px-32 pb-6 flex flex-col sm:flex-row gap-6 sm:gap-12 items-center justify-start self-stretch shrink-0 relative overflow-hidden"
       >
         <div
-          class="mx-auto max-w-[1280px] w-full flex flex-row gap-12 items-center justify-start"
+          class="mx-auto max-w-[1280px] w-full flex flex-col sm:flex-row gap-6 sm:gap-12 items-center justify-start"
         >
           <div
-            class="flex flex-col gap-2 items-start justify-start shrink-0 max-w-[300px] relative"
+            class="flex flex-col gap-2 items-center sm:items-start justify-start shrink-0 max-w-[300px] relative"
           >
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg class="hidden sm:block" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 <g opacity="0.8">
 <path d="M23.0658 8.21825C23.6581 8.69761 24 9.41972 24 10.1849V18.5091C24 23.1122 18.703 25.6657 15.1401 22.7773L13.354 21.33L15.8178 19.3357C16.4865 18.7949 17.439 18.7949 18.1076 19.3357L19.3991 20.3835V11.0975L11.9985 5.10241L4.59789 11.0975V20.3835L8.39282 17.3107L10.8566 15.3165C11.5253 14.7756 12.4778 14.7756 13.1464 15.3165L15.6102 17.3107L12.0015 20.233L8.85994 22.7773C5.29703 25.6626 0 23.1091 0 18.5091V10.1849C0 9.41972 0.344994 8.69761 0.934232 8.21825L8.39282 2.18016L10.3742 0.576153C11.3237 -0.192051 12.6763 -0.192051 13.6258 0.576153L15.6072 2.18016L23.0658 8.21825Z" fill="#7780A3"/>
 </g>
