@@ -788,6 +788,10 @@ video {
   min-height: 48px;
 }
 
+.min-h-\[56px\] {
+  min-height: 56px;
+}
+
 .w-6 {
   width: 1.5rem;
 }
@@ -1923,6 +1927,10 @@ h2 {
 
   .sm\:text-\[2rem\] {
     font-size: 2rem;
+  }
+
+  .sm\:text-\[1rem\] {
+    font-size: 1rem;
   }
 
   .sm\:ring-1 {
