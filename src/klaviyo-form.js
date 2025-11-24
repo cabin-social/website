@@ -70,9 +70,14 @@ document.addEventListener('DOMContentLoaded', function() {
     form.addEventListener('submit', async function(e) {
       e.preventDefault();
 
+      const formLocation = this.getAttribute('data-form-location') || 'unknown';
+      console.log(`[Klaviyo Form] Submission started from: ${formLocation}`);
+
       const emailInput = this.querySelector('input[type="email"]');
       const submitButton = this.querySelector('button[type="submit"]');
       const email = emailInput.value.trim();
+      
+      console.log(`[Klaviyo Form] Email: ${email}`);
 
       // Remove any existing error messages
       const existingMessage = this.parentNode.querySelector('.form-message');
@@ -86,15 +91,20 @@ document.addEventListener('DOMContentLoaded', function() {
       submitButton.textContent = 'Join the waitlist';
 
       try {
+        console.log(`[Klaviyo Form] Sending request to Netlify function...`);
+        
         const response = await fetch('/.netlify/functions/klaviyo-subscribe', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
           },
-          body: JSON.stringify({ email })
+          body: JSON.stringify({ email, formLocation })
         });
 
+        console.log(`[Klaviyo Form] Response status: ${response.status}`);
+        
         const data = await response.json();
+        console.log(`[Klaviyo Form] Response data:`, data);
 
         if (response.ok) {
           // Success!
@@ -113,6 +123,7 @@ document.addEventListener('DOMContentLoaded', function() {
           }, 2000);
         } else {
           // Error from server
+          console.error(`[Klaviyo Form] Server error from ${formLocation}:`, data);
           submitButton.textContent = originalButtonText;
           submitButton.disabled = false;
 
@@ -120,7 +131,7 @@ document.addEventListener('DOMContentLoaded', function() {
           showErrorMessage(this, data.error || 'Failed to join waitlist. Please try again.');
         }
       } catch (error) {
-        console.error('Error:', error);
+        console.error(`[Klaviyo Form] Network error from ${formLocation}:`, error);
         submitButton.textContent = originalButtonText;
         submitButton.disabled = false;
 
