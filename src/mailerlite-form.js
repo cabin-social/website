@@ -2,6 +2,9 @@ document.addEventListener('DOMContentLoaded', function() {
   // Get all waitlist forms on the page
   const forms = document.querySelectorAll('.waitlist-form');
   
+  // Log how many forms were found (for debugging)
+  console.log('[MailerLite] Found', forms.length, 'waitlist form(s)');
+  
   // Function to create and show success banner
   function showSuccessBanner() {
     // Remove any existing banner
@@ -86,7 +89,7 @@ document.addEventListener('DOMContentLoaded', function() {
       submitButton.textContent = 'Join the waitlist';
 
       try {
-        const response = await fetch('/.netlify/functions/klaviyo-subscribe', {
+        const response = await fetch('/.netlify/functions/mailerlite-subscribe', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',

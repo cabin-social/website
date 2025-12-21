@@ -61,7 +61,7 @@
 }
 
 body {
-  background: #0D0F1A;
+  background: #111524;
 }
 
 /* H2 Global Styling - Responsive */
@@ -163,15 +163,15 @@ h2 {
 }
 
 .feature-card-description {
-  color: var(--color-text-subdued);
-  font-size: 1rem;
+  color: #ACBCF5;
+  font-size: 1.125rem;
   font-weight: normal;
   line-height: 1.6;
 }
 
 @media (min-width: 1024px) {
   .feature-card-description {
-    font-size: 1rem;
+    font-size: 1.125rem;
     line-height: 1.5;
   }
 }
@@ -229,4 +229,27 @@ h2 {
 
 .link-primary:hover {
   color: var(--color-primary-dark);
+}
+
+/* Sticky Navigation */
+.sticky-nav {
+  background-color: #0D101C;
+  border: 1px solid #1B2136;
+  border-radius: 1000px;
+  padding: 4px;
+  padding-left: 12px;
+  height: 88px !important;
+  max-width: 1280px !important;
+}
+
+/* Logo styling with smooth transition */
+nav svg {
+  height: 25px;
+  width: auto;
+  transition: height 0.4s ease;
+}
+
+/* Logo resize when navigation is sticky */
+.sticky-nav svg {
+  height: 22px;
 }
