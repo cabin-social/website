@@ -1,7 +1,7 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
-    <title>Meet Cabin—the open-source, privacy-focused social network</title>
+    <title>Cabin—the open-source, privacy-focused social network</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
@@ -16,6 +16,7 @@
 
     <!--Custom JavaScript-->
     <script src="mailerlite-form.js"></script>
+    <script src="scroll-nav.js" defer></script>
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
@@ -58,55 +59,78 @@
       src="https://cdn.jsdelivr.net/npm/@tailwindplus/elements@1"
       type="module"
     ></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet">
+
+    <!-- Smooth scrolling for jump links -->
+    <style>
+      html {
+        scroll-behavior: smooth;
+      }
+      #waitlist-hero {
+        scroll-margin-top: 120px;
+      }
+    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Mona+Sans:wght@200..900&display=swap"
+      rel="stylesheet"
+    />
     <script
       defer
       src="https://cloud.umami.is/script.js"
       data-website-id="ca8a3f48-62b8-4970-84d7-5d8af7b3af67"
     ></script>
-
-    <!-- Sticky Navigation Script -->
-    <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        const header = document.querySelector('header');
-        const nav = document.querySelector('nav');
-
-        function updateNavOnScroll() {
-          if (window.scrollY > 0) {
-            nav.classList.add('sticky-nav');
-          } else {
-            nav.classList.remove('sticky-nav');
-          }
-        }
-
-        window.addEventListener('scroll', updateNavOnScroll);
-        updateNavOnScroll(); // Check initial state
-      });
-    </script>
   </head>
 
   <body class="overflow-x-hidden">
-    <header class="px-[1.25rem] sticky top-3 z-50">
+    <header class="z-50 sticky top-0 bg-[#111524]">
       <!--Top Navigation-->
       <nav
         aria-label="global"
-        class="flex m-auto items-center justify-between max-w-[1440px] h-[64px] sm:h-[80px] lg:h-[96px] px-[4] sm:px-6 border border-transparent transition-all duration-300"
+        class="flex m-auto items-center justify-between max-w-[1440px] h-[88px] sm:h-[80px] lg:h-[96px] px-4 sm:px-6 transition-all duration-300"
       >
         <div class="flex-1">
           <a href="#" class="-m-1.5 p-1.5"
             ><span class="sr-only">Cabin</span
-            ><svg width="134" height="25" viewBox="0 0 134 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M42.9674 23.6899C41.3984 22.8942 40.1788 21.7917 39.3087 20.3752C38.435 18.9623 38 17.3603 38 15.5727C38 13.7852 38.435 12.1867 39.3087 10.7845C40.1788 9.38231 41.3984 8.29051 42.9674 7.50555C44.5329 6.7206 46.3123 6.32812 48.2986 6.32812C50.2848 6.32812 52.0821 6.76341 53.5619 7.63756C55.0418 8.51172 56.0902 9.72127 56.7071 11.2662L51.8396 13.7495C51.023 12.1368 49.8319 11.3304 48.2629 11.3304C47.136 11.3304 46.2053 11.7051 45.4636 12.4579C44.7254 13.2072 44.3546 14.2455 44.3546 15.5727C44.3546 16.9 44.7254 17.974 45.4636 18.7375C46.2018 19.5011 47.136 19.8793 48.2629 19.8793C49.8283 19.8793 51.023 19.0729 51.8396 17.4602L56.7071 19.9435C56.0902 21.4884 55.0418 22.698 53.5619 23.5721C52.0821 24.4463 50.3276 24.8816 48.2986 24.8816C46.2695 24.8816 44.5364 24.4855 42.9674 23.6899Z" fill="#00BD7B"/>
-<path d="M74.558 8.36772C72.9925 7.01189 70.7174 6.33398 67.7399 6.33398C66.3063 6.33398 64.8764 6.51595 63.45 6.87988C62.0272 7.24025 60.8183 7.75404 59.8234 8.41768L61.9451 12.6921C62.562 12.2069 63.3109 11.8251 64.1953 11.5468C65.0796 11.2721 65.9533 11.1329 66.8091 11.1329C69.1056 11.1329 70.368 11.9856 70.5891 13.6876C70.5998 13.7589 70.6105 16.6918 70.614 18.0904C70.614 18.9967 70.204 19.8744 69.4444 20.3704C69.4373 20.3704 69.4337 20.3775 69.4266 20.3811C68.8738 20.7343 68.232 20.9127 67.5045 20.9127C66.777 20.9127 66.2029 20.7486 65.7857 20.4168C65.3614 20.0849 65.1545 19.6461 65.1545 19.0895C65.1545 17.8764 65.9069 17.2698 67.2549 17.2698H68.7348V15.6856C68.7348 14.7508 67.9752 13.9908 67.0409 13.9908C64.3272 13.9908 62.316 14.4583 61.018 15.3966C59.7164 16.3386 59.0674 17.6552 59.0674 19.3571C59.0674 20.4168 59.3241 21.3623 59.8412 22.1936C60.3583 23.0178 61.1285 23.6779 62.1448 24.1631C63.1611 24.6484 64.3629 24.891 65.7536 24.891C68.3817 24.891 70.1469 24.0168 71.0491 22.2757V24.5949H76.9116V14.6259C76.9116 11.818 76.127 9.73782 74.558 8.37843V8.36772Z" fill="#00BD7B"/>
-<path d="M96.1517 7.45706C97.4854 8.20634 98.548 9.28386 99.329 10.6861C100.113 12.0883 100.506 13.7189 100.506 15.5742C100.506 17.4295 100.113 19.0637 99.329 20.4766C98.5444 21.8895 97.4854 22.9777 96.1517 23.7413C94.8144 24.5048 93.331 24.883 91.6978 24.883C89.3371 24.883 87.5684 24.1873 86.3987 22.7958V24.5833H80.4043V0H86.6947V8.18136C87.9071 6.94327 89.576 6.32601 91.6942 6.32601C93.3274 6.32601 94.8109 6.70065 96.1481 7.45349L96.1517 7.45706ZM93.0885 18.739C93.7946 17.9754 94.1476 16.9229 94.1476 15.5742C94.1476 14.2255 93.7946 13.2122 93.0885 12.4594C92.3824 11.7101 91.4767 11.3319 90.3748 11.3319C89.2729 11.3319 88.3671 11.7065 87.6611 12.4594C86.955 13.2086 86.602 14.2469 86.602 15.5742C86.602 16.9015 86.955 17.9754 87.6611 18.739C88.3671 19.5025 89.2729 19.8807 90.3748 19.8807C91.4767 19.8807 92.3824 19.499 93.0885 18.739Z" fill="#00BD7B"/>
-<path d="M131.579 8.31905C132.938 9.64277 133.616 11.6444 133.616 14.3168V24.5854H127.325V15.3408C127.325 12.8896 126.345 11.6622 124.38 11.6622C123.299 11.6622 122.433 12.0155 121.78 12.7219C121.128 13.4284 120.803 14.4881 120.803 15.901V24.5819H114.513V6.62426H120.507V8.57952C121.213 7.85165 122.051 7.29504 123.025 6.90613C123.995 6.52079 125.054 6.32812 126.202 6.32812C128.431 6.32812 130.224 6.99177 131.583 8.31549L131.579 8.31905Z" fill="#00BD7B"/>
-<path d="M111 9.89062H103L104.846 24.8906H109.769L111 9.89062Z" fill="#00BD7B"/>
-<circle cx="107.25" cy="4.64062" r="3.75" fill="#00BD7B"/>
-<path d="M10.2363 20.8291C11.1249 20.8886 11.8154 21.627 11.8154 22.5176C11.8152 23.4079 11.1247 24.1456 10.2363 24.2051L0 24.8906V20.1436L10.2363 20.8291ZM29.5391 24.8906L19.3018 24.2051C18.4135 24.1454 17.7238 23.4078 17.7236 22.5176C17.7236 21.6272 18.4134 20.8888 19.3018 20.8291L29.5391 20.1436V24.8906ZM10.2363 14.499C11.1248 14.5585 11.8154 15.2961 11.8154 16.1865C11.8154 17.077 11.1248 17.8155 10.2363 17.875L0 18.5605V13.8135L10.2363 14.499ZM29.5391 18.5605L19.3018 17.875C18.4134 17.8153 17.7237 17.0769 17.7236 16.1865C17.7237 15.2962 18.4135 14.5587 19.3018 14.499L29.5391 13.8135V18.5605ZM21.9629 4.58301H23.5918C25.1847 4.58301 26.626 5.52833 27.2607 6.98926L29.5391 12.2314H0L2.27734 6.98926C2.91208 5.52836 4.35346 4.58305 5.94629 4.58301H17.8623L17.5391 0.890625H22.2861L21.9629 4.58301Z" fill="#00BD7B"/>
-</svg>
-
+            ><svg
+              width="118"
+              height="26"
+              viewBox="0 0 118 26"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g clip-path="url(#clip0_1605_1062)">
+                <path
+                  d="M28.1589 12.6921V10.4464C28.1589 7.89625 26.8018 5.5892 24.703 4.57107L16.3923 0.537047C14.9159 -0.179016 13.2237 -0.179016 11.7474 0.537047L6.96416 2.85854V0.0183532H2.6496V5.04042C0.999146 6.20899 -0.0192719 8.2633 -0.0192719 10.4464V21.0128C-0.0192719 23.7628 2.02592 26 4.53976 26H23.5999C26.1137 26 28.1589 23.7628 28.1589 21.0128V18.394H23.8444V21.0128C23.8444 21.4208 23.6357 21.629 23.5999 21.6459L4.56003 21.6483C4.50398 21.629 4.29529 21.4208 4.29529 21.0128V10.4464C4.29529 9.57268 4.70194 8.78802 5.30655 8.49437L13.6173 4.46035C13.9178 4.31473 14.2219 4.31473 14.5224 4.46035L22.8331 8.49437C23.4377 8.78802 23.8444 9.57268 23.8444 10.4464V12.6921H28.1589Z"
+                  fill="#00BD7B"
+                />
+                <path
+                  d="M35.6163 16.6275C35.6163 12.1885 39.2258 8.48581 43.9565 8.54586C46.9897 8.57589 49.7802 9.95391 51.1754 13.1066L46.6561 15.5561C46.1707 14.5147 45.1998 13.7198 43.9565 13.7198C42.2277 13.7198 41.0752 15.0045 41.0752 16.6275C41.0752 18.2489 42.2277 19.5653 43.9565 19.5653C45.1998 19.5653 46.1707 18.7688 46.6561 17.729L51.1754 20.1769C49.7802 23.3296 46.9897 24.7076 43.9565 24.7376C39.2258 24.7992 35.6163 21.065 35.6163 16.6275Z"
+                  fill="#00BD7B"
+                />
+                <path
+                  d="M52.6897 16.6275C52.6897 12.1885 56.2992 8.51585 61.0298 8.51585C65.8827 8.51585 69.3716 11.9451 69.3716 16.6275V24.3109H64.2149V23.1779C63.2441 24.1877 61.8801 24.7708 60.12 24.7708C55.6916 24.7692 52.6897 21.095 52.6897 16.6275ZM63.9127 16.6575C63.9127 15.0346 62.7602 13.6882 61.0298 13.6882C59.301 13.6882 58.1485 15.0346 58.1485 16.6575C58.1485 18.2489 59.301 19.5953 61.0298 19.5953C62.7602 19.5969 63.9127 18.2489 63.9127 16.6575Z"
+                  fill="#00BD7B"
+                />
+                <path
+                  d="M72.4001 16.6876V1.96393H77.8605V9.4024C78.8 8.88248 79.9228 8.54588 81.0456 8.54588C85.8687 8.54588 89.0835 11.7902 89.0835 16.6876C89.0835 21.1251 85.474 24.7692 80.7433 24.7692C75.889 24.7692 72.4001 21.3716 72.4001 16.6876ZM83.6231 16.6576C83.6231 15.0646 82.4706 13.7198 80.7418 13.7198C79.013 13.7198 77.8605 15.0662 77.8605 16.6576C77.8605 18.2789 79.013 19.5953 80.7418 19.5953C82.4706 19.5953 83.6231 18.2805 83.6231 16.6576Z"
+                  fill="#00BD7B"
+                />
+                <path
+                  d="M91.5655 4.0768C91.5655 2.27051 93.0516 0.770813 94.8414 0.770813C96.6313 0.770813 98.1174 2.27051 98.1174 4.0768C98.1174 5.88308 96.6313 7.38279 94.8414 7.38279C93.0516 7.38279 91.5655 5.88308 91.5655 4.0768ZM97.5709 9.00575V24.311H92.112V9.00575H97.5709Z"
+                  fill="#00BD7B"
+                />
+                <path
+                  d="M106.669 17.454V24.3109H101.209V16.7808C101.209 12.2801 103.817 8.54588 109.428 8.54588C115.039 8.54588 117.648 12.2801 117.648 16.7808V24.3109H112.189V17.454C112.189 15.5261 111.431 13.9031 109.428 13.9031C107.427 13.9031 106.669 15.5245 106.669 17.454Z"
+                  fill="#00BD7B"
+                />
+              </g>
+              <defs>
+                <clipPath id="clip0_1605_1062">
+                  <rect width="118" height="26" fill="white" />
+                </clipPath>
+              </defs>
+            </svg>
           </a>
         </div>
         <div class="flex lg:hidden">
@@ -131,7 +155,9 @@
             </svg>
           </button>
         </div>
-        <div class="hidden lg:flex lg:justify-end lg:items-center lg:gap-x-[48px] flex-nowrap">
+        <div
+          class="hidden lg:flex lg:justify-end lg:items-center lg:gap-x-[48px] flex-nowrap"
+        >
           <a
             href="#our-story"
             class="text-[1.125rem] font-medium text-[#ACBCF5] hover:text-[#E4E9FF]"
@@ -151,12 +177,6 @@
             Frequent questions
           </a>
           <a
-            href="https://github.com/cabin-social"
-            class="text-[1.125rem] font-medium text-[#ACBCF5] hover:text-[#E4E9FF]"
-          >
-            Contribute
-          </a>
-          <a
             href="#waitlist-hero"
             class="h-[56px] rounded-[1000px] border border-[#00754C] text-lg/6 font-medium text-[#00B576] flex items-center px-6 hover:border-[#00B576] hover:shadow-[0_0_10px_rgba(0,181,118,0.1)] hover:bg-[rgba(0,181,118,0.1)]"
           >
@@ -165,47 +185,56 @@
         </div>
       </nav>
 
-     <el-dialog>
+      <el-dialog>
         <dialog id="mobile-menu" class="backdrop:bg-transparent lg:hidden">
           <div tabindex="0" class="fixed inset-0 focus:outline-none">
             <el-dialog-panel
-              class="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-[#0D0F1A] px-0 py-[1.25rem] sm:max-w-sm sm:ring-1 sm:ring-[#1D2637]"
+              class="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-[#0D0F1A] px-0 sm:max-w-sm sm:ring-1 sm:ring-[#1D2637]"
             >
               <!-- Logo + Close Button -->
-              <div class="flex justify-between items-center px-5">
-                <div class="flex">
+              <div class="flex justify-between items-center h-[88px] px-4">
+                <div class="flex-1">
+                  <a href="#" class="-m-1.5 p-1.5">
                     <span class="sr-only">Cabin</span>
                     <svg
-              height="24"
-              viewBox="0 0 124 28"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M36.9674 26.8003C35.3984 26.0046 34.1788 24.9021 33.3087 23.4856C32.435 22.0727 32 20.4707 32 18.6831C32 16.8956 32.435 15.2971 33.3087 13.8949C34.1788 12.4927 35.3984 11.4009 36.9674 10.6159C38.5329 9.83095 40.3123 9.43848 42.2986 9.43848C44.2848 9.43848 46.0821 9.87376 47.562 10.7479C49.0418 11.6221 50.0902 12.8316 50.7072 14.3766L45.8396 16.8599C45.023 15.2472 43.8319 14.4408 42.2629 14.4408C41.136 14.4408 40.2053 14.8154 39.4636 15.5683C38.7254 16.3176 38.3546 17.3558 38.3546 18.6831C38.3546 20.0104 38.7254 21.0844 39.4636 21.8479C40.2018 22.6115 41.136 22.9897 42.2629 22.9897C43.8284 22.9897 45.023 22.1833 45.8396 20.5706L50.7072 23.0539C50.0902 24.5989 49.0418 25.8084 47.562 26.6826C46.0821 27.5567 44.3276 27.992 42.2986 27.992C40.2695 27.992 38.5364 27.596 36.9674 26.8003Z"
-                fill="#00BD7B"
-              />
-              <path
-                d="M67.559 11.4761C65.9935 10.1203 63.7184 9.44238 60.7408 9.44238C59.3073 9.44238 57.8774 9.62435 56.451 9.98828C55.0281 10.3487 53.8193 10.8624 52.8244 11.5261L54.9461 15.8005C55.563 15.3153 56.3119 14.9335 57.1962 14.6552C58.0806 14.3805 58.9543 14.2413 59.8101 14.2413C62.1066 14.2413 63.369 15.0941 63.5901 16.796C63.6008 16.8674 63.6115 19.8002 63.615 21.1989C63.615 22.1052 63.2049 22.9829 62.4454 23.4788C62.4383 23.4788 62.4347 23.486 62.4276 23.4895C61.8748 23.8428 61.233 24.0212 60.5055 24.0212C59.778 24.0212 59.2039 23.857 58.7867 23.5252C58.3623 23.1934 58.1555 22.7545 58.1555 22.1979C58.1555 20.9848 58.9079 20.3783 60.2559 20.3783H61.7358V18.7941C61.7358 17.8593 60.9762 17.0993 60.0419 17.0993C57.3282 17.0993 55.317 17.5667 54.019 18.5051C52.7174 19.447 52.0684 20.7636 52.0684 22.4655C52.0684 23.5252 52.3251 24.4707 52.8422 25.3021C53.3593 26.1263 54.1295 26.7864 55.1458 27.2716C56.1621 27.7569 57.3638 27.9995 58.7546 27.9995C61.3827 27.9995 63.1479 27.1253 64.0501 25.3841V27.7033H69.9126V17.7344C69.9126 14.9264 69.128 12.8462 67.559 11.4868V11.4761Z"
-                fill="#00BD7B"
-              />
-              <path
-                d="M88.1512 10.5665C89.4849 11.3157 90.5475 12.3933 91.3285 13.7955C92.113 15.1977 92.5053 16.8283 92.5053 18.6836C92.5053 20.539 92.113 22.1731 91.3285 23.5861C90.544 24.999 89.4849 26.0872 88.1512 26.8508C86.814 27.6143 85.3305 27.9925 83.6973 27.9925C81.3366 27.9925 79.5679 27.2968 78.3982 25.9052V27.6928H72.4038V3.10938H78.6942V11.2908C79.9066 10.0527 81.5755 9.43541 83.6937 9.43541C85.3269 9.43541 86.8104 9.81005 88.1476 10.5629L88.1512 10.5665ZM85.088 21.8484C85.7941 21.0849 86.1471 20.0323 86.1471 18.6836C86.1471 17.3349 85.7941 16.3216 85.088 15.5688C84.382 14.8195 83.4762 14.4413 82.3743 14.4413C81.2724 14.4413 80.3667 14.8159 79.6606 15.5688C78.9545 16.3181 78.6015 17.3564 78.6015 18.6836C78.6015 20.0109 78.9545 21.0849 79.6606 21.8484C80.3667 22.612 81.2724 22.9902 82.3743 22.9902C83.4762 22.9902 84.382 22.6084 85.088 21.8484Z"
-                fill="#00BD7B"
-              />
-              <path
-                d="M121.58 11.4294C122.939 12.7531 123.617 14.7548 123.617 17.4272V27.6959H117.326V18.4512C117.326 16 116.346 14.7726 114.381 14.7726C113.3 14.7726 112.434 15.1258 111.781 15.8323C111.129 16.5388 110.804 17.5985 110.804 19.0114V27.6923H104.514V9.73461H110.508V11.6899C111.214 10.962 112.052 10.4054 113.026 10.0165C113.996 9.63115 115.055 9.43848 116.203 9.43848C118.432 9.43848 120.225 10.1021 121.584 11.4258L121.58 11.4294Z"
-                fill="#00BD7B"
-              />
-              <path
-                d="M101.42 27.6973H94.8574V10.1973C94.8574 10.1973 96.8449 10.624 98.1387 10.624C99.4315 10.624 101.417 10.1978 101.42 10.1973V27.6973ZM98.1387 0C98.1576 0.0229619 101.25 3.77729 101.25 5.49023C101.25 7.20833 99.8568 8.60145 98.1387 8.60156C96.4205 8.60156 95.0274 7.2084 95.0273 5.49023C95.0273 3.77203 98.1387 0 98.1387 0Z"
-                fill="#00BD7B"
-              />
-              <path
-                d="M23.0658 12.2183C23.6581 12.6976 24 13.4197 24 14.1849V22.5091C24 27.1122 18.703 29.6657 15.1401 26.7773L13.354 25.33L15.8178 23.3357C16.4865 22.7949 17.439 22.7949 18.1076 23.3357L19.3991 24.3835V15.0975L11.9985 9.10241L4.59789 15.0975V24.3835L8.39282 21.3107L10.8566 19.3165C11.5253 18.7756 12.4778 18.7756 13.1464 19.3165L15.6102 21.3107L12.0015 24.233L8.85994 26.7773C5.29703 29.6626 0 27.1091 0 22.5091V14.1849C0 13.4197 0.344994 12.6976 0.934232 12.2183L8.39282 6.18016L10.3742 4.57615C11.3237 3.80795 12.6763 3.80795 13.6258 4.57615L15.6072 6.18016L23.0658 12.2183Z"
-                fill="#00BD7B"
-              />
-            </svg>
+                      width="118"
+                    height="26"
+                    viewBox="0 0 118 26"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <g clip-path="url(#clip0_1605_1062)">
+                      <path
+                        d="M28.1589 12.6921V10.4464C28.1589 7.89625 26.8018 5.5892 24.703 4.57107L16.3923 0.537047C14.9159 -0.179016 13.2237 -0.179016 11.7474 0.537047L6.96416 2.85854V0.0183532H2.6496V5.04042C0.999146 6.20899 -0.0192719 8.2633 -0.0192719 10.4464V21.0128C-0.0192719 23.7628 2.02592 26 4.53976 26H23.5999C26.1137 26 28.1589 23.7628 28.1589 21.0128V18.394H23.8444V21.0128C23.8444 21.4208 23.6357 21.629 23.5999 21.6459L4.56003 21.6483C4.50398 21.629 4.29529 21.4208 4.29529 21.0128V10.4464C4.29529 9.57268 4.70194 8.78802 5.30655 8.49437L13.6173 4.46035C13.9178 4.31473 14.2219 4.31473 14.5224 4.46035L22.8331 8.49437C23.4377 8.78802 23.8444 9.57268 23.8444 10.4464V12.6921H28.1589Z"
+                        fill="#00BD7B"
+                      />
+                      <path
+                        d="M35.6163 16.6275C35.6163 12.1885 39.2258 8.48581 43.9565 8.54586C46.9897 8.57589 49.7802 9.95391 51.1754 13.1066L46.6561 15.5561C46.1707 14.5147 45.1998 13.7198 43.9565 13.7198C42.2277 13.7198 41.0752 15.0045 41.0752 16.6275C41.0752 18.2489 42.2277 19.5653 43.9565 19.5653C45.1998 19.5653 46.1707 18.7688 46.6561 17.729L51.1754 20.1769C49.7802 23.3296 46.9897 24.7076 43.9565 24.7376C39.2258 24.7992 35.6163 21.065 35.6163 16.6275Z"
+                        fill="#00BD7B"
+                      />
+                      <path
+                        d="M52.6897 16.6275C52.6897 12.1885 56.2992 8.51585 61.0298 8.51585C65.8827 8.51585 69.3716 11.9451 69.3716 16.6275V24.3109H64.2149V23.1779C63.2441 24.1877 61.8801 24.7708 60.12 24.7708C55.6916 24.7692 52.6897 21.095 52.6897 16.6275ZM63.9127 16.6575C63.9127 15.0346 62.7602 13.6882 61.0298 13.6882C59.301 13.6882 58.1485 15.0346 58.1485 16.6575C58.1485 18.2489 59.301 19.5953 61.0298 19.5953C62.7602 19.5969 63.9127 18.2489 63.9127 16.6575Z"
+                        fill="#00BD7B"
+                      />
+                      <path
+                        d="M72.4001 16.6876V1.96393H77.8605V9.4024C78.8 8.88248 79.9228 8.54588 81.0456 8.54588C85.8687 8.54588 89.0835 11.7902 89.0835 16.6876C89.0835 21.1251 85.474 24.7692 80.7433 24.7692C75.889 24.7692 72.4001 21.3716 72.4001 16.6876ZM83.6231 16.6576C83.6231 15.0646 82.4706 13.7198 80.7418 13.7198C79.013 13.7198 77.8605 15.0662 77.8605 16.6576C77.8605 18.2789 79.013 19.5953 80.7418 19.5953C82.4706 19.5953 83.6231 18.2805 83.6231 16.6576Z"
+                        fill="#00BD7B"
+                      />
+                      <path
+                        d="M91.5655 4.0768C91.5655 2.27051 93.0516 0.770813 94.8414 0.770813C96.6313 0.770813 98.1174 2.27051 98.1174 4.0768C98.1174 5.88308 96.6313 7.38279 94.8414 7.38279C93.0516 7.38279 91.5655 5.88308 91.5655 4.0768ZM97.5709 9.00575V24.311H92.112V9.00575H97.5709Z"
+                        fill="#00BD7B"
+                      />
+                      <path
+                        d="M106.669 17.454V24.3109H101.209V16.7808C101.209 12.2801 103.817 8.54588 109.428 8.54588C115.039 8.54588 117.648 12.2801 117.648 16.7808V24.3109H112.189V17.454C112.189 15.5261 111.431 13.9031 109.428 13.9031C107.427 13.9031 106.669 15.5245 106.669 17.454Z"
+                        fill="#00BD7B"
+                      />
+                    </g>
+                    <defs>
+                      <clipPath id="clip0_1605_1062">
+                        <rect width="118" height="26" fill="white" />
+                      </clipPath>
+                    </defs>
+                  </svg>
                 </div>
                 <button
                   type="button"
@@ -232,7 +261,9 @@
 
               <!-- Primary Links -->
               <div class="mt-[1rem] flow-root">
-                <div class="flex flex-col items-start space-y-[3rem] py-[3rem] px-[1.25rem]">
+                <div
+                  class="flex flex-col items-start space-y-[3rem] py-[3rem] px-[1.25rem]"
+                >
                   <a
                     href="#our-story"
                     class="text-[1.25rem] font-normal text-[#7780A3] hover:underline hover:decoration-dotted hover:text-white"
@@ -251,34 +282,18 @@
                   >
                     Frequent questions
                   </a>
-                  <a
-                    href="https://github.com/cabin-social"
-                    class="text-[1.25rem] font-normal text-[#7780A3] hover:underline hover:decoration-dotted hover:text-white"
-                  >
-                    Contribute
-                  </a>
-                  <a
-                    href="#"
-                    class="text-[1.25rem] font-normal text-[#7780A3] hover:underline hover:decoration-dotted hover:text-white"
-                  >
-                    Privacy policy
-                  </a>
-                  <a
-                    href="#"
-                    class="text-[1.25rem] font-normal text-[#7780A3] hover:underline hover:decoration-dotted hover:text-white"
-                  >
-                    Terms of service
-                  </a>
                 </div>
               </div>
               <!-- // Primary Links-->
             </el-dialog-panel>
           </div>
         </dialog>
-      </el-dialog> 
+      </el-dialog>
     </header>
 
-    <div class="relative bg-[#111524] border-[#B1C8FF]/10 isolate pt-6 sm:pt-14">
+    <div
+      class="relative bg-[#111524] border-[#B1C8FF]/10 isolate pt-6 sm:pt-4"
+    >
       <div
         aria-hidden="true"
         class="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
@@ -299,7 +314,7 @@
               27.5% 76.7%,
               0.1% 64.9%,
               17.9% 100%,
-              27.6% 76.8%,
+              f 27.6% 76.8%,
               76.1% 97.7%,
               74.1% 44.1%
             );
@@ -307,36 +322,40 @@
           class="relative left-[calc(50%-11rem)] aspect-1155/678 w-144.5 -translate-x-1/2 rotate-30 bg-linear-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%-30rem)] sm:w-288.75"
         ></div>
       </div>
-      <div class="mx-auto max-w-[1280px] py-24 sm:py-48 lg:py-32">
-        <div class="hidden sm:mb-8 sm:flex sm:justify-center"></div>
-        <div class="text-center">
-          <h1
-            class="font-semibold mx-auto tracking-tighter max-w-[900px] text-balance text-[#E4E9FF] text-[2.15rem]/[110%] sm:text-[2.75rem]/[110%] md:text-[3rem]/[110%] lg:text-[3.5rem]/[110%]"
-          >
-Stay connected with the people in your life—without the stress</h1>
-          <p
-            class="mt-[1rem] text-[1.125rem] sm:text-[1.25rem] md:text-[1.5rem] font-normal text-pretty text-[#ACBCF5]"
-          >
-We’re building an open source, privacy-focused social network</p>
+      <div class="mx-auto max-w-[1280px] py-[80px] sm:py-[100px] px-4">
+        <div class="text-center flex flex-col items-center gap-4 px-0">
+          <div class="flex flex-col gap-4">
+            <h1
+              class="text-[#E4E9FF] font-semibold leading-[110%] max-w-[900px] mx-auto"
+            >
+              We're building an open-source, privacy-focused social network
+            </h1>
+            <p class="text-[#8E9CCB] text-[22px] font-medium leading-[150%]">
+              Join the waitlist for updates on early access
+            </p>
+          </div>
 
           <!-- Email Subscription Form -->
-          <div class="mt-6 flex justify-center px-4">
-            <form class="waitlist-form flex flex-col max-w-lg w-full gap-3 sm:flex-row sm:gap-0" data-form-location="hero">
+          <div id="waitlist-hero" class="mt-6 flex justify-center w-full">
+            <form
+              class="waitlist-form flex flex-col sm:flex-row items-center max-w-lg w-full gap-3 sm:gap-0 sm:bg-[#101321] sm:border sm:border-[#1F253D] sm:rounded-full sm:p-1"
+              data-form-location="hero"
+            >
               <input
                 type="email"
                 placeholder="Your email address"
-                class="w-full sm:flex-1 bg-[#161B2E] h-[64px] sm:h-[64px] px-6 py-3 text-white text-[1rem] sm:text-[1.125rem] leading-[150%] font-normal placeholder-[#ACBCF5] border border-[#1F253D] focus:outline-none focus:ring-2 focus:border-[#008657] rounded-full sm:rounded-l-full sm:rounded-r-none"
+                class="w-full sm:flex-1 bg-[#161B2E] sm:bg-transparent h-[56px] px-6 py-3 text-white text-[1rem] sm:text-[1.125rem] leading-[150%] font-normal placeholder-[#ACBCF5] sm:placeholder-[#8E9CCB] border border-[#1F253D] sm:border-0 focus:outline-none focus:ring-2 focus:border-[#008657] sm:focus:ring-0 rounded-full"
                 required
               />
-            <button
-              type="submit"
-              class="w-full sm:w-auto text-[1.125rem] px-6 py-3 h-[64px] bg-[#008053] text-white font-medium hover:bg-[#006d45] text-[1rem] sm:text-[1.125rem] lg:text-[1.25rem] leading-[150%] focus:outline-none focus:ring-2 focus:ring-[#008657] focus:ring-offset-2 focus:ring-offset-[#171D2B] whitespace-nowrap rounded-full sm:rounded-l-none sm:rounded-r-full min-h-[64px]"
-            >
-              Join the waitlist
-            </button>
+              <button
+                type="submit"
+                class="w-full sm:w-auto text-[1.125rem] px-6 py-3 h-[56px] bg-[#008053] text-white font-medium hover:bg-[#006d45] leading-[150%] focus:outline-none focus:ring-2 focus:ring-[#008657] focus:ring-offset-2 focus:ring-offset-[#171D2B] sm:focus:ring-0 sm:focus:ring-offset-0 whitespace-nowrap rounded-full"
+              >
+                Join the waitlist
+              </button>
             </form>
           </div>
-          <div class="flex gap-6 justify-center mt-6">
+          <div class="flex gap-6 justify-center mt-[24px]">
             <a
               href="https://github.com/cabin-social"
               target="_blank"
@@ -382,437 +401,580 @@ We’re building an open source, privacy-focused social network</p>
       </div>
 
       <!-- App Preview Image-->
-      <div class="content-center px-5 sm:px-0">
+      <div class="content-center px-0 sm:px-16 mb-32 mt-12 bg-[#111524]">
         <!-- Desktop Image -->
         <img
-          class="hidden sm:block relative object-cover w-full max-w-[1280px] mx-auto overflow-hidden"
+          class="hidden sm:block relative object-cover w-full max-w-[1312px] mx-auto overflow-hidden"
           src="desktop-preview.webp"
           alt="A preview of Cabin's user interface"
         />
         <!-- Mobile Image -->
         <img
-          class="block sm:hidden relative object-cover w-full overflow-hidden"
+          class="block sm:hidden relative object-cover w-full overflow-hidden w-[100%]"
           src="mobile-preview.webp"
           alt="A preview of Cabin's user interface"
         />
       </div>
 
-      <!-- How we're different -->
-      <div id="how-were-different" class="mt-[48px] sm:mt-[64px] lg:mt-[96px] px-4 sm:px-6 lg:px-8 py-[3rem] sm:py-[4rem] lg:py-[6rem]">
-        <div class="mx-auto max-w-[1280px]">
-          <div class="text-center mb-[2rem] sm:mb-[2.5rem] lg:mb-[3rem]">
-            <h2 class="text-white text-[2rem] sm:text-[2rem] lg:text-[3rem] font-semibold">
-              We're doing things. Differently.
+      <!-- Our Story Section -->
+      <div
+        id="our-story"
+        class="bg-[#0D101C] border-t border-b border-[#1C2238] py-12 sm:py-20"
+      >
+        <div class="mx-auto max-w-[800px] px-4 sm:px-16">
+          <div class="flex flex-col gap-6">
+            <h2
+              class="text-[#E4E9FF] text-[36px] font-semibold leading-[110%] tracking-[-0.02em]"
+            >
+              Our story
             </h2>
-            <p class="mt-[1rem] text-[1.125rem] sm:text-[1.125rem] lg:text-[1.375rem] text-[#ACBCF5]">
-            The democratization of social networks is coming
-          </p>
+            <p class="text-[#8E9CCB] text-[18px] font-normal leading-[170%]">
+              We're on a mission to disrupt social networking, with goals that
+              are nothing short of world-changing. Toxic capitalism is steadily
+              eroding the integrity of major social platforms—and the negative
+              impacts to society are becoming clear:
+            </p>
+            <p class="text-[#8E9CCB] text-[18px] font-normal leading-[170%]">
+              <span class="text-[#E4E9FF] font-medium">Misinformation:</span> social
+              platforms are failing to identify and mark misinformation;
+              additionally, there is little accountability for accounts that
+              repeatedly share misinformation. It is becoming increasingly
+              difficult to discern fact from fiction.
+            </p>
+            <p class="text-[#8E9CCB] text-[18px] font-normal leading-[170%]">
+              <span class="text-[#E4E9FF] font-medium">A.I.-generated content:</span>
+              Similar to misinformation, A.I. images and videos are posted and
+              shared with no label indicating as much, which can further
+              distance users from reality.
+            </p>
+            <p class="text-[#8E9CCB] text-[18px] font-normal leading-[170%]">
+              <span class="text-[#E4E9FF] font-medium">Manipulative algorithms:</span>
+              platforms leverage manipulative algorithms to keep users engaged
+              as frequently as possible.
+            </p>
+            <p class="text-[#8E9CCB] text-[18px] font-normal leading-[170%]">
+              <span class="text-[#E4E9FF] font-medium">Political influence:</span>
+              unfortunately, some platforms have fallen to political lobbying,
+              and that isn't acceptable regardless of party affiliation.
+            </p>
+            <p class="text-[#8E9CCB] text-[18px] font-normal leading-[170%]">
+              Cabin is our response to the current state of social platforms.
+              It's an open-source, privacy-focused social network designed for
+              users, not corporate stakeholders or politicians.
+            </p>
+            <p class="text-[#8E9CCB] text-[18px] font-normal leading-[170%]">
+              We are actively developing Cabin and hope to release an MVP by
+              early summer of 2026. If you are also saddened with the current
+              state of social networking, we'd love for you to join the
+              waitlist, because we're building this for folks like you.
+            </p>
+            <p class="text-[#8E9CCB] text-[18px] font-normal leading-[170%]">
+              For investment or media inquires, please reach out to
+              <a
+                href="mailto:founders@cabin.social"
+                class="text-[#00B576] font-semibold"
+                >founders@cabin.social</a
+              >
+            </p>
           </div>
-          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-3">
-            <!-- Feature Card | Privacy-focused -->
-            <div class="feature-card">
-              <div class="feature-card-icon">
-                <img src="shield-profile.svg" alt="" width="40" height="40" />
-              </div>
-              <h3 class="feature-card-title">Privacy-focused</h3>
-              <p class="feature-card-description">
-                Your Cabin is built as a fully private space. Keep it private, or open it up to the world—it's your call.
-              </p>
-            </div>
-            <!-- // Feature Card | Privacy-focused -->
+        </div>
+      </div>
 
-            <!-- Feature Card | Algorithm-less -->
-            <div class="feature-card">
-              <div class="feature-card-icon">
-                <img src="website-code.svg" alt="" width="40" height="40" />
+      <!-- How we're different -->
+      <div id="how-were-different" class="mx-auto max-w-[1440px] px-4 sm:px-16 py-16 sm:py-32">
+        <div class="mx-auto max-w-[1280px]">
+          <div class="text-center mb-10 flex flex-col gap-4 px-0">
+            <h2
+              class="text-[#E4E9FF] text-[36px] font-semibold leading-[110%] tracking-[-0.02em]"
+            >
+              We're taking a different approach
+            </h2>
+            <p class="text-[#8E9CCB] text-[22px] font-normal leading-[150%]">
+              The democratization of social networks is coming
+            </p>
+          </div>
+          <div class="flex flex-col gap-4">
+            <!-- Row 1 -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+              <!-- Feature Card | Open-source -->
+              <div
+                class="bg-[#101321] border border-[#1C2238] rounded-[24px] p-6 flex flex-col gap-4 hover:bg-[#111524] transition-colors duration-300"
+              >
+                <div class="w-10 h-10">
+                  <img
+                    src="open-source-icon.svg"
+                    alt=""
+                    width="40"
+                    height="40"
+                  />
+                </div>
+                <div class="flex flex-col gap-3">
+                  <h3
+                    class="text-[#E4E9FF] text-[22px] font-semibold leading-[120%]"
+                  >
+                    Open-source
+                  </h3>
+                  <p
+                    class="text-[#8E9CCB] text-[18px] font-normal leading-[150%]"
+                  >
+                    We believe in transparency and helping improve the digital
+                    world. Cabin will be forever open-source.
+                  </p>
+                </div>
               </div>
-              <h3 class="feature-card-title">Algorithm-less</h3>
-              <p class="feature-card-description">
-                The only things you'll see in your feed are posts from your friends and topics you follow. No manipulation tactics.
-              </p>
-            </div>
-            <!-- // Feature Card | Algorithm-less -->
 
-            <!-- Feature Card | Open source -->
-            <div class="feature-card">
-              <div class="feature-card-icon">
-                <img src="github-icon.svg" alt="" width="40" height="40" />
+              <!-- Feature Card | Privacy-focused -->
+              <div
+                class="bg-[#101321] border border-[#1C2238] rounded-[24px] p-6 flex flex-col gap-4 hover:bg-[#111524] transition-colors duration-300"
+              >
+                <div class="w-10 h-10">
+                  <img
+                    src="privacy-focused-icon.svg"
+                    alt=""
+                    width="40"
+                    height="40"
+                  />
+                </div>
+                <div class="flex flex-col gap-3">
+                  <h3
+                    class="text-[#E4E9FF] text-[22px] font-semibold leading-[120%]"
+                  >
+                    Privacy-focused
+                  </h3>
+                  <p
+                    class="text-[#8E9CCB] text-[18px] font-normal leading-[150%]"
+                  >
+                    Your Cabin is built as a fully private space. Keep it
+                    private, or open it to the world—your call.
+                  </p>
+                </div>
               </div>
-              <h3 class="feature-card-title">Open source</h3>
-              <p class="feature-card-description">
-Cabin is open source under the MIT license. Let’s team up to build a better future for everyone!              </p>
-            </div>
-            <!-- // Feature Card | Algorithm-less -->
 
-            <!-- Feature Card | Fighting misinformation -->
-            <div class="feature-card">
-              <div class="feature-card-icon">
-                <img src="radar-ai.svg" alt="" width="40" height="40" />
+              <!-- Feature Card | Algorithm-less -->
+              <div
+                class="bg-[#101321] border border-[#1C2238] rounded-[24px] p-6 flex flex-col gap-4 hover:bg-[#111524] transition-colors duration-300"
+              >
+                <div class="w-10 h-10">
+                  <img
+                    src="algorithm-less-icon.svg"
+                    alt=""
+                    width="40"
+                    height="40"
+                  />
+                </div>
+                <div class="flex flex-col gap-3">
+                  <h3
+                    class="text-[#E4E9FF] text-[22px] font-semibold leading-[120%]"
+                  >
+                    Algorithm-less
+                  </h3>
+                  <p
+                    class="text-[#8E9CCB] text-[18px] font-normal leading-[150%]"
+                  >
+                    The only things you'll see in your feed are posts from your
+                    friends and topics you follow. No manipulation.
+                  </p>
+                </div>
               </div>
-              <h3 class="feature-card-title">Fighting misinformation</h3>
-              <p class="feature-card-description">
-                We'll leverage machine learning and community reporting in our ongoing fight against misinformation.
-              </p>
             </div>
-            <!-- // Feature Card | Fighting misinformation -->
 
-            <!-- Feature Card | Customize your profile -->
-            <div class="feature-card">
-              <div class="feature-card-icon">
-                <img src="grid-interface.svg" alt="" width="40" height="40" />
+            <!-- Row 2 -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+              <!-- Feature Card | Fighting misinformation -->
+              <div
+                class="bg-[#101321] border border-[#1C2238] rounded-[24px] p-6 flex flex-col gap-4 hover:bg-[#111524] transition-colors duration-300"
+              >
+                <div class="w-10 h-10">
+                  <img
+                    src="fighting-misinformation-icon.svg"
+                    alt=""
+                    width="40"
+                    height="40"
+                  />
+                </div>
+                <div class="flex flex-col gap-3">
+                  <h3
+                    class="text-[#E4E9FF] text-[22px] font-semibold leading-[120%]"
+                  >
+                    Fighting misinformation
+                  </h3>
+                  <p
+                    class="text-[#8E9CCB] text-[18px] font-normal leading-[150%]"
+                  >
+                    We'll leverage machine learning and community reporting in
+                    our ongoing fight against misinformation.
+                  </p>
+                </div>
               </div>
-              <h3 class="feature-card-title">Customize your profile</h3>
-              <p class="feature-card-description">
-                We're giving users the power of profile customization. It's your Cabin; give it some character!
-              </p>
-            </div>
-            <!-- // Feature Card | Customize your profile -->
 
-            <!-- Feature Card | Alternative monetization -->
-            <div class="feature-card">
-              <div class="feature-card-icon">
-                <img src="dollar-circle.svg" alt="" width="40" height="40" />
+              <!-- Feature Card | AT Protocol -->
+              <div
+                class="bg-[#101321] border border-[#1C2238] rounded-[24px] p-6 flex flex-col gap-4 hover:bg-[#111524] transition-colors duration-300"
+              >
+                <div class="w-10 h-10">
+                  <img
+                    src="at-protocol-icon.svg"
+                    alt=""
+                    width="40"
+                    height="40"
+                  />
+                </div>
+                <div class="flex flex-col gap-3">
+                  <h3
+                    class="text-[#E4E9FF] text-[22px] font-semibold leading-[120%]"
+                  >
+                    AT Protocol
+                  </h3>
+                  <p
+                    class="text-[#8E9CCB] text-[18px] font-normal leading-[150%]"
+                  >
+                    A decentralized network for building social applications, AT
+                    Protocol will be a core feature of Cabin.
+                  </p>
+                </div>
               </div>
-              <h3 class="feature-card-title">Alternative monetization</h3>
-              <p class="feature-card-description">
-                We're exploring some creative ways of generating revenue, none of which take advantage of our users.
-              </p>
+
+              <!-- Feature Card | Alternative monetization -->
+              <div
+                class="bg-[#101321] border border-[#1C2238] rounded-[24px] p-6 flex flex-col gap-4 hover:bg-[#111524] transition-colors duration-300"
+              >
+                <div class="w-10 h-10">
+                  <img
+                    src="alternative-monetization-icon.svg"
+                    alt=""
+                    width="40"
+                    height="40"
+                  />
+                </div>
+                <div class="flex flex-col gap-3">
+                  <h3
+                    class="text-[#E4E9FF] text-[22px] font-semibold leading-[120%]"
+                  >
+                    Alternative monetization
+                  </h3>
+                  <p
+                    class="text-[#8E9CCB] text-[18px] font-normal leading-[150%]"
+                  >
+                    We're exploring some creative ways of generating revenue,
+                    none of which take advantage of our users.
+                  </p>
+                </div>
+              </div>
             </div>
-            <!-- // Feature Card | Alternative monetization -->
           </div>
         </div>
       </div>
     </div>
 
-<div id="faq" class="mx-auto items-center max-w-[600px] pt-[3rem] sm:pt-[4rem] lg:pt-[6rem] pb-[0rem] px-4 sm:px-6 lg:px-8">
-      <div class="flex justify-center mb-4">
-        <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path fill-rule="evenodd" clip-rule="evenodd" d="M32 10C19.8488 10 10 19.8488 10 32C10 44.1488 19.8489 54 32 54C44.1512 54 54 44.1488 54 32C54 19.8488 44.1512 10 32 10ZM6 32C6 17.6397 17.6397 6 32 6C46.3603 6 58 17.6397 58 32C58 46.3576 46.3605 58 32 58C17.6395 58 6 46.3576 6 32Z" fill="#00B576"/>
-<path fill-rule="evenodd" clip-rule="evenodd" d="M31.8594 41.1895C32.9639 41.1895 33.8594 42.0849 33.8594 43.1895V43.2647C33.8594 44.3692 32.9639 45.2647 31.8594 45.2647C30.7548 45.2647 29.8594 44.3692 29.8594 43.2647V43.1895C29.8594 42.0849 30.7548 41.1895 31.8594 41.1895Z" fill="#00B576"/>
-<path fill-rule="evenodd" clip-rule="evenodd" d="M24.1406 27.1821C24.1406 22.5438 27.872 18.8125 32.5104 18.8125C37.1216 18.8125 40.8776 22.5401 40.8776 27.1821C40.8776 30.4523 39.0053 32.7645 36.5712 34.1104C36.4197 34.1968 36.2752 34.2781 36.1368 34.356C35.4315 34.7528 34.8907 35.0571 34.4483 35.4549C34.0139 35.8459 33.8504 36.1771 33.8563 36.6392C33.8709 37.7437 32.9872 38.6509 31.8827 38.6653C30.7781 38.6797 29.8712 37.7963 29.8568 36.6917C29.8317 34.7773 30.7331 33.4168 31.7731 32.4813C32.5792 31.7557 33.5808 31.1984 34.2765 30.8112C34.3947 30.7456 34.504 30.6848 34.6019 30.6288L34.6275 30.6144C36.1048 29.8003 36.8776 28.6749 36.8776 27.1821C36.8776 24.7567 34.92 22.8125 32.5104 22.8125C30.0811 22.8125 28.1405 24.753 28.1405 27.1821C28.1405 28.2867 27.2451 29.1821 26.1406 29.1821C25.0361 29.1821 24.1406 28.2867 24.1406 27.1821Z" fill="#00B576"/>
-</svg>
-
-      </div>
-
-
-      <div class="text-center mb-6 sm:mb-8">
-        <h2 class="text-white text-[1.75rem] sm:text-[2rem] lg:text-[2.5rem]">
-        Frequent questions
-        </h2>
-        <p class="mt-[1rem] text-[1rem] sm:text-[1.5rem] lg:text-[1.25rem] text-[#ACBCF5] pb-[1.5rem] sm:pb-[2rem]">
-          Don’t see your question? Reach out to hello@cabin.social
-        </p>
-      </div>
-      <div class="flex flex-col items-center">
-        <div class="text-[white] text-left text-[1.5rem] sm:text-[1.125rem] lg:text-[1.5rem] leading-normal font-semibold w-full">
-          General
-        </div>
-        <div class="w-full mt-3 sm:mt-4 h-[2px] bg-[#00B576]"></div>
-        <div
-          class="faq-card py-[3rem] flex flex-col gap-[.75rem] items-start justify-center w-full relative border-b border-solid border-[#20293D]"
-        >
-          <div
-            class="text-[#E4E9FF] text-left text-[1rem] sm:text-[1.125rem] lg:text-[1.25rem] leading-[150%] font-semibold relative self-stretch"
-          >
-            When can I sign up?
-          </div>
-          <div
-            class="text-left text-[#ACBCF5] text-[1rem] sm:text-[1.125rem] lg:text-[1.25rem] leading-normal font-normal relative self-stretch"
-          >
-            You can join the waitlist now! We'll email you with updates as work
-            on Cabin progresses.
-          </div>
-        </div>
-        <div
-          class="faq-card py-[3rem] flex flex-col gap-[.75rem] items-start justify-center w-full relative border-b border-solid border-[#20293D]"
-        >
-          <div
-            class="text-[#E4E9FF] text-left text-[1rem] sm:text-[1.125rem] lg:text-[1.25rem] leading-[150%] font-semibold relative self-stretch"
-          >
-            Will Cabin be free?
-          </div>
-          <div
-            class="text-left text-[#ACBCF5] text-[1rem] sm:text-[1.125rem] lg:text-[1.25rem] leading-normal font-normal relative self-stretch"
-          >
-            Yep, Cabin will forever be free to use. We will naturally have to
-            figure out a sustainable monetization strategy because apps like
-            Cabin are expensive to maintain. We're currently exploring various
-            monetization strategies.
-          </div>
-        </div>
-        <div
-          class="faq-card py-[3rem] flex flex-col gap-[.75rem] items-start justify-center w-full relative border-b border-solid border-[#20293D]"
-        >
-          <div
-            class="text-[#E4E9FF] text-left text-[1rem] sm:text-[1.125rem] lg:text-[1.25rem] leading-[150%] font-semibold relative self-stretch"
-          >
-            Is Cabin similar to Facebook?
-          </div>
-          <div
-            class="text-left text-[#ACBCF5] text-[1rem] sm:text-[1.125rem] lg:text-[1.25rem] leading-normal font-normal relative self-stretch"
-          >
-            Cabin and Facebook are both social networks, but with fundamentally
-            different approaches to operating. Cabin is fully transparent, and
-            is an open source platform.
-          </div>
-        </div>
-        <div
-          class="faq-card py-[3rem] flex flex-col gap-[.75rem] items-start justify-center w-full relative border-b border-solid border-[#20293D]"
-        >
-          <div
-            class="text-[#E4E9FF] text-left text-[1rem] sm:text-[1.125rem] lg:text-[1.25rem] leading-[150%] font-semibold relative self-stretch"
-          >
-            Will Cabin have mobile apps?
-          </div>
-          <div
-            class="text-left text-[#ACBCF5] text-[1rem] sm:text-[1.125rem] lg:text-[1.25rem] leading-normal font-normal relative self-stretch"
-          >
-            Cabin will be available on iOS, Android, and web.
-          </div>
-        </div>
-        <div
-          class="faq-card py-[3rem] flex flex-col gap-[.75rem] items-start justify-center w-full relative mb-[1.5rem] sm:mb-[2rem] border-solid border-[#20293D]"
-        >
-          <div
-            class="text-[#E4E9FF] text-left text-[1rem] sm:text-[1.125rem] lg:text-[1.25rem] leading-[150%] font-semibold relative self-stretch"
-          >
-            Can I contribute to the development of Cabin?
-          </div>
-          <div
-            class="text-left text-[#ACBCF5] text-[1rem] sm:text-[1.125rem] lg:text-[1.25rem] leading-normal font-normal relative self-stretch"
-          >
-            Absolutely! Please get in touch with us and we'll respond to you
-            within 24-48 hours. In the meantime, check out our
-            <a
-              href="https://github.com/cabin-social"
-              class="text-[#00B576] underline decoration-solid underline-offset-[4px] hover:text-[white]"
-              >GitHub</a
+    <!-- FAQ Section -->
+    <div id="faq" class="bg-[#0D101C] border-t border-b border-[#1C2238] py-16 sm:py-32">
+      <div class="mx-auto max-w-[800px] px-4 sm:px-16">
+        <div class="flex flex-col items-center gap-10">
+          <!-- Heading -->
+          <div class="flex flex-col gap-4 items-center w-full px-4">
+            <svg
+              width="64"
+              height="64"
+              viewBox="0 0 64 64"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
             >
-            and
-            <a
-              class="text-[#00B576] underline decoration-solid underline-offset-[4px] hover:text-[white]"
-              href="https://discord.gg/e3P7JvTqM3"
-              >Discord</a
+              <path
+                d="M54.4 31.9999C54.4 19.6299 44.37 9.5999 32 9.5999C19.63 9.5999 9.60002 19.6299 9.60002 31.9999C9.60002 44.3699 19.63 54.3999 32 54.3999C44.37 54.3999 54.4 44.3699 54.4 31.9999ZM6.40002 31.9999C6.40002 17.8599 17.86 6.3999 32 6.3999C46.14 6.3999 57.6 17.8599 57.6 31.9999C57.6 46.1399 46.14 57.5999 32 57.5999C17.86 57.5999 6.40002 46.1399 6.40002 31.9999ZM32 22.3999C29.35 22.3999 27.2 24.5499 27.2 27.1999C27.2 28.0799 26.48 28.7999 25.6 28.7999C24.72 28.7999 24 28.0799 24 27.1999C24 22.7799 27.58 19.1999 32 19.1999C36.42 19.1999 40 22.7799 40 27.1999C40 31.1599 37.43 33.2299 35.38 34.2099C34.23 34.7599 33.6 35.6599 33.6 36.4299V36.9999C33.6 37.8799 32.88 38.5999 32 38.5999C31.12 38.5999 30.4 37.8799 30.4 36.9999V36.4299C30.4 33.9699 32.23 32.1699 34 31.3299C35.45 30.6399 36.8 29.4499 36.8 27.2099C36.8 24.5599 34.65 22.4099 32 22.4099V22.3999ZM29.6 43.9999C29.6 42.6699 30.67 41.5999 32 41.5999C33.33 41.5999 34.4 42.6699 34.4 43.9999C34.4 45.3299 33.33 46.3999 32 46.3999C30.67 46.3999 29.6 45.3299 29.6 43.9999Z"
+                fill="#00B576"
+              />
+            </svg>
+
+            <h2
+              class="text-[#E4E9FF] text-[36px] font-medium leading-[110%] tracking-[-0.02em] text-center"
             >
-            server.
+              Frequent questions
+            </h2>
+            <p
+              class="text-[#8E9CCB] text-[22px] font-normal leading-[150%] text-center"
+            >
+              Don’t see your question? Reach out to <a
+                href="mailto:founders@cabin.social"
+                class="text-[#00B576] font-semibold"
+                >founders@cabin.social</a
+              >
+            </p>
           </div>
-        </div>
-        <div
-          class="text-[white] text-left text-[1.5rem] sm:text-[1.125rem] lg:text-[1.5rem] leading-normal font-semibold w-full"
-        >
-          Circles
-        </div>
-        <div class="w-full mt-3 sm:mt-4 h-[2px] bg-[#00B576]"></div>
-        <div
-          class="faq-card py-[3rem] flex flex-col gap-[.75rem] items-start justify-center w-full relative border-b border-solid border-[#20293D]"
-        >
-          <div
-            class="text-[#E4E9FF] text-left text-[1rem] sm:text-[1.125rem] lg:text-[1.25rem] leading-[150%] font-semibold relative self-stretch"
-          >
-            What is a Circle?
-          </div>
-          <div
-            class="text-left text-[#ACBCF5] text-[1rem] sm:text-[1.125rem] lg:text-[1.25rem] leading-normal font-normal relative self-stretch"
-          >
-            A circle is simply a group of Cabin users. Circles are a place for
-            friends to share photos or videos of lived experiences, or to have
-            meaningful conversations, or simply to remanence.
-          </div>
-        </div>
-        <div
-          class="faq-card py-[3rem] flex flex-col gap-[.75rem] items-start justify-center w-full relative border-b border-solid border-[#20293D]"
-        >
-          <div
-            class="text-[#E4E9FF] text-left text-[1rem] sm:text-[1.125rem] lg:text-[1.25rem] leading-[150%] font-semibold relative self-stretch"
-          >
-            Can anyone create a Circle?
-          </div>
-          <div
-            class="text-left text-[#ACBCF5] text-[1rem] sm:text-[1.125rem] lg:text-[1.25rem] leading-normal font-normal relative self-stretch"
-          >
-            Any Cabin user can create a Circle at any time.
-          </div>
-        </div>
-        <div
-          class="faq-card py-[3rem] flex flex-col gap-[.75rem] items-start justify-center w-full relative mb-[1.5rem] sm:mb-[2rem] border-solid border-[#20293D]"
-        >
-          <div
-            class="text-[#E4E9FF] text-left text-[1rem] sm:text-[1.125rem] lg:text-[1.25rem] leading-[150%] font-semibold relative self-stretch"
-          >
-            Do I have to pay to create a circle?
-          </div>
-          <div
-            class="text-left text-[#ACBCF5] text-[1rem] sm:text-[1.125rem] lg:text-[1.25rem] leading-normal font-normal relative self-stretch"
-          >
-            Never. Circles will always be free. That said, we may explore
-            monetization in the form of power-up's (think Trello).
-          </div>
-        </div>
-        <div
-          class="text-[white] text-left text-[1.5rem] sm:text-[1.125rem] lg:text-[1.5rem] leading-normal font-semibold w-full"
-        >
-          Privacy and security
-        </div>
-        <div class="w-full mt-3 sm:mt-4 h-[2px] bg-[#00B576]"></div>
-        <div
-          class="faq-card py-[3rem] flex flex-col gap-[.75rem] items-start justify-center w-full relative"
-        >
-          <div
-            class="text-[#E4E9FF] text-left text-[1rem] sm:text-[1.125rem] lg:text-[1.25rem] leading-[150%] font-semibold relative self-stretch"
-          >
-            How does Cabin protect my data?
-          </div>
-          <div
-            class="text-left text-[#ACBCF5] text-[1rem] sm:text-[1.125rem] lg:text-[1.25rem] leading-[150%] font-normal relative self-stretch"
-          >
-            Cabin uses end-to-end encryption for all communications and stores
-            minimal data necessary for operation. We are committed to
-            privacy-first design.
+
+          <!-- FAQ Items -->
+          <div class="flex flex-col items-center w-full">
+            <!-- FAQ Item 1 -->
+            <div
+              class="faq-item w-full max-w-[600px] border-b border-[#1C2238] py-8 px-4 bg-[#0D101C]"
+            >
+              <button
+                class="faq-question-btn flex justify-between items-center w-full gap-2 cursor-pointer"
+                onclick="toggleFaq(this)"
+              >
+                <span
+                  class="text-[#8E9CCB] text-[20px] font-medium leading-[130%] text-left hover:text-[#E4E9FF] transition-colors duration-200"
+                  >When can I sign up?</span
+                >
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M4.46967 8.46967C4.76256 8.17678 5.23744 8.17678 5.53033 8.46967L12 14.9393L18.4697 8.46967C18.7626 8.17678 19.2374 8.17678 19.5303 8.46967C19.8232 8.76256 19.8232 9.23744 19.5303 9.53033L12.5303 16.5303C12.3897 16.671 12.1989 16.75 12 16.75C11.8011 16.75 11.6103 16.671 11.4697 16.5303L4.46967 9.53033C4.17678 9.23744 4.17678 8.76256 4.46967 8.46967Z"
+                    fill="#ACBCF5"
+                  />
+                </svg>
+              </button>
+              <div class="faq-answer hidden mt-3">
+                <p
+                  class="text-[#E4E9FF] text-[18px] font-normal leading-[150%]"
+                >
+                  You can
+                  <a href="#waitlist" class="text-[#00B576] font-medium"
+                    >join the waitlist</a
+                  >
+                  now! We plan to begin early access this summer, so stay tuned
+                  😊
+                </p>
+              </div>
+            </div>
+
+            <!-- FAQ Item 2 (Expanded) -->
+            <div
+              class="faq-item w-full max-w-[600px] border-b border-[#1C2238] py-8 px-4 bg-[#101321]"
+            >
+              <button
+                class="faq-question-btn flex justify-between items-center w-full gap-2 cursor-pointer"
+                onclick="toggleFaq(this)"
+              >
+                <span
+                  class="text-[#8E9CCB] text-[20px] font-medium leading-[130%] text-left hover:text-[#E4E9FF] transition-colors duration-200"
+                  >Is Cabin similar to Facebook?</span
+                >
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M4.46967 8.46967C4.76256 8.17678 5.23744 8.17678 5.53033 8.46967L12 14.9393L18.4697 8.46967C18.7626 8.17678 19.2374 8.17678 19.5303 8.46967C19.8232 8.76256 19.8232 9.23744 19.5303 9.53033L12.5303 16.5303C12.3897 16.671 12.1989 16.75 12 16.75C11.8011 16.75 11.6103 16.671 11.4697 16.5303L4.46967 9.53033C4.17678 9.23744 4.17678 8.76256 4.46967 8.46967Z"
+                    fill="#ACBCF5"
+                  />
+                </svg>
+              </button>
+              <div class="faq-answer mt-3">
+                <p
+                  class="text-[#E4E9FF] text-[18px] font-normal leading-[150%]"
+                >
+                  Facebook is the most comparable social platform to Cabin, but our approaches to business are vastly different.
+                </p>
+              </div>
+            </div>
+
+            <!-- FAQ Item 3 -->
+            <div
+              class="faq-item w-full max-w-[600px] border-b border-[#1C2238] py-8 px-4 bg-[#101321]"
+            >
+              <button
+                class="faq-question-btn flex justify-between items-center w-full gap-2 cursor-pointer"
+                onclick="toggleFaq(this)"
+              >
+                <span
+                  class="text-[#8E9CCB] text-[20px] font-medium leading-[130%] text-left hover:text-[#E4E9FF] transition-colors duration-200"
+                  >Will there be a mobile app?</span
+                >
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M4.46967 8.46967C4.76256 8.17678 5.23744 8.17678 5.53033 8.46967L12 14.9393L18.4697 8.46967C18.7626 8.17678 19.2374 8.17678 19.5303 8.46967C19.8232 8.76256 19.8232 9.23744 19.5303 9.53033L12.5303 16.5303C12.3897 16.671 12.1989 16.75 12 16.75C11.8011 16.75 11.6103 16.671 11.4697 16.5303L4.46967 9.53033C4.17678 9.23744 4.17678 8.76256 4.46967 8.46967Z"
+                    fill="#ACBCF5"
+                  />
+                </svg>
+              </button>
+              <div class="faq-answer hidden mt-3">
+                <p
+                  class="text-[#E4E9FF] text-[18px] font-regular leading-[150%]"
+                >
+                  Cabin will be available on iOS, Android, and web.
+                </p>
+              </div>
+            </div>
+
+            <!-- FAQ Item 4 -->
+            <div class="faq-item w-full max-w-[600px] py-8 px-4 bg-[#101321]">
+              <button
+                class="faq-question-btn flex justify-between items-center w-full gap-2 cursor-pointer"
+                onclick="toggleFaq(this)"
+              >
+                <span
+                  class="text-[#8E9CCB] text-[20px] font-medium leading-[130%] text-left hover:text-[#E4E9FF] transition-colors duration-200"
+                  >When does early access begin?</span
+                >
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M4.46967 8.46967C4.76256 8.17678 5.23744 8.17678 5.53033 8.46967L12 14.9393L18.4697 8.46967C18.7626 8.17678 19.2374 8.17678 19.5303 8.46967C19.8232 8.76256 19.8232 9.23744 19.5303 9.53033L12.5303 16.5303C12.3897 16.671 12.1989 16.75 12 16.75C11.8011 16.75 11.6103 16.671 11.4697 16.5303L4.46967 9.53033C4.17678 9.23744 4.17678 8.76256 4.46967 8.46967Z"
+                    fill="#ACBCF5"
+                  />
+                </svg>
+              </button>
+              <div class="faq-answer hidden mt-3">
+                <p
+                  class="text-[#E4E9FF] text-[18px] font-regular leading-[150%]"
+                >
+                  We expect to release Cabin in early access this Summer, 2026.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </div></div>
+    </div>
 
+    <script>
+      function toggleFaq(button) {
+        const faqItem = button.parentElement;
+        const answer = faqItem.querySelector('.faq-answer');
+        const chevron = button.querySelector('svg');
+
+        // Toggle answer visibility
+        answer.classList.toggle('hidden');
+
+        // Rotate chevron
+        if (chevron) {
+          chevron.classList.toggle('rotate-180');
+        }
+      }
+    </script>
 
     <div
-        class="py-8 sm:py-12 px-4 sm:px-8 lg:px-32 pb-6 flex flex-col sm:flex-row gap-6 sm:gap-12 items-center justify-start self-stretch shrink-0 relative overflow-hidden"
+      class="py-8 sm:py-12 px-4 sm:px-8 lg:px-32 pb-6 flex flex-col sm:flex-row gap-6 sm:gap-12 items-center justify-start self-stretch shrink-0 relative overflow-hidden"
+    >
+      <div
+        class="mx-auto max-w-[1280px] w-full flex flex-col sm:flex-row gap-4 sm:gap-12 items-center justify-start"
       >
         <div
-          class="mx-auto max-w-[1280px] w-full flex flex-col sm:flex-row gap-4 sm:gap-12 items-center justify-start"
+          class="flex flex-col gap-2 items-center sm:items-start justify-start shrink-0 max-w-[300px] relative"
         >
-          <div
-            class="flex flex-col gap-2 items-center sm:items-start justify-start shrink-0 max-w-[300px] relative"
+          <svg
+            width="27"
+            height="24"
+            viewBox="0 0 27 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
           >
-            <svg width="25" height="20" viewBox="0 0 25 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M8.53027 16.6133C9.27073 16.6629 9.8457 17.2784 9.8457 18.0205C9.84561 18.7625 9.27066 19.3772 8.53027 19.4268L0 19.998V16.042L8.53027 16.6133ZM24.6143 19.998L16.084 19.4268C15.3438 19.377 14.7686 18.7624 14.7686 18.0205C14.7686 17.2785 15.3437 16.663 16.084 16.6133L24.6143 16.042V19.998ZM8.53027 11.3389C9.27067 11.3885 9.84563 12.0031 9.8457 12.7451C9.8457 13.4872 9.27073 14.1028 8.53027 14.1523L0 14.7236V10.7676L8.53027 11.3389ZM24.6143 14.7236L16.084 14.1523C15.3437 14.1026 14.7686 13.4871 14.7686 12.7451C14.7686 12.0032 15.3437 11.3886 16.084 11.3389L24.6143 10.7676V14.7236ZM18.3027 3.0752H19.2227C20.8155 3.07526 22.2569 4.02056 22.8916 5.48145L24.6152 9.44922H0L1.72363 5.48145C2.35838 4.0205 3.7997 3.0752 5.39258 3.0752H14.8848L14.6152 0H18.5713L18.3027 3.0752Z" fill="#ACBCF5"/>
+            <path
+              d="M26.0107 11.7158V9.64283C26.0107 7.28884 24.7579 5.15926 22.8205 4.21945L15.1491 0.495736C13.7863 -0.165245 12.2243 -0.165245 10.8615 0.495736L6.44625 2.63865V0.0169414H2.46358V4.65269C0.940078 5.73137 0 7.62767 0 9.64283V19.3965C0 21.9349 1.88787 24 4.20834 24H21.8023C24.1228 24 26.0107 21.9349 26.0107 19.3965V16.9791H22.028V19.3965C22.028 19.7731 21.8353 19.9652 21.8023 19.9808L4.22705 19.983C4.17531 19.9652 3.98267 19.7731 3.98267 19.3965V9.64283C3.98267 8.83632 4.35805 8.11202 4.91615 7.84096L12.5876 4.11725C12.865 3.98283 13.1457 3.98283 13.4231 4.11725L21.0945 7.84096C21.6526 8.11202 22.028 8.83632 22.028 9.64283V11.7158H26.0107Z"
+              fill="#00BD7B"
+            />
+          </svg>
+        </div>
+        <div
+          class="flex flex-row gap-8 items-center justify-start shrink-0 relative"
+        >
+          <a
+            href="mailto:founders@cabin.social"
+            class="text-[#97A3BF] text-center text-base leading-normal font-medium relative hover:text-white"
+          >
+            Investment inquiries
+          </a>
+          <a
+            href="mailto:founders@cabin.social"
+            class="text-[#97A3BF] text-center text-base leading-normal font-medium relative hover:text-white"
+          >
+            Press
+          </a>
+        </div>
+        <div
+          class="flex flex-row gap-6 items-center justify-end flex-1 relative"
+        >
+          <a
+            href="https://github.com/cabin-social"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="hover:opacity-100 transition-opacity"
+          >
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M8.9212 17.3027C8.9212 17.3777 8.83495 17.4377 8.7262 17.4377C8.60245 17.4489 8.5162 17.3889 8.5162 17.3027C8.5162 17.2277 8.60245 17.1677 8.7112 17.1677C8.8237 17.1564 8.9212 17.2164 8.9212 17.3027ZM7.75495 17.1339C7.7287 17.2089 7.8037 17.2952 7.9162 17.3177C8.0137 17.3552 8.1262 17.3177 8.1487 17.2427C8.1712 17.1677 8.09995 17.0814 7.98745 17.0477C7.88995 17.0214 7.7812 17.0589 7.75495 17.1339ZM9.41245 17.0702C9.3037 17.0964 9.2287 17.1677 9.23995 17.2539C9.2512 17.3289 9.3487 17.3777 9.4612 17.3514C9.56995 17.3252 9.64495 17.2539 9.6337 17.1789C9.62245 17.1077 9.5212 17.0589 9.41245 17.0702ZM11.88 2.7002C6.6787 2.7002 2.69995 6.64895 2.69995 11.8502C2.69995 16.0089 5.31745 19.5677 9.0562 20.8202C9.5362 20.9064 9.70495 20.6102 9.70495 20.3664C9.70495 20.1339 9.6937 18.8514 9.6937 18.0639C9.6937 18.0639 7.0687 18.6264 6.51745 16.9464C6.51745 16.9464 6.08995 15.8552 5.47495 15.5739C5.47495 15.5739 4.6162 14.9852 5.53495 14.9964C5.53495 14.9964 6.4687 15.0714 6.98245 15.9639C7.8037 17.4114 9.17995 16.9952 9.7162 16.7477C9.80245 16.1477 10.0462 15.7314 10.3162 15.4839C8.21995 15.2514 6.10495 14.9477 6.10495 11.3402C6.10495 10.3089 6.38995 9.79144 6.98995 9.13144C6.89245 8.88769 6.5737 7.8827 7.08745 6.5852C7.8712 6.34145 9.67495 7.5977 9.67495 7.5977C10.425 7.3877 11.2312 7.27895 12.03 7.27895C12.8287 7.27895 13.635 7.3877 14.385 7.5977C14.385 7.5977 16.1887 6.3377 16.9725 6.5852C17.4862 7.88645 17.1675 8.88769 17.07 9.13144C17.67 9.79519 18.0375 10.3127 18.0375 11.3402C18.0375 14.9589 15.8287 15.2477 13.7325 15.4839C14.0775 15.7802 14.37 16.3427 14.37 17.2239C14.37 18.4877 14.3587 20.0514 14.3587 20.3589C14.3587 20.6027 14.5312 20.8989 15.0075 20.8127C18.7575 19.5677 21.3 16.0089 21.3 11.8502C21.3 6.64895 17.0812 2.7002 11.88 2.7002ZM6.34495 15.6339C6.2962 15.6714 6.30745 15.7577 6.3712 15.8289C6.4312 15.8889 6.51745 15.9152 6.5662 15.8664C6.61495 15.8289 6.6037 15.7427 6.53995 15.6714C6.47995 15.6114 6.3937 15.5852 6.34495 15.6339ZM5.93995 15.3302C5.9137 15.3789 5.9512 15.4389 6.0262 15.4764C6.0862 15.5139 6.1612 15.5027 6.18745 15.4502C6.2137 15.4014 6.1762 15.3414 6.1012 15.3039C6.0262 15.2814 5.9662 15.2927 5.93995 15.3302ZM7.15495 16.6652C7.09495 16.7139 7.11745 16.8264 7.2037 16.8977C7.28995 16.9839 7.3987 16.9952 7.44745 16.9352C7.4962 16.8864 7.4737 16.7739 7.3987 16.7027C7.3162 16.6164 7.2037 16.6052 7.15495 16.6652ZM6.72745 16.1139C6.66745 16.1514 6.66745 16.2489 6.72745 16.3352C6.78745 16.4214 6.8887 16.4589 6.93745 16.4214C6.99745 16.3727 6.99745 16.2752 6.93745 16.1889C6.88495 16.1027 6.78745 16.0652 6.72745 16.1139Z" fill="#ACBCF5"/>
 </svg>
 
-
-          </div>
-          <div
-            class="flex flex-row gap-8 items-center justify-start shrink-0 relative"
+          </a>
+          <a
+            href="https://bsky.app/profile/cabinsocial.bsky.social"
+            class="hover:opacity-100 transition-opacity"
           >
-            <a
-              href="https://discord.gg/e3P7JvTqM3"
-              class="text-[#97A3BF] text-center text-base leading-normal font-medium relative hover:text-white"
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
             >
-              Contribute
-            </a>
-            <a
-              href="#"
-              class="text-[#97A3BF] text-center text-base leading-normal font-medium relative hover:text-white"
-            >
-              Our policies
-            </a>
-            <a
-              href="mailto:press@cabin.social"
-              class="text-[#97A3BF] text-center text-base leading-normal font-medium relative hover:text-white"
-            >
-              Press
-            </a>
-          </div>
-          <div
-            class="flex flex-row gap-6 items-center justify-end flex-1 relative"
-            style="opacity: 0.5"
+              <path
+                d="M16.4925 13.4515C16.3687 13.4365 16.2412 13.4215 16.1175 13.4027C16.245 13.4177 16.3687 13.4365 16.4925 13.4515ZM12 10.9165C11.0212 9.01524 8.3587 5.47149 5.8837 3.72399C3.50995 2.04774 2.6062 2.33649 2.00995 2.60649C1.3237 2.91774 1.19995 3.97149 1.19995 4.59024C1.19995 5.20899 1.5412 9.67524 1.76245 10.4215C2.4937 12.8852 5.1037 13.7177 7.50745 13.4477C7.6312 13.429 7.75495 13.414 7.88245 13.3952C7.7587 13.414 7.63495 13.4327 7.50745 13.4477C3.9862 13.9727 0.858701 15.2552 4.9612 19.819C9.47245 24.4915 11.1412 18.8177 12 15.9415C12.8587 18.8177 13.845 24.2852 18.96 19.819C22.8 15.9415 20.0137 13.969 16.4925 13.4477C16.3687 13.4327 16.2412 13.4177 16.1175 13.399C16.245 13.414 16.3687 13.4327 16.4925 13.4477C18.8962 13.714 21.5025 12.8815 22.2375 10.4215C22.4587 9.67524 22.8 5.21274 22.8 4.59024C22.8 3.96774 22.6762 2.91399 21.99 2.60649C21.3975 2.34024 20.49 2.04774 18.12 3.72399C15.6412 5.47149 12.9787 9.01524 12 10.9165Z"
+                fill="#ACBCF5"
+              />
+            </svg>
+          </a>
+          <a
+            href="https://threads.com/@cabinsocial"
+            class="hover:opacity-100 transition-opacity"
           >
-            <a
-              href="https://github.com/cabin-social"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="hover:opacity-100 transition-opacity"
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
             >
-              <svg
-                class="shrink-0 w-6 h-6 relative overflow-visible hover:fill-[#00B576]"
-                style="aspect-ratio: 1"
-                width="24"
-                height="25"
-                viewBox="0 0 24 25"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M8.92145 17.5244C8.92145 17.5994 8.8352 17.6594 8.72645 17.6594C8.6027 17.6706 8.51645 17.6106 8.51645 17.5244C8.51645 17.4494 8.6027 17.3894 8.71145 17.3894C8.82395 17.3781 8.92145 17.4381 8.92145 17.5244ZM7.7552 17.3556C7.72895 17.4306 7.80395 17.5169 7.91645 17.5394C8.01395 17.5769 8.12645 17.5394 8.14895 17.4644C8.17145 17.3894 8.1002 17.3031 7.9877 17.2694C7.8902 17.2431 7.78145 17.2806 7.7552 17.3556ZM9.4127 17.2919C9.30395 17.3181 9.22895 17.3894 9.2402 17.4756C9.25145 17.5506 9.34895 17.5994 9.46145 17.5731C9.5702 17.5469 9.6452 17.4756 9.63395 17.4006C9.6227 17.3294 9.52145 17.2806 9.4127 17.2919ZM11.8802 2.92188C6.67895 2.92188 2.7002 6.87062 2.7002 12.0719C2.7002 16.2306 5.3177 19.7894 9.05645 21.0419C9.53645 21.1281 9.70519 20.8319 9.70519 20.5881C9.70519 20.3556 9.69395 19.0731 9.69395 18.2856C9.69395 18.2856 7.06895 18.8481 6.5177 17.1681C6.5177 17.1681 6.0902 16.0769 5.4752 15.7956C5.4752 15.7956 4.61645 15.2069 5.5352 15.2181C5.5352 15.2181 6.46895 15.2931 6.9827 16.1856C7.80395 17.6331 9.1802 17.2169 9.71645 16.9694C9.8027 16.3694 10.0464 15.9531 10.3164 15.7056C8.2202 15.4731 6.1052 15.1694 6.1052 11.5619C6.1052 10.5306 6.3902 10.0131 6.9902 9.35312C6.8927 9.10937 6.57395 8.10437 7.0877 6.80687C7.87145 6.56312 9.6752 7.81938 9.6752 7.81938C10.4252 7.60938 11.2314 7.50063 12.0302 7.50063C12.8289 7.50063 13.6352 7.60938 14.3852 7.81938C14.3852 7.81938 16.1889 6.55938 16.9727 6.80687C17.4864 8.10812 17.1677 9.10937 17.0702 9.35312C17.6702 10.0169 18.0377 10.5344 18.0377 11.5619C18.0377 15.1806 15.8289 15.4694 13.7327 15.7056C14.0777 16.0019 14.3702 16.5644 14.3702 17.4456C14.3702 18.7094 14.3589 20.2731 14.3589 20.5806C14.3589 20.8244 14.5314 21.1206 15.0077 21.0344C18.7577 19.7894 21.3002 16.2306 21.3002 12.0719C21.3002 6.87062 17.0814 2.92188 11.8802 2.92188ZM6.3452 15.8556C6.29645 15.8931 6.3077 15.9794 6.37145 16.0506C6.43145 16.1106 6.5177 16.1369 6.56645 16.0881C6.6152 16.0506 6.60395 15.9644 6.5402 15.8931C6.4802 15.8331 6.39395 15.8069 6.3452 15.8556ZM5.9402 15.5519C5.91395 15.6006 5.95145 15.6606 6.02645 15.6981C6.08645 15.7356 6.16145 15.7244 6.1877 15.6719C6.21395 15.6231 6.17645 15.5631 6.10145 15.5256C6.02645 15.5031 5.96645 15.5144 5.9402 15.5519ZM7.1552 16.8869C7.0952 16.9356 7.1177 17.0481 7.20395 17.1194C7.2902 17.2056 7.39895 17.2169 7.4477 17.1569C7.49645 17.1081 7.47395 16.9956 7.39895 16.9244C7.31645 16.8381 7.20395 16.8269 7.1552 16.8869ZM6.7277 16.3356C6.6677 16.3731 6.6677 16.4706 6.7277 16.5569C6.7877 16.6431 6.88895 16.6806 6.9377 16.6431C6.9977 16.5944 6.9977 16.4969 6.9377 16.4106C6.8852 16.3244 6.7877 16.2869 6.7277 16.3356Z"
-                  fill="var(--icon-icon-subdued, #adbad9)"
-                />
-              </svg>
-            </a>
-            <a
-              href="https://discord.gg/e3P7JvTqM3"
-              class="hover:opacity-100 transition-opacity"
+              <path
+                d="M16.0313 11.2388C16.1138 11.2725 16.1888 11.31 16.2675 11.3438C17.3625 11.8725 18.165 12.6638 18.585 13.6463C19.1738 15.015 19.23 17.2388 17.4488 19.0163C16.0912 20.3738 14.4375 20.985 12.1013 21.0037H12.09C9.4575 20.985 7.43625 20.1 6.075 18.3713C4.86375 16.8338 4.24125 14.6925 4.21875 12.0112V11.9925C4.2375 9.31125 4.86 7.17 6.07125 5.6325C7.4325 3.90375 9.4575 3.01875 12.09 3H12.1013C14.7375 3.01875 16.785 3.9 18.1875 5.62125C18.8775 6.4725 19.3875 7.49625 19.71 8.685L18.195 9.09C17.9288 8.1225 17.5275 7.2975 16.9875 6.6375C15.8925 5.295 14.25 4.605 12.0938 4.59C9.95625 4.60875 8.34 5.295 7.28625 6.63C6.30375 7.87875 5.79375 9.68625 5.775 12C5.79375 14.3138 6.30375 16.1213 7.28625 17.3738C8.33625 18.7088 9.95625 19.395 12.0938 19.4138C14.0213 19.3988 15.2963 18.9413 16.3575 17.88C17.5688 16.6725 17.5463 15.1875 17.16 14.2838C16.9313 13.7513 16.5188 13.3088 15.9638 12.975C15.825 13.9838 15.5213 14.7863 15.0375 15.405C14.3963 16.2225 13.485 16.665 12.3112 16.7288C11.4262 16.7775 10.575 16.5638 9.915 16.1288C9.135 15.6113 8.6775 14.8238 8.62875 13.905C8.535 12.0937 9.9675 10.7925 12.1987 10.665C12.99 10.62 13.7325 10.6538 14.4188 10.77C14.3288 10.215 14.145 9.7725 13.8713 9.45C13.4963 9.01125 12.9113 8.78625 12.1388 8.7825H12.1125C11.49 8.7825 10.65 8.955 10.1138 9.76875L8.82375 8.88375C9.54375 7.7925 10.71 7.1925 12.1163 7.1925H12.1463C14.4938 7.2075 15.8925 8.67375 16.035 11.2313L16.0275 11.2388H16.0313ZM10.1813 13.8188C10.23 14.76 11.2463 15.1988 12.2288 15.1425C13.1888 15.09 14.2763 14.715 14.46 12.3975C13.965 12.2888 13.4175 12.2325 12.8325 12.2325C12.6525 12.2325 12.4725 12.2363 12.2925 12.2475C10.6837 12.3375 10.1475 13.1175 10.185 13.815L10.1813 13.8188Z"
+                fill="#ACBCF5"
+              />
+            </svg>
+          </a>
+          <a
+            href="https://reddit.com/r/cabinsocial"
+            class="hover:opacity-100 transition-opacity"
+          >
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
             >
-              <svg
-                class="shrink-0 w-6 h-6 relative overflow-visible hover:fill-[#00B576]"
-                style="aspect-ratio: 1"
-                width="24"
-                height="25"
-                viewBox="0 0 24 25"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M19.6688 5.23961C19.6613 5.22836 19.6538 5.21711 19.6388 5.21336C18.21 4.55711 16.6988 4.08836 15.15 3.82211C15.135 3.81836 15.12 3.82211 15.1088 3.82586C15.0975 3.82961 15.0863 3.84086 15.0788 3.85586C14.8725 4.22711 14.685 4.61336 14.52 5.00336C12.8475 4.74836 11.1488 4.74836 9.48004 5.00336C9.31129 4.60961 9.12379 4.22711 8.91379 3.85586C8.90629 3.84461 8.89504 3.83336 8.88379 3.82586C8.87254 3.81836 8.85754 3.81836 8.84254 3.81836C7.29379 4.08461 5.78254 4.55336 4.35379 5.20961C4.34254 5.21336 4.33129 5.22461 4.32379 5.23586C1.46629 9.50336 0.682535 13.6696 1.06504 17.7796C1.06504 17.7909 1.06879 17.7984 1.07254 17.8096C1.07629 17.8209 1.08379 17.8246 1.09129 17.8321C2.75629 19.0659 4.61629 20.0071 6.59629 20.6146C6.61129 20.6184 6.62629 20.6184 6.63754 20.6146C6.64879 20.6109 6.66379 20.5996 6.67129 20.5884C7.09504 20.0109 7.47379 19.3959 7.79629 18.7584C7.80004 18.7509 7.80379 18.7396 7.80379 18.7284C7.80379 18.7171 7.80379 18.7096 7.80004 18.6984C7.79629 18.6871 7.79254 18.6796 7.78504 18.6759C7.77754 18.6721 7.77004 18.6646 7.75879 18.6609C7.16629 18.4321 6.58879 18.1584 6.03754 17.8396C6.02629 17.8321 6.01879 17.8246 6.01129 17.8171C6.00379 17.8096 6.00004 17.7946 6.00004 17.7834C6.00004 17.7721 6.00004 17.7609 6.00754 17.7496C6.01504 17.7384 6.01879 17.7309 6.03004 17.7234C6.14629 17.6371 6.26254 17.5471 6.37129 17.4571C6.38254 17.4496 6.39379 17.4421 6.40504 17.4421C6.41629 17.4421 6.43129 17.4421 6.44254 17.4459C10.05 19.0921 13.9575 19.0921 17.5238 17.4459C17.535 17.4421 17.55 17.4384 17.5613 17.4384C17.5725 17.4384 17.5875 17.4459 17.595 17.4534C17.7038 17.5434 17.82 17.6371 17.9363 17.7234C17.9438 17.7309 17.9513 17.7384 17.9588 17.7496C17.9663 17.7609 17.9663 17.7721 17.9663 17.7834C17.9663 17.7946 17.9625 17.8059 17.955 17.8171C17.9475 17.8284 17.94 17.8359 17.9325 17.8396C17.3813 18.1621 16.8075 18.4359 16.2113 18.6571C16.2038 18.6609 16.1925 18.6646 16.185 18.6721C16.1775 18.6796 16.1738 18.6871 16.17 18.6984C16.1663 18.7096 16.1663 18.7171 16.1663 18.7284C16.1663 18.7396 16.17 18.7471 16.1738 18.7584C16.5038 19.3959 16.8788 20.0071 17.2988 20.5884C17.3063 20.5996 17.3213 20.6109 17.3325 20.6146C17.3438 20.6184 17.3625 20.6184 17.3738 20.6146C19.3575 20.0071 21.2213 19.0659 22.89 17.8321C22.8975 17.8246 22.905 17.8171 22.9088 17.8096C22.9125 17.8021 22.9163 17.7909 22.9163 17.7796C23.3775 13.0246 22.1475 8.89586 19.6575 5.23586L19.6688 5.23961ZM8.34379 15.2784C7.25629 15.2784 6.36379 14.2809 6.36379 13.0584C6.36379 11.8359 7.24129 10.8384 8.34379 10.8384C9.45754 10.8384 10.3425 11.8434 10.3238 13.0584C10.3238 14.2846 9.44629 15.2784 8.34379 15.2784ZM15.6713 15.2784C14.5838 15.2784 13.6913 14.2809 13.6913 13.0584C13.6913 11.8359 14.5688 10.8384 15.6713 10.8384C16.785 10.8384 17.67 11.8434 17.6513 13.0584C17.6513 14.2846 16.7813 15.2784 15.6713 15.2784Z"
-                  fill="var(--icon-icon-subdued, #adbad9)"
-                />
-              </svg>
-            </a>
-            <a
-              href="https://bsky.app/profile/cabinsocial.bsky.social"
-              class="hover:opacity-100 transition-opacity"
-            >
-              <svg
-                class="shrink-0 w-6 h-6 relative overflow-visible hover:fill-[#00B576]"
-                style="aspect-ratio: 1"
-                width="24"
-                height="25"
-                viewBox="0 0 24 25"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M16.4927 13.6732C16.3689 13.6582 16.2414 13.6432 16.1177 13.6244C16.2452 13.6394 16.3689 13.6582 16.4927 13.6732ZM12.0002 11.1382C11.0214 9.23692 8.35895 5.69317 5.88395 3.94567C3.5102 2.26942 2.60645 2.55817 2.0102 2.82817C1.32395 3.13942 1.2002 4.19317 1.2002 4.81192C1.2002 5.43067 1.54145 9.89692 1.7627 10.6432C2.49395 13.1069 5.10395 13.9394 7.5077 13.6694C7.63145 13.6507 7.7552 13.6357 7.8827 13.6169C7.75895 13.6357 7.6352 13.6544 7.5077 13.6694C3.98645 14.1944 0.858945 15.4769 4.96145 20.0407C9.4727 24.7132 11.1414 19.0394 12.0002 16.1632C12.8589 19.0394 13.8452 24.5069 18.9602 20.0407C22.8002 16.1632 20.0139 14.1907 16.4927 13.6694C16.3689 13.6544 16.2414 13.6394 16.1177 13.6207C16.2452 13.6357 16.3689 13.6544 16.4927 13.6694C18.8964 13.9357 21.5027 13.1032 22.2377 10.6432C22.4589 9.89692 22.8002 5.43442 22.8002 4.81192C22.8002 4.18942 22.6764 3.13567 21.9902 2.82817C21.3977 2.56192 20.4902 2.26942 18.1202 3.94567C15.6414 5.69317 12.9789 9.23692 12.0002 11.1382Z"
-                  fill="var(--icon-icon-subdued, #adbad9)"
-                />
-              </svg>
-            </a>
-            <a
-              href="https://threads.com/@cabinsocial"
-              class="hover:opacity-100 transition-opacity"
-            >
-              <svg
-                class="shrink-0 w-6 h-6 relative overflow-visible hover:fill-[#00B576]"
-                style="aspect-ratio: 1"
-                width="24"
-                height="25"
-                viewBox="0 0 24 25"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M16.0312 11.4614C16.1138 11.4952 16.1888 11.5327 16.2675 11.5664C17.3625 12.0952 18.165 12.8864 18.585 13.8689C19.1738 15.2377 19.23 17.4614 17.4488 19.2389C16.0913 20.5964 14.4375 21.2077 12.1013 21.2264H12.09C9.4575 21.2077 7.43625 20.3227 6.075 18.5939C4.86375 17.0564 4.24125 14.9152 4.21875 12.2339V12.2152C4.2375 9.53391 4.86 7.39266 6.07125 5.85516C7.4325 4.12641 9.4575 3.24141 12.09 3.22266H12.1013C14.7375 3.24141 16.785 4.12266 18.1875 5.84391C18.8775 6.69516 19.3875 7.71891 19.71 8.90766L18.195 9.31266C17.9288 8.34516 17.5275 7.52016 16.9875 6.86016C15.8925 5.51766 14.25 4.82766 12.0938 4.81266C9.95625 4.83141 8.34 5.51766 7.28625 6.85266C6.30375 8.10141 5.79375 9.90891 5.775 12.2227C5.79375 14.5364 6.30375 16.3439 7.28625 17.5964C8.33625 18.9314 9.95625 19.6177 12.0938 19.6364C14.0213 19.6214 15.2963 19.1639 16.3575 18.1027C17.5688 16.8952 17.5463 15.4102 17.16 14.5064C16.9313 13.9739 16.5188 13.5314 15.9638 13.1977C15.825 14.2064 15.5213 15.0089 15.0375 15.6277C14.3963 16.4452 13.485 16.8877 12.3112 16.9514C11.4262 17.0002 10.575 16.7864 9.915 16.3514C9.135 15.8339 8.6775 15.0464 8.62875 14.1277C8.535 12.3164 9.9675 11.0152 12.1988 10.8877C12.99 10.8427 13.7325 10.8764 14.4188 10.9927C14.3288 10.4377 14.145 9.99516 13.8713 9.67266C13.4963 9.23391 12.9113 9.00891 12.1388 9.00516H12.1125C11.49 9.00516 10.65 9.17766 10.1138 9.99141L8.82375 9.10641C9.54375 8.01516 10.71 7.41516 12.1163 7.41516H12.1463C14.4938 7.43016 15.8925 8.89641 16.035 11.4539L16.0275 11.4614H16.0312ZM10.1813 14.0414C10.23 14.9827 11.2463 15.4214 12.2288 15.3652C13.1888 15.3127 14.2763 14.9377 14.46 12.6202C13.965 12.5114 13.4175 12.4552 12.8325 12.4552C12.6525 12.4552 12.4725 12.4589 12.2925 12.4702C10.6837 12.5602 10.1475 13.3402 10.185 14.0377L10.1813 14.0414Z"
-                  fill="var(--icon-icon-subdued, #adbad9)"
-                />
-              </svg>
-            </a>
-            <a
-              href="https://reddit.com/r/cabinsocial"
-              class="hover:opacity-100 transition-opacity"
-            >
-              <svg
-                class="shrink-0 w-6 h-6 relative overflow-visible hover:fill-[#00B576]"
-                style="aspect-ratio: 1"
-                width="24"
-                height="25"
-                viewBox="0 0 24 25"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M2.40039 12.223C2.40039 6.92055 6.69789 2.62305 12.0004 2.62305C17.3029 2.62305 21.6004 6.92055 21.6004 12.223C21.6004 17.5255 17.3029 21.823 12.0004 21.823H3.79164C3.27789 21.823 3.02289 21.2043 3.38289 20.8405L5.21289 19.0105C3.47664 17.2743 2.40039 14.8743 2.40039 12.223ZM15.5104 8.38305C16.3954 8.38305 17.1116 7.6668 17.1116 6.7818C17.1116 5.8968 16.3954 5.18055 15.5104 5.18055C14.7379 5.18055 14.0929 5.72805 13.9429 6.45555C12.6491 6.5943 11.6404 7.69305 11.6404 9.02055V9.02805C10.2341 9.08805 8.94789 9.4893 7.92789 10.1193C7.54914 9.8268 7.07289 9.65055 6.55914 9.65055C5.32164 9.65055 4.31664 10.6555 4.31664 11.893C4.31664 12.793 4.84539 13.5655 5.60664 13.9218C5.68164 16.5243 8.51664 18.6168 12.0041 18.6168C15.4916 18.6168 18.3304 16.5205 18.4016 13.918C19.1591 13.558 19.6804 12.7855 19.6804 11.893C19.6804 10.6555 18.6754 9.65055 17.4379 9.65055C16.9241 9.65055 16.4516 9.82305 16.0729 10.1155C15.0454 9.47805 13.7441 9.0768 12.3229 9.0243V9.0168C12.3229 8.0643 13.0316 7.27305 13.9504 7.14555C14.1154 7.85055 14.7491 8.37555 15.5066 8.37555L15.5104 8.38305ZM9.04164 11.8818C9.66789 11.8818 10.1479 12.5418 10.1104 13.3555C10.0729 14.1693 9.60414 14.4655 8.97414 14.4655C8.34414 14.4655 7.79664 14.1355 7.83414 13.3218C7.87164 12.508 8.41164 11.8855 9.03789 11.8855L9.04164 11.8818ZM16.1704 13.318C16.2079 14.1318 15.6566 14.4618 15.0304 14.4618C14.4041 14.4618 13.9316 14.1655 13.8941 13.3518C13.8566 12.538 14.3366 11.878 14.9629 11.878C15.5891 11.878 16.1329 12.5005 16.1666 13.3143L16.1704 13.318ZM14.3666 15.4443C13.9804 16.3668 13.0691 17.0155 12.0041 17.0155C10.9391 17.0155 10.0279 16.3668 9.64164 15.4443C9.59664 15.3355 9.67164 15.2118 9.78789 15.2005C10.4779 15.1293 11.2241 15.0918 12.0041 15.0918C12.7841 15.0918 13.5304 15.1293 14.2204 15.2005C14.3366 15.2118 14.4116 15.3355 14.3666 15.4443Z"
-                  fill="var(--icon-icon-subdued, #adbad9)"
-                />
-              </svg>
-            </a>
+              <path
+                d="M2.40002 11.9999C2.40002 6.6974 6.69752 2.3999 12 2.3999C17.3025 2.3999 21.6 6.6974 21.6 11.9999C21.6 17.3024 17.3025 21.5999 12 21.5999H3.79127C3.27752 21.5999 3.02252 20.9812 3.38252 20.6174L5.21252 18.7874C3.47627 17.0512 2.40002 14.6512 2.40002 11.9999ZM15.51 8.1599C16.395 8.1599 17.1113 7.44365 17.1113 6.55865C17.1113 5.67365 16.395 4.9574 15.51 4.9574C14.7375 4.9574 14.0925 5.5049 13.9425 6.2324C12.6488 6.37115 11.64 7.4699 11.64 8.7974V8.8049C10.2338 8.8649 8.94752 9.26615 7.92752 9.89615C7.54877 9.60365 7.07252 9.4274 6.55877 9.4274C5.32127 9.4274 4.31627 10.4324 4.31627 11.6699C4.31627 12.5699 4.84502 13.3424 5.60627 13.6987C5.68127 16.3012 8.51627 18.3937 12.0038 18.3937C15.4913 18.3937 18.33 16.2974 18.4013 13.6949C19.1588 13.3349 19.68 12.5624 19.68 11.6699C19.68 10.4324 18.675 9.4274 17.4375 9.4274C16.9238 9.4274 16.4513 9.5999 16.0725 9.8924C15.045 9.2549 13.7438 8.85365 12.3225 8.80115V8.79365C12.3225 7.84115 13.0313 7.0499 13.95 6.9224C14.115 7.6274 14.7488 8.1524 15.5063 8.1524L15.51 8.1599ZM9.04127 11.6587C9.66752 11.6587 10.1475 12.3187 10.11 13.1324C10.0725 13.9462 9.60377 14.2424 8.97377 14.2424C8.34377 14.2424 7.79627 13.9124 7.83377 13.0987C7.87127 12.2849 8.41127 11.6624 9.03752 11.6624L9.04127 11.6587ZM16.17 13.0949C16.2075 13.9087 15.6563 14.2387 15.03 14.2387C14.4038 14.2387 13.9313 13.9424 13.8938 13.1287C13.8563 12.3149 14.3363 11.6549 14.9625 11.6549C15.5888 11.6549 16.1325 12.2774 16.1663 13.0912L16.17 13.0949ZM14.3663 15.2212C13.98 16.1437 13.0688 16.7924 12.0038 16.7924C10.9388 16.7924 10.0275 16.1437 9.64127 15.2212C9.59627 15.1124 9.67127 14.9887 9.78752 14.9774C10.4775 14.9062 11.2238 14.8687 12.0038 14.8687C12.7838 14.8687 13.53 14.9062 14.22 14.9774C14.3363 14.9887 14.4113 15.1124 14.3663 15.2212Z"
+                fill="#ACBCF5"
+              />
+            </svg>
+          </a>
         </div>
       </div>
+    </div>
   </body>
 </html>

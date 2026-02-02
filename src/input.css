@@ -7,21 +7,21 @@
    ============================================ */
 :root {
   /* Colors */
-  --color-primary: #00B576;
+  --color-primary: #00b576;
   --color-primary-dark: #008657;
   --color-primary-darker: #006d45;
-  --color-primary-light: #00754C;
-  
-  --color-bg-primary: #10141F;
-  --color-bg-secondary: #161C29;
+  --color-primary-light: #00754c;
+
+  --color-bg-primary: #10141f;
+  --color-bg-secondary: #161c29;
   --color-bg-tertiary: #131824;
   --color-bg-base: #0c0f16;
-  
-  --color-border: #1F283B;
-  --color-text-base: #FFFFFF;
-  --color-text-subdued: #97A3BF;
-  --color-text-muted: #ADBAD9;
-  
+
+  --color-border: #1f283b;
+  --color-text-base: #ffffff;
+  --color-text-subdued: #97a3bf;
+  --color-text-muted: #adbad9;
+
   /* Spacing */
   --spacing-xs: 0.25rem;
   --spacing-sm: 0.5rem;
@@ -30,17 +30,17 @@
   --spacing-xl: 2rem;
   --spacing-2xl: 2.5rem;
   --spacing-3xl: 4rem;
-  
+
   /* Border Radius */
   --radius-sm: 0.75rem;
   --radius-md: 1rem;
   --radius-lg: 1.5rem;
-  
+
   /* Transitions */
   --transition-fast: 0.2s ease;
   --transition-base: 0.3s ease;
   --transition-slow: 0.5s ease;
-  
+
   /* Shadows */
   --shadow-glow: 0 0 10px rgba(0, 181, 118, 0.1);
 }
@@ -64,6 +64,21 @@ body {
   background: #111524;
 }
 
+/* H1 Global Styling - Responsive */
+h1 {
+  font-size: 2.15rem; /* Mobile default */
+  font-weight: 600; /* semi-bold */
+  line-height: 1.1; /* 110% */
+  letter-spacing: -0.02em; /* -2% */
+}
+
+@media (min-width: 1024px) {
+  h1 {
+    font-size: 3.25rem; /* 52px on desktop */
+    color: #e4e9ff;
+  }
+}
+
 /* H2 Global Styling - Responsive */
 h2 {
   font-size: 1.75rem; /* 28px on mobile */
@@ -80,8 +95,9 @@ h2 {
 
 @media (min-width: 1024px) {
   h2 {
-    font-size: 2.5rem; /* 40px on large screens */
-    line-height: 1; /* 100% */
+    font-size: 3rem; /* 48px on desktop */
+    line-height: 1.1; /* 110% */
+    color: #e4e9ff;
   }
 }
 /* ============================================
@@ -109,14 +125,9 @@ h2 {
 
 /* Card Styles */
 .card-base {
-  background-color: #0E111C;
-  border: 1px solid #20253D;
-  border-radius: var(--radius-md);
-  padding: 1rem;
-}
-
-.card-base:hover {
-  background-color: #0D101A;
+  background-color: #0d101c;
+  border-bottom: 1px solid #1c2238;
+  padding: 2rem;
 }
 
 /* Feature Card */
@@ -128,6 +139,11 @@ h2 {
   text-align: left;
   border-radius: 1rem;
   padding: 1.25rem;
+  transition: background-color var(--transition-base);
+}
+
+.feature-card:hover {
+  background-color: #111524;
 }
 
 @media (min-width: 640px) {
@@ -163,7 +179,7 @@ h2 {
 }
 
 .feature-card-description {
-  color: #ACBCF5;
+  color: #8e9ccb;
   font-size: 1.125rem;
   font-weight: normal;
   line-height: 1.6;
@@ -184,6 +200,20 @@ h2 {
   gap: var(--spacing-sm);
   max-width: 600px;
   width: 100%;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.faq-item:last-child {
+  border-bottom: none;
+}
+
+.faq-item svg {
+  transition: transform 0.3s ease;
+}
+
+.faq-item svg.rotate-180 {
+  transform: rotate(180deg);
 }
 
 /* FAQ Card */
@@ -200,6 +230,18 @@ h2 {
   font-size: 1.125rem;
   font-weight: 500;
   line-height: 1.5;
+  max-height: 0;
+  overflow: hidden;
+  transition:
+    max-height 0.3s ease,
+    margin-top 0.3s ease,
+    opacity 0.3s ease;
+  opacity: 0;
+}
+
+.faq-answer:not(.hidden) {
+  max-height: 500px;
+  opacity: 1;
 }
 
 /* ============================================
@@ -231,25 +273,7 @@ h2 {
   color: var(--color-primary-dark);
 }
 
-/* Sticky Navigation */
-.sticky-nav {
-  background-color: #0D101C;
-  border: 1px solid #1B2136;
-  border-radius: 1000px;
-  padding: 4px;
-  padding-left: 12px;
-  height: 88px !important;
-  max-width: 1280px !important;
-}
-
-/* Logo styling with smooth transition */
-nav svg {
-  height: 25px;
-  width: auto;
-  transition: height 0.4s ease;
-}
-
-/* Logo resize when navigation is sticky */
-.sticky-nav svg {
-  height: 22px;
+/* Navigation Border */
+header {
+  border-bottom: 1px solid #1c2238;
 }

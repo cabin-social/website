@@ -36,6 +36,7 @@ The form was migrated from Klaviyo to MailerLite with:
    - `MAILERLITE_GROUP_ID`: Your Group ID from step 2
 
    Example:
+
    ```
    MAILERLITE_API_KEY=eyJ0eXAiOiJKV1QiLCJhbGc...
    MAILERLITE_GROUP_ID=123456789
@@ -77,16 +78,19 @@ After deploying, submit a test email through your live site and verify it appear
 ## Troubleshooting
 
 ### Form shows error message:
+
 - Check that environment variables are set correctly in Netlify
 - Verify your API key is valid and has the correct permissions
 - Check the Netlify function logs for detailed error messages
 
 ### Form shows success but no submissions in MailerLite:
+
 - Verify the Group ID is correct
 - Check that the group exists and is active in MailerLite
 - Look at the MailerLite activity log for the subscriber
 
 ### API Key Issues:
+
 - Make sure you're using the API key from the Developer API section
 - Ensure the key hasn't expired or been revoked
 - Try generating a new API key if issues persist
