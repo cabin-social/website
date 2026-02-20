@@ -115,10 +115,14 @@ document.addEventListener('DOMContentLoaded', function () {
           emailInput.value = '';
 
           // Track conversion in Umami
-          if (typeof window.umami !== 'undefined') {
-            window.umami.track('waitlist-signup', {
-              location: form.dataset.formLocation || 'unknown',
-            });
+          try {
+            if (typeof umami !== 'undefined') {
+              umami.track('waitlist-signup', {
+                location: form.dataset.formLocation || 'unknown',
+              });
+            }
+          } catch (e) {
+            console.warn('[Umami] Tracking failed:', e);
           }
 
           // Show success banner
