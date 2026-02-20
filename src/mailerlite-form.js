@@ -114,6 +114,13 @@ document.addEventListener('DOMContentLoaded', function () {
           submitButton.style.backgroundColor = '#24775A';
           emailInput.value = '';
 
+          // Track conversion in Umami
+          if (typeof window.umami !== 'undefined') {
+            window.umami.track('waitlist-signup', {
+              location: form.dataset.formLocation || 'unknown',
+            });
+          }
+
           // Show success banner
           showSuccessBanner();
 
