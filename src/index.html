@@ -89,7 +89,7 @@
     ></script>
   </head>
 
-  <body class="overflow-x-hidden">
+  <body class="overflow-x-hidden bg-[#111524]">
     <header class="z-50 sticky top-0 bg-[#111524]">
       <!--Top Navigation-->
       <nav
@@ -274,18 +274,21 @@
                 >
                   <a
                     href="#our-story"
+                    onclick="document.getElementById('mobile-menu').close()"
                     class="text-[1.25rem] font-normal text-[#7780A3] hover:underline hover:decoration-dotted hover:text-white"
                   >
                     Our story
                   </a>
                   <a
                     href="#how-were-different"
+                    onclick="document.getElementById('mobile-menu').close()"
                     class="text-[1.25rem] font-normal text-[#7780A3] hover:underline hover:decoration-dotted hover:text-white"
                   >
                     How we're different
                   </a>
                   <a
                     href="#faq"
+                    onclick="document.getElementById('mobile-menu').close()"
                     class="text-[1.25rem] font-normal text-[#7780A3] hover:underline hover:decoration-dotted hover:text-white"
                   >
                     Frequent questions
@@ -336,7 +339,7 @@
             <h1
               class="text-[#E4E9FF] font-semibold leading-[110%] max-w-[800px] mx-auto"
             >
-              Meet Cabin—the open-source, privacy-focused social network
+              Cabin—the open-source, privacy-focused alternative to Facebook
             </h1>
             <p class="text-[#8E9CCB] text-[22px] font-medium leading-[150%]">
               Join the early access list—we're launching Summer 2026
@@ -346,18 +349,18 @@
           <!-- Email Subscription Form -->
           <div id="waitlist-hero" class="mt-6 flex justify-center w-full">
             <form
-              class="waitlist-form flex flex-col sm:flex-row items-center max-w-lg w-full gap-3 sm:gap-0 sm:bg-[#101321] sm:border sm:border-[#1F253D] sm:rounded-full sm:p-1"
+              class="waitlist-form flex flex-col sm:flex-row items-center max-w-lg w-full gap-3 sm:gap-0 sm:bg-[#101321] sm:border sm:border-[#1F253D] sm:hover:border-[#293252] sm:transition-[border-color] sm:duration-200 sm:rounded-full sm:p-1"
               data-form-location="hero"
             >
               <input
                 type="email"
                 placeholder="Your email address"
-                class="w-full sm:flex-1 bg-[#161B2E] sm:bg-transparent h-[56px] px-6 py-3 text-white text-[1rem] sm:text-[1.125rem] leading-[150%] font-normal placeholder-[#ACBCF5] sm:placeholder-[#8E9CCB] border border-[#1F253D] sm:border-0 focus:outline-none focus:ring-2 focus:border-[#008657] sm:focus:ring-0 rounded-full"
+                class="w-full sm:flex-1 bg-[#161B2E] sm:bg-transparent h-[56px] px-6 py-3 text-white text-[1rem] sm:text-[1.125rem] leading-[150%] font-normal placeholder-[#ACBCF5] sm:placeholder-[#8E9CCB] border border-[#1F253D] sm:border-0 hover:border-[#293252] focus:outline-none focus:ring-2 focus:border-[#008657] sm:focus:ring-0 rounded-full transition-[border-color] duration-200"
                 required
               />
               <button
                 type="submit"
-                class="w-full sm:w-auto text-[1.125rem] px-6 py-3 h-[56px] bg-[#008053] text-white font-medium hover:bg-[#006d45] leading-[150%] focus:outline-none focus:ring-2 focus:ring-[#008657] focus:ring-offset-2 focus:ring-offset-[#171D2B] sm:focus:ring-0 sm:focus:ring-offset-0 whitespace-nowrap rounded-full"
+                class="w-full sm:w-auto text-[1.125rem] px-6 py-3 h-[56px] bg-[#008053] text-white font-medium hover:bg-[#006d45] leading-[150%] focus:outline-none focus:ring-2 focus:ring-[#008657] focus:ring-offset-2 focus:ring-offset-[#171D2B] sm:focus:ring-0 sm:focus:ring-offset-0 whitespace-nowrap rounded-full transition-colors duration-200"
               >
                 Join the waitlist
               </button>
@@ -409,7 +412,7 @@
       </div>
 
       <!-- App Preview Image-->
-      <div class="content-center bg-[#111524] mt-16">
+      <div class="content-center bg-[#111524] mt-16 px-4 sm:px-0">
         <!-- Desktop Image -->
         <img
           class="hidden sm:block px-0 sm:px-16 mb-32 mt-28 relative object-cover w-full max-w-[1312px] mx-auto overflow-hidden"
@@ -418,8 +421,8 @@
         />
         <!-- Mobile Image -->
         <img
-          class="block sm:hidden relative object-cover w-full mb-8 overflow-hidden w-[100%]"
-          src="mobile_preview.webp"
+          class="block sm:hidden relative object-cover w-full mb-8 overflow-hidden"
+          src="mobile-preview.webp"
           alt="A preview of Cabin's user interface"
         />
       </div>
@@ -427,69 +430,31 @@
       <!-- Our Story Section -->
       <div
         id="our-story"
-        class="bg-[#0D101C] border-t border-b border-[#1C2238] py-12 sm:py-20"
+        class="bg-[#111524] border-t border-b border-[#1A1F33] py-16 sm:py-[128px] px-4 sm:px-16"
+        style="box-shadow: inset 0px 32px 32px 0px rgba(0, 0, 0, 0.03)"
       >
-        <div class="mx-auto max-w-[560px] px-4 sm:px-16">
-          <div class="flex flex-col gap-6">
-            <h2
-              class="text-[#E4E9FF] text-[36px] font-semibold leading-[110%] tracking-[-0.02em]"
-            >
-              Our story
-            </h2>
-            <p class="text-[#8E9CCB] text-[18px] font-normal leading-[170%]">
-              We're on a mission to disrupt social networking, with goals that
-              are nothing short of world-changing. Toxic capitalism is steadily
-              eroding the integrity of major social platforms—and the negative
-              impacts to society are becoming clear:
-            </p>
-            <p class="text-[#8E9CCB] text-[18px] font-normal leading-[170%]">
-              <span class="text-[#E4E9FF] font-medium">Misinformation:</span>
-              social platforms are failing to identify and mark misinformation;
-              additionally, there is little accountability for accounts that
-              repeatedly share misinformation. It is becoming increasingly
-              difficult to discern fact from fiction.
-            </p>
-            <p class="text-[#8E9CCB] text-[18px] font-normal leading-[170%]">
-              <span class="text-[#E4E9FF] font-medium"
-                >A.I.-generated content:</span
-              >
-              Similar to misinformation, A.I. images and videos are posted and
-              shared with no label indicating as much, which can further
-              distance users from reality.
-            </p>
-            <p class="text-[#8E9CCB] text-[18px] font-normal leading-[170%]">
-              <span class="text-[#E4E9FF] font-medium"
-                >Manipulative algorithms:</span
-              >
-              platforms leverage manipulative algorithms to keep users engaged
-              as frequently as possible.
-            </p>
-            <p class="text-[#8E9CCB] text-[18px] font-normal leading-[170%]">
-              <span class="text-[#E4E9FF] font-medium"
-                >Political influence:</span
-              >
-              unfortunately, some platforms have fallen to political lobbying,
-              and that isn't acceptable regardless of party affiliation.
-            </p>
-            <p class="text-[#8E9CCB] text-[18px] font-normal leading-[170%]">
-              Cabin is our response to the current state of social platforms.
-              It's an open-source, privacy-focused social network designed for
-              users, not corporate stakeholders or politicians.
-            </p>
-            <p class="text-[#8E9CCB] text-[18px] font-normal leading-[170%]">
-              We are actively developing Cabin and hope to release an MVP by
-              early summer of 2026. If you are also saddened with the current
-              state of social networking, we'd love for you to join the
-              waitlist, because we're building this for folks like you.
-            </p>
-            <p class="text-[#8E9CCB] text-[18px] font-normal leading-[170%]">
-              For investment or media inquires, please reach out to
-              <a
-                href="mailto:founders@cabin.social"
-                class="text-[#00B576] font-semibold"
-                >founders@cabin.social</a
-              >
-            </p>
+        <div class="mx-auto max-w-[600px] flex flex-col items-center gap-6">
+          <h2
+            class="text-[#E4E9FF] font-semibold leading-[1.1em] tracking-[-0.02em] text-left w-full"
+            style="font-size: clamp(32px, 5vw, 48px)"
+          >
+            Let's talk about how we found ourselves here
+          </h2>
+          <div
+            class="text-[#8E9CCB] font-normal leading-[1.7em] text-left w-full flex flex-col gap-[16px]"
+            style="font-size: clamp(18px, 2.5vw, 22px)"
+          >
+            <p>Most social networking platforms shifted away from user-centric design years ago. Why, you ask? Because they care more about driving revenue and pleasing billionaire stakeholders than providing their users with a safe space to connect.</p>
+            <p>For years toxic capitalism has steadily eroded the integrity of social platforms, and the impacts to society are clear.</p>
+            <ol class="list-decimal pl-6 flex flex-col gap-[16px]">
+              <li><span class="font-semibold" style="color: hsla(229, 100%, 94%, 1)">Misinformation:</span> misinformation has steadily eroded our digital world for years, largely because social platforms have failed to prioritize the identification and labeling of false information. Furthermore, accounts operated by media outlets, governmental bodies, politicians, and influencers have historically not been held to a higher standard—that ends with Cabin.</li>
+              <li><span class="font-semibold" style="color: hsla(229, 100%, 94%, 1)">A.I.-generated content:</span> we love the advancements that have been made in artificial intelligence, but also recognize the potential dangers of A.I.-generated images and videos.</li>
+              <li><span class="font-semibold" style="color: hsla(229, 100%, 94%, 1)">Manipulative algorithms:</span> platforms leverage manipulative algorithms to keep users engaged as frequently as possible, because they don't earn money when users are offline.</li>
+              <li><span class="font-semibold" style="color: hsla(229, 100%, 94%, 1)">Political influence:</span> unfortunately, some platforms have caved to political influence, and that isn't acceptable regardless of party affiliation.</li>
+            </ol>
+            <p>Cabin is our response to the abysmal state of social platforms. It's an open-source, privacy-focused social network designed for users, not corporate stakeholders or politicians, and will serve as an ethical alternative to Facebook.</p>
+            <p>We are actively developing Cabin and plan to release initially with early access in Summer 2026. If you are also saddened with the current state of social networking, we'd love for you to join the waitlist, because we're building this for people like you.</p>
+            <p>Thank you!</p>
           </div>
         </div>
       </div>
@@ -686,7 +651,8 @@
     <!-- FAQ Section -->
     <div
       id="faq"
-      class="bg-[#0D101C] border-t border-b border-[#1C2238] py-16 sm:py-32"
+      class="border-t border-b border-[#1A1F33] py-16 sm:py-32"
+      style="box-shadow: inset 0px 32px 32px 0px rgba(0, 0, 0, 0.03)"
     >
       <div class="mx-auto max-w-[800px] px-4 sm:px-16">
         <div class="flex flex-col items-center gap-10">
@@ -726,7 +692,7 @@
           <div class="flex flex-col items-center w-full">
             <!-- FAQ Item 1 -->
             <div
-              class="faq-item w-full max-w-[600px] border-b border-[#1C2238] py-8 px-4 bg-[#0D101C]"
+              class="faq-item w-full max-w-[600px] border-b border-[#1C2238] py-8 px-4 bg-[#111524]"
             >
               <button
                 class="faq-question-btn flex justify-between items-center w-full gap-2 cursor-pointer"
@@ -767,7 +733,7 @@
 
             <!-- FAQ Item 2 (Expanded) -->
             <div
-              class="faq-item w-full max-w-[600px] border-b border-[#1C2238] py-8 px-4 bg-[#101321]"
+              class="faq-item w-full max-w-[600px] border-b border-[#1C2238] py-8 px-4 bg-[#111524]"
             >
               <button
                 class="faq-question-btn flex justify-between items-center w-full gap-2 cursor-pointer"
@@ -804,7 +770,7 @@
 
             <!-- FAQ Item 3 -->
             <div
-              class="faq-item w-full max-w-[600px] border-b border-[#1C2238] py-8 px-4 bg-[#101321]"
+              class="faq-item w-full max-w-[600px] border-b border-[#1C2238] py-8 px-4 bg-[#111524]"
             >
               <button
                 class="faq-question-btn flex justify-between items-center w-full gap-2 cursor-pointer"
@@ -839,7 +805,7 @@
             </div>
 
             <!-- FAQ Item 4 -->
-            <div class="faq-item w-full max-w-[600px] py-8 px-4 bg-[#101321]">
+            <div class="faq-item w-full max-w-[600px] py-8 px-4 bg-[#111524]">
               <button
                 class="faq-question-btn flex justify-between items-center w-full gap-2 cursor-pointer"
                 onclick="toggleFaq(this)"

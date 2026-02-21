@@ -194,7 +194,6 @@ h2 {
 
 /* FAQ Item */
 .faq-item {
-  @apply card-base;
   display: flex;
   flex-direction: column;
   gap: var(--spacing-sm);
