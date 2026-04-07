@@ -27,23 +27,25 @@ import ScrollIndicator from "../components/ScrollIndicator.astro";
                 class="flex flex-row items-stretch flex-1 min-h-0 gap-16 px-16 max-[1100px]:gap-10 max-[1100px]:px-10 max-[900px]:flex-col max-[900px]:overflow-y-auto max-[900px]:gap-8 max-[900px]:px-6 max-[900px]:pt-6 max-[900px]:pb-10 max-[600px]:px-5 max-[600px]:pt-6 max-[600px]:pb-6"
             >
                 <!-- Hero image -->
-                <picture
-                    class="shrink-0 self-stretch min-h-0 object-cover object-top w-[468px] max-h-[600px] mt-16 rounded-2xl max-[1100px]:w-[380px] max-[900px]:w-full max-[900px]:h-[340px] max-[900px]:mt-0"
+                <div
+                    class="shrink-0 self-stretch min-h-0 flex items-start pt-16 w-[468px] max-[1100px]:w-[380px] max-[900px]:w-full max-[900px]:pt-0"
                 >
-                    <source
-                        srcset="/images/platform-preview.avif"
-                        type="image/avif"
-                    />
-                    <source
-                        srcset="/images/platform-preview.webp"
-                        type="image/webp"
-                    />
-                    <img
-                        src="/images/platform-preview.png"
-                        alt="Cabin app screenshot"
-                        class="shrink-0 self-stretch min-h-0 object-cover object-top w-[468px] max-h-[600px] mt-16 rounded-2xl max-[1100px]:w-[380px] max-[900px]:w-full max-[900px]:h-[340px] max-[900px]:mt-0"
-                    />
-                </picture>
+                    <picture class="w-full">
+                        <source
+                            srcset="/images/platform-preview.avif"
+                            type="image/avif"
+                        />
+                        <source
+                            srcset="/images/platform-preview.webp"
+                            type="image/webp"
+                        />
+                        <img
+                            src="/images/platform-preview.png"
+                            alt="Cabin app screenshot"
+                            class="w-full max-h-[600px] object-cover object-top rounded-2xl max-[900px]:h-[340px]"
+                        />
+                    </picture>
+                </div>
 
                 <!-- Content: scrollable column -->
                 <div
