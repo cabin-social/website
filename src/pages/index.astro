@@ -21,11 +21,19 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
         >
             <!-- Hero row: fills remaining height -->
             <section
-                class="flex flex-row items-stretch flex-1 min-h-0 gap-16 px-16 overflow-hidden max-[1100px]:gap-10 max-[1100px]:px-10 max-[900px]:flex-col max-[900px]:h-auto max-[900px]:overflow-y-auto max-[900px]:gap-8 max-[900px]:px-5 max-[900px]:py-10 max-[900px]:items-center max-[600px]:py-6"
+                class="flex flex-row items-stretch flex-1 min-h-0 gap-16 px-16 overflow-hidden max-[1100px]:gap-10 max-[1100px]:px-10 max-[900px]:flex-col max-[900px]:h-auto max-[900px]:overflow-x-hidden max-[900px]:overflow-y-auto max-[900px]:gap-8 max-[900px]:px-5 max-[900px]:py-10 max-[900px]:items-center max-[600px]:py-6"
             >
+                <!-- Mobile hero image (hidden on desktop) -->
+                <img
+                    src="/images/mobile-hero-homepage.png"
+                    alt="Cabin app screenshots"
+                    class="hidden max-[900px]:block shrink-0 object-cover object-center"
+                    style="height: 248px; width: 100vw; margin-left: -1.25rem; margin-right: -1.25rem; max-width: none;"
+                />
+
                 <!-- Photo grid: two columns, clips vertically via overflow:hidden on section -->
                 <div
-                    class="flex flex-row items-center justify-center gap-6 shrink-0 self-stretch min-h-0 overflow-hidden rounded-xl max-[900px]:h-[420px] max-[900px]:self-auto max-[900px]:w-full max-[900px]:gap-4 max-[600px]:h-[340px] max-[600px]:gap-3"
+                    class="flex flex-row items-center justify-center gap-6 shrink-0 self-stretch min-h-0 overflow-hidden rounded-xl max-[900px]:hidden"
                 >
                     <!-- Column 1: 4 images -->
                     <div
