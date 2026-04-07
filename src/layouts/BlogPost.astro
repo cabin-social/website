@@ -91,12 +91,12 @@ const linkedinShare = `https://www.linkedin.com/sharing/share-offsite/?url=${enc
                         >
                             Share this article
                         </p>
-                        <div class="flex gap-4">
+                        <div class="flex items-center gap-4">
                             <a
                                 href={blueskyShare}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                class="text-secondary hover:text-primary transition-colors"
+                                class="text-secondary hover:text-primary transition-colors inline-flex items-center"
                                 aria-label="Share on Bluesky"
                             >
                                 <svg
@@ -105,7 +105,6 @@ const linkedinShare = `https://www.linkedin.com/sharing/share-offsite/?url=${enc
                                     viewBox="0 0 24 24"
                                     fill="none"
                                     xmlns="http://www.w3.org/2000/svg"
-                                    style="vertical-align: middle;"
                                 >
                                     <path
                                         d="M16.4927 13.4515C16.3689 13.4365 16.2414 13.4215 16.1177 13.4027C16.2452 13.4177 16.3689 13.4365 16.4927 13.4515ZM12.0002 10.9165C11.0214 9.01524 8.35895 5.47149 5.88395 3.72399C3.5102 2.04774 2.60645 2.33649 2.0102 2.60649C1.32395 2.91774 1.2002 3.97149 1.2002 4.59024C1.2002 5.20899 1.54145 9.67524 1.7627 10.4215C2.49395 12.8852 5.10395 13.7177 7.5077 13.4477C7.63145 13.429 7.7552 13.414 7.8827 13.3952C7.75895 13.414 7.6352 13.4327 7.5077 13.4477C3.98645 13.9727 0.858945 15.2552 4.96145 19.819C9.4727 24.4915 11.1414 18.8177 12.0002 15.9415C12.8589 18.8177 13.8452 24.2852 18.9602 19.819C22.8002 15.9415 20.0139 13.969 16.4927 13.4477C16.3689 13.4327 16.2414 13.4177 16.1177 13.399C16.2452 13.414 16.3689 13.4327 16.4927 13.4477C18.8964 13.714 21.5027 12.8815 22.2377 10.4215C22.4589 9.67524 22.8002 5.21274 22.8002 4.59024C22.8002 3.96774 22.6764 2.91399 21.9902 2.60649C21.3977 2.34024 20.4902 2.04774 18.1202 3.72399C15.6414 5.47149 12.9789 9.01524 12.0002 10.9165Z"
@@ -116,7 +115,7 @@ const linkedinShare = `https://www.linkedin.com/sharing/share-offsite/?url=${enc
                                 href={twitterShare}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                class="text-secondary hover:text-primary transition-colors text-[22px]"
+                                class="text-secondary hover:text-primary transition-colors text-[22px] inline-flex items-center"
                                 aria-label="Share on X (Twitter)"
                             >
                                 <i class="fa-brands fa-x-twitter"></i>
@@ -125,7 +124,7 @@ const linkedinShare = `https://www.linkedin.com/sharing/share-offsite/?url=${enc
                                 href={facebookShare}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                class="text-secondary hover:text-primary transition-colors text-[22px]"
+                                class="text-secondary hover:text-primary transition-colors text-[22px] inline-flex items-center"
                                 aria-label="Share on Facebook"
                             >
                                 <i class="fa-brands fa-facebook"></i>
@@ -134,14 +133,14 @@ const linkedinShare = `https://www.linkedin.com/sharing/share-offsite/?url=${enc
                                 href={linkedinShare}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                class="text-secondary hover:text-primary transition-colors text-[22px]"
+                                class="text-secondary hover:text-primary transition-colors text-[22px] inline-flex items-center"
                                 aria-label="Share on LinkedIn"
                             >
                                 <i class="fa-brands fa-linkedin"></i>
                             </a>
                             <button
                                 id="copy-link"
-                                class="text-secondary hover:text-primary transition-colors text-[22px] cursor-pointer bg-transparent border-none p-0"
+                                class="text-secondary hover:text-primary transition-colors text-[22px] cursor-pointer bg-transparent border-none p-0 inline-flex items-center"
                                 aria-label="Copy link"
                             >
                                 <i class="fa-regular fa-copy"></i>
