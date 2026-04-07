@@ -1,49 +1,248 @@
 ---
-import BaseHead from '../components/BaseHead.astro';
-import Footer from '../components/Footer.astro';
-import Header from '../components/Header.astro';
-import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+import BaseHead from "../components/BaseHead.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 ---
 
 <!doctype html>
-<html lang="en">
-	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-	</head>
-	<body>
-		<Header />
-		<main>
-			<h1>🧑‍🚀 Hello, Astronaut!</h1>
-			<p>
-				Welcome to the official <a href="https://astro.build/">Astro</a> blog starter template. This template
-				serves as a lightweight, minimally-styled starting point for anyone looking to build a personal
-				website, blog, or portfolio with Astro.
-			</p>
-			<p>
-				This template comes with a few integrations already configured in your
-				<code>astro.config.mjs</code> file. You can customize your setup with
-				<a href="https://astro.build/integrations">Astro Integrations</a> to add tools like Tailwind,
-				React, or Vue to your project.
-			</p>
-			<p>Here are a few ideas on how to get started with the template:</p>
-			<ul>
-				<li>Edit this page in <code>src/pages/index.astro</code></li>
-				<li>Edit the site header items in <code>src/components/Header.astro</code></li>
-				<li>Add your name to the footer in <code>src/components/Footer.astro</code></li>
-				<li>Check out the included blog posts in <code>src/content/blog/</code></li>
-				<li>Customize the blog post page layout in <code>src/layouts/BlogPost.astro</code></li>
-			</ul>
-			<p>
-				Have fun! If you get stuck, remember to
-				<a href="https://docs.astro.build/">read the docs</a>
-				or <a href="https://astro.build/chat">join us on Discord</a> to ask questions.
-			</p>
-			<p>
-				Looking for a blog template with a bit more personality? Check out
-				<a href="https://github.com/Charca/astro-blog-template">astro-blog-template</a>
-				by <a href="https://twitter.com/Charca">Maxi Ferreira</a>.
-			</p>
-		</main>
-		<Footer />
-	</body>
+<html
+    lang="en"
+    class="h-screen overflow-hidden max-[900px]:h-auto max-[900px]:overflow-auto"
+>
+    <head>
+        <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+    </head>
+    <body class="bg-bg h-full flex flex-col max-[900px]:h-auto">
+        <Header />
+
+        <main
+            class="flex-1 min-h-0 w-full max-w-[1280px] mx-auto flex flex-col"
+        >
+            <!-- Hero row: fills remaining height -->
+            <section
+                class="flex flex-row items-stretch flex-1 min-h-0 gap-16 px-16 overflow-hidden max-[1100px]:gap-10 max-[1100px]:px-10 max-[900px]:flex-col max-[900px]:h-auto max-[900px]:overflow-y-auto max-[900px]:gap-8 max-[900px]:px-5 max-[900px]:py-10 max-[900px]:items-center max-[600px]:py-6"
+            >
+                <!-- Photo grid: two columns, clips vertically via overflow:hidden on section -->
+                <div
+                    class="flex flex-row items-center justify-center gap-6 shrink-0 self-stretch min-h-0 overflow-hidden rounded-xl max-[900px]:h-[420px] max-[900px]:self-auto max-[900px]:w-full max-[900px]:gap-4 max-[600px]:h-[340px] max-[600px]:gap-3"
+                >
+                    <!-- Column 1: 4 images -->
+                    <div
+                        class="flex flex-col gap-6 w-[222px] shrink-0 max-[1100px]:w-[180px] max-[900px]:w-[160px] max-[900px]:gap-4 max-[600px]:w-[140px] max-[600px]:gap-3"
+                    >
+                        <div
+                            class="w-[222px] h-[296px] rounded-2xl bg-cover bg-center bg-no-repeat shrink-0 relative photo-card max-[1100px]:w-[180px] max-[900px]:w-[160px] max-[900px]:h-[240px] max-[600px]:w-[140px] max-[600px]:h-[210px]"
+                            style="background-image: url('/images/photo-1.png')"
+                        >
+                        </div>
+                        <div
+                            class="w-[222px] h-[296px] rounded-2xl bg-cover bg-center bg-no-repeat shrink-0 relative photo-card max-[1100px]:w-[180px] max-[900px]:w-[160px] max-[900px]:h-[240px] max-[600px]:w-[140px] max-[600px]:h-[210px]"
+                            style="background-image: url('/images/photo-2.png')"
+                        >
+                        </div>
+                        <div
+                            class="w-[222px] h-[296px] rounded-2xl bg-cover bg-center bg-no-repeat shrink-0 relative photo-card max-[1100px]:w-[180px] max-[900px]:w-[160px] max-[900px]:h-[240px] max-[600px]:w-[140px] max-[600px]:h-[210px]"
+                            style="background-image: url('/images/photo-3.png')"
+                        >
+                        </div>
+                        <div
+                            class="w-[222px] h-[296px] rounded-2xl bg-cover bg-center bg-no-repeat shrink-0 relative photo-card max-[1100px]:w-[180px] max-[900px]:w-[160px] max-[900px]:h-[240px] max-[600px]:w-[140px] max-[600px]:h-[210px]"
+                            style="background-image: url('/images/photo-4.png')"
+                        >
+                        </div>
+                    </div>
+
+                    <!-- Column 2: 3 images -->
+                    <div
+                        class="flex flex-col gap-6 w-[222px] shrink-0 max-[1100px]:w-[180px] max-[900px]:w-[160px] max-[900px]:gap-4 max-[600px]:w-[140px] max-[600px]:gap-3"
+                    >
+                        <div
+                            class="w-[222px] h-[296px] rounded-2xl bg-cover bg-center bg-no-repeat shrink-0 relative photo-card max-[1100px]:w-[180px] max-[900px]:w-[160px] max-[900px]:h-[240px] max-[600px]:w-[140px] max-[600px]:h-[210px]"
+                            style="background-image: url('/images/photo-5.png')"
+                        >
+                        </div>
+                        <div
+                            class="w-[222px] h-[296px] rounded-2xl bg-cover bg-center bg-no-repeat shrink-0 relative max-[1100px]:w-[180px] max-[900px]:w-[160px] max-[900px]:h-[240px] max-[600px]:w-[140px] max-[600px]:h-[210px]"
+                            style="background-image: url('/images/photo-6.png')"
+                        >
+                        </div>
+                        <div
+                            class="w-[222px] h-[296px] rounded-2xl bg-cover bg-center bg-no-repeat shrink-0 relative photo-card max-[1100px]:w-[180px] max-[900px]:w-[160px] max-[900px]:h-[240px] max-[600px]:w-[140px] max-[600px]:h-[210px]"
+                            style="background-image: url('/images/photo-7.png')"
+                        >
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hero content: fills remaining width, vertically centered -->
+                <div
+                    class="flex flex-col justify-center items-stretch flex-1 gap-6 self-stretch max-[900px]:items-center max-[900px]:text-center"
+                >
+                    <!-- Heading group -->
+                    <div
+                        class="flex flex-col items-stretch gap-2 max-[900px]:items-center"
+                    >
+                        <h1
+                            class="font-bold text-[48px] leading-[1.1] text-primary m-0 max-[900px]:text-[36px] max-[600px]:text-[28px]"
+                        >
+                            Stay connected with the people you care about
+                        </h1>
+                        <p
+                            class="font-medium text-[20px] leading-[1.5] text-secondary m-0 max-[900px]:text-[18px] max-[600px]:text-[16px]"
+                        >
+                            Cabin is an open-source, privacy-focused social
+                            platform built on AT Protocol.
+                        </p>
+                    </div>
+
+                    <!-- Subscribe form + social icons -->
+                    <div
+                        class="flex flex-col items-stretch gap-6 max-[900px]:items-center max-[900px]:w-full"
+                        id="waitlist"
+                    >
+                        <!-- Email input row -->
+                        <label
+                            class="flex flex-row items-stretch gap-2 pt-2 pr-2 pb-2 pl-6 bg-bg-input border border-border rounded-2xl max-w-[500px] max-[900px]:w-full max-[900px]:max-w-full transition-colors hover:not-focus-within:border-[#272D52] focus-within:border-[#3C4680] cursor-text"
+                        >
+                            <form
+                                id="waitlist-form"
+                                class="flex flex-row items-center gap-2 w-full"
+                                action="#"
+                                method="post"
+                            >
+                                <input
+                                    id="waitlist-email"
+                                    class="flex-1 self-stretch bg-transparent border-none outline-none font-medium text-[18px] leading-[1.5] text-primary min-w-0 placeholder-[#7883BE] max-[600px]:text-[16px]"
+                                    type="email"
+                                    name="email"
+                                    placeholder="Your email address"
+                                    aria-label="Your email address"
+                                    required
+                                />
+                                <button
+                                    id="waitlist-btn"
+                                    type="submit"
+                                    class="inline-flex items-center justify-center p-4 bg-accent-dark text-white font-medium text-[18px] leading-[1.5] border border-transparent rounded-xl cursor-pointer whitespace-nowrap shrink-0 transition-colors hover:bg-[#01593A] hover:border-[#01734B] max-[600px]:text-[16px] max-[600px]:py-3 max-[600px]:px-5"
+                                >
+                                    Join the waitlist
+                                </button>
+                            </form>
+                        </label>
+
+                        <!-- Social icons -->
+                        <div class="flex flex-row items-center gap-6">
+                            <!-- Bluesky -->
+                            <a
+                                href="https://bsky.app/profile/cabinsocial.bsky.social"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                aria-label="Find us on Bluesky"
+                                class="flex items-center justify-center opacity-85 hover:opacity-100 transition-opacity no-underline"
+                            >
+                                <svg
+                                    class="block w-8 h-8"
+                                    width="32"
+                                    height="32"
+                                    viewBox="0 0 32 32"
+                                    fill="none"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                >
+                                    <path
+                                        d="M16.0001 14.555C14.6951 12.02 11.1451 7.29495 7.8451 4.96495C4.6801 2.72995 3.4751 3.11495 2.6801 3.47495C1.7651 3.88995 1.6001 5.29495 1.6001 6.11995C1.6001 6.94495 2.0551 12.9 2.3501 13.895C3.3251 17.18 6.8051 18.29 10.0101 17.93C10.1751 17.905 10.3401 17.885 10.5101 17.86C10.3451 17.885 10.1801 17.91 10.0101 17.93C5.3151 18.63 1.1451 20.34 6.6151 26.425C12.6301 32.655 14.8551 25.09 16.0001 21.255C17.1451 25.09 18.4601 32.38 25.2801 26.425C30.4001 21.255 26.6851 18.625 21.9901 17.93C21.8251 17.91 21.6551 17.89 21.4901 17.865C21.6601 17.885 21.8251 17.91 21.9901 17.93C25.1951 18.285 28.6701 17.175 29.6501 13.895C29.9451 12.9 30.4001 6.94995 30.4001 6.11995C30.4001 5.28995 30.2351 3.88495 29.3201 3.47495C28.5301 3.11995 27.3201 2.72995 24.1601 4.96495C20.8551 7.29495 17.3051 12.02 16.0001 14.555Z"
+                                        fill="#7883BE"></path>
+                                </svg>
+                            </a>
+
+                            <!-- Reddit -->
+                            <a
+                                href="https://reddit.com/r/cabinsocial"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                aria-label="Find us on Reddit"
+                                class="flex items-center justify-center opacity-85 hover:opacity-100 transition-opacity no-underline"
+                            >
+                                <svg
+                                    class="block w-8 h-8"
+                                    width="32"
+                                    height="32"
+                                    viewBox="0 0 32 32"
+                                    fill="none"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                >
+                                    <path
+                                        d="M3.19995 16C3.19995 8.92995 8.92995 3.19995 16 3.19995C23.07 3.19995 28.8 8.92995 28.8 16C28.8 23.07 23.07 28.8 16 28.8H5.05495C4.36995 28.8 4.02995 27.975 4.50995 27.49L6.94995 25.05C4.63495 22.735 3.19995 19.535 3.19995 16ZM20.68 10.88C21.86 10.88 22.815 9.92495 22.815 8.74495C22.815 7.56495 21.86 6.60995 20.68 6.60995C19.65 6.60995 18.79 7.33995 18.59 8.30995C16.865 8.49495 15.52 9.95995 15.52 11.73V11.74C13.645 11.82 11.93 12.355 10.57 13.195C10.065 12.805 9.42995 12.57 8.74495 12.57C7.09495 12.57 5.75495 13.91 5.75495 15.56C5.75495 16.76 6.45995 17.79 7.47495 18.265C7.57495 21.735 11.355 24.525 16.005 24.525C20.655 24.525 24.44 21.73 24.535 18.26C25.545 17.78 26.24 16.75 26.24 15.56C26.24 13.91 24.9 12.57 23.25 12.57C22.565 12.57 21.935 12.8 21.43 13.19C20.06 12.34 18.325 11.805 16.43 11.735V11.725C16.43 10.455 17.375 9.39995 18.6 9.22995C18.82 10.17 19.665 10.87 20.675 10.87L20.68 10.88ZM12.055 15.545C12.89 15.545 13.53 16.425 13.48 17.51C13.43 18.595 12.805 18.99 11.965 18.99C11.125 18.99 10.395 18.55 10.445 17.465C10.495 16.38 11.215 15.55 12.05 15.55L12.055 15.545ZM21.56 17.46C21.61 18.545 20.875 18.985 20.04 18.985C19.205 18.985 18.575 18.59 18.525 17.505C18.475 16.42 19.115 15.54 19.95 15.54C20.785 15.54 21.51 16.37 21.555 17.455L21.56 17.46ZM19.155 20.295C18.64 21.525 17.425 22.39 16.005 22.39C14.585 22.39 13.37 21.525 12.855 20.295C12.795 20.15 12.895 19.985 13.05 19.97C13.97 19.875 14.965 19.825 16.005 19.825C17.045 19.825 18.04 19.875 18.96 19.97C19.115 19.985 19.215 20.15 19.155 20.295Z"
+                                        fill="#7883BE"></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <Footer />
+    </body>
 </html>
+
+<script>
+    const form = document.getElementById("waitlist-form") as HTMLFormElement;
+    const emailInput = document.getElementById(
+        "waitlist-email",
+    ) as HTMLInputElement;
+    const btn = document.getElementById("waitlist-btn") as HTMLButtonElement;
+
+    form?.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        const email = emailInput?.value?.trim();
+        if (!email) return;
+
+        btn.disabled = true;
+        btn.textContent = "Joining...";
+
+        try {
+            const res = await fetch("/api/subscribe", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ email }),
+            });
+
+            const data = await res.json();
+
+            if (res.ok) {
+                btn.textContent = "You're on the list! 🎉";
+                btn.classList.remove(
+                    "bg-accent-dark",
+                    "hover:bg-[#01593A]",
+                    "hover:border-[#01734B]",
+                );
+                btn.classList.add("bg-[#01593A]");
+                emailInput.value = "";
+            } else {
+                btn.textContent = data.error || "Something went wrong";
+                btn.disabled = false;
+                setTimeout(() => {
+                    btn.textContent = "Join the waitlist";
+                    btn.disabled = false;
+                }, 3000);
+            }
+        } catch {
+            btn.textContent = "Something went wrong";
+            setTimeout(() => {
+                btn.textContent = "Join the waitlist";
+                btn.disabled = false;
+            }, 3000);
+        }
+    });
+</script>
+
+<style>
+    /* Dark tint overlay on photo cards via ::after pseudo-element */
+    .photo-card::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-radius: 16px;
+        background: rgba(18, 21, 38, 0.75);
+    }
+</style>

@@ -1,16 +1,49 @@
 ---
-title: 'First post'
-description: 'Lorem ipsum dolor sit amet'
-pubDate: 'Jul 08 2022'
-heroImage: '../../assets/blog-placeholder-3.jpg'
+title: "Introducing Cabin, the open source, privacy-focused social platform."
+description: "Well hello there! My name is John Jackson, and I co-founded Cabin because, quite frankly, I'm disgusted with the state of social media."
+pubDate: "April 5, 2026"
+heroImage: '../../assets/blog-placeholder-1.jpg'
 ---
+![A preview of Cabin's media upload experience](../../assets/mobile.png)
+Well hello there! My name is John Jackson, and I co-founded Cabin because, quite frankly, I'm disgusted with the state of social media. Most major social platforms have a single priority: growing their revenue. And don't get me wrong, I understand that revenue is important to the success of these platforms, but we've ventured far beyond the realm of ethical profit, and well into the land of toxic capitalism.
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vitae ultricies leo integer malesuada nunc vel risus commodo viverra. Adipiscing enim eu turpis egestas pretium. Euismod elementum nisi quis eleifend quam adipiscing. In hac habitasse platea dictumst vestibulum. Sagittis purus sit amet volutpat. Netus et malesuada fames ac turpis egestas. Eget magna fermentum iaculis eu non diam phasellus vestibulum lorem. Varius sit amet mattis vulputate enim. Habitasse platea dictumst quisque sagittis. Integer quis auctor elit sed vulputate mi. Dictumst quisque sagittis purus sit amet.
+Platforms earn most of their revenue through ads. This means they're incentivized to keep users engaged as much as possible to maximize ad views. Some of the real-world consequences of this:
 
-Morbi tristique senectus et netus. Id semper risus in hendrerit gravida rutrum quisque non tellus. Habitasse platea dictumst quisque sagittis purus sit amet. Tellus molestie nunc non blandit massa. Cursus vitae congue mauris rhoncus. Accumsan tortor posuere ac ut. Fringilla urna porttitor rhoncus dolor. Elit ullamcorper dignissim cras tincidunt lobortis. In cursus turpis massa tincidunt dui ut ornare lectus. Integer feugiat scelerisque varius morbi enim nunc. Bibendum neque egestas congue quisque egestas diam. Cras ornare arcu dui vivamus arcu felis bibendum. Dignissim suspendisse in est ante in nibh mauris. Sed tempus urna et pharetra pharetra massa massa ultricies mi.
+#### Ads are neverending
+It can often feel like you're sifting through an ocean of ads to find the content your friends are posting. There's nothing "social" about that.
 
-Mollis nunc sed id semper risus in. Convallis a cras semper auctor neque. Diam sit amet nisl suscipit. Lacus viverra vitae congue eu consequat ac felis donec. Egestas integer eget aliquet nibh praesent tristique magna sit amet. Eget magna fermentum iaculis eu non diam. In vitae turpis massa sed elementum. Tristique et egestas quis ipsum suspendisse ultrices. Eget lorem dolor sed viverra ipsum. Vel turpis nunc eget lorem dolor sed viverra. Posuere ac ut consequat semper viverra nam. Laoreet suspendisse interdum consectetur libero id faucibus. Diam phasellus vestibulum lorem sed risus ultricies tristique. Rhoncus dolor purus non enim praesent elementum facilisis. Ultrices tincidunt arcu non sodales neque. Tempus egestas sed sed risus pretium quam vulputate. Viverra suspendisse potenti nullam ac tortor vitae purus faucibus ornare. Fringilla urna porttitor rhoncus dolor purus non. Amet dictum sit amet justo donec enim.
+#### Manipulative algorithms
+Platforms use manipulative algorithms to keep users engaged, often elevating the most controversial content as it draws the highest level of engagement among users.
 
-Mattis ullamcorper velit sed ullamcorper morbi tincidunt. Tortor posuere ac ut consequat semper viverra. Tellus mauris a diam maecenas sed enim ut sem viverra. Venenatis urna cursus eget nunc scelerisque viverra mauris in. Arcu ac tortor dignissim convallis aenean et tortor at. Curabitur gravida arcu ac tortor dignissim convallis aenean et tortor. Egestas tellus rutrum tellus pellentesque eu. Fusce ut placerat orci nulla pellentesque dignissim enim sit amet. Ut enim blandit volutpat maecenas volutpat blandit aliquam etiam. Id donec ultrices tincidunt arcu. Id cursus metus aliquam eleifend mi.
+#### Push notifications
+most of which are completely senseless—are near constant to keep users coming back into the app. There is nothing authentic about being baited back into an app.
 
-Tempus quam pellentesque nec nam aliquam sem. Risus at ultrices mi tempus imperdiet. Id porta nibh venenatis cras sed felis eget velit. Ipsum a arcu cursus vitae. Facilisis magna etiam tempor orci eu lobortis elementum. Tincidunt dui ut ornare lectus sit. Quisque non tellus orci ac. Blandit libero volutpat sed cras. Nec tincidunt praesent semper feugiat nibh sed pulvinar proin gravida. Egestas integer eget aliquet nibh praesent tristique magna.
+#### Misinformation
+Platforms aren't doing enough to identify, mark, and educate users on misinformation. But as mentioned earlier, controversial posts result in higher engagement, which means most platforms simply don't care.
+
+Call me delusional, but I believe a better social platform can exist; one that prioritzes people over profit.
+
+## Introducing Cabin, the open source, privacy-focused social platform
+
+Cabin is designed to be everything we loved about MySpace, with a modern twist—Cabin is decentralized and built on AT Protocol. We're launching Cabin in June 2026 under the AGPL v3.0 open source license. 
+
+### Cabin's features
+I realize not everyone was alive when MySpace was at its peak, which would probably leave you wondering what can be expected from Cabin. Fear not, as I have come prepared with images.
+
+![A preview of Cabin's "Post" editor](../../assets/markdown.png)
+#### Markdown support, with a thoughtfully-designed editor
+We're making it easy to write (and consume) long-form content by implementing support for markdown. For the less tech savy folks, markdown is just a lightweight formatting language. You'll be able to easily embed links, create lists, style text, and plenty more.
+
+![A preview of Cabin's polling feature](../../assets/poll.png)
+#### Polls, for asking the real questions
+Whether you're trying to prove a point to your spouse or figure out vacation locations for the Fram's next trip, we've got you covered. I'm personally most excited for this feature because it will help us gather important feedback from users.
+
+![A preview of Cabin's media upload experience](../../assets/media.png)
+#### Share images and videos
+Share all the beautiful moments you've captured. We'll scrub the metadata on your media to maintain your privacy. Don't worry, though, you'll be able to toggle automatic scrubbing.
+
+### Launching June 2026
+We're on track to launch Cabin on iOS, Android, and web this summer, and we can't wait to share more with you all. We appreciate any support you can give, whether by [signing up for early access](https://cabin.social) or spreading the word.
+
+### How you can help us
+Sharing this blog post can help us tremendously, whether it's via Facebook, Twitter, Bluesky, LinkedIn, or simply copying and pasting the link. The share icons can be found directly below.

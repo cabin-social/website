@@ -1,0 +1,347 @@
+---
+import BaseHead from "../components/BaseHead.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+---
+
+<!doctype html>
+<html lang="en" class="h-screen overflow-hidden">
+    <head>
+        <BaseHead
+            title="Our Mission — Cabin"
+            description="We're building Cabin because we believe the internet can be a better place. Here's what we stand for."
+        />
+    </head>
+    <body class="bg-bg h-full flex flex-col">
+        <Header />
+
+        <main
+            class="flex-1 min-h-0 w-full max-w-[1280px] mx-auto flex flex-col"
+        >
+            <!-- Hero row -->
+            <section
+                class="flex flex-row items-stretch flex-1 min-h-0 gap-16 px-16 max-[1100px]:gap-10 max-[1100px]:px-10 max-[900px]:flex-col max-[900px]:overflow-y-auto max-[900px]:gap-8 max-[900px]:px-6 max-[900px]:py-10 max-[600px]:px-4 max-[600px]:py-6"
+            >
+                <!-- Photo grid -->
+                <div
+                    class="flex flex-row items-center gap-6 shrink-0 self-stretch min-h-0 overflow-hidden rounded-xl max-[900px]:h-[320px] max-[900px]:self-auto max-[900px]:w-full max-[900px]:gap-4 max-[600px]:h-[260px] max-[600px]:gap-3"
+                >
+                    <!-- Column 1: 4 images -->
+                    <div
+                        class="flex flex-col gap-6 w-[222px] shrink-0 max-[1100px]:w-[180px] max-[900px]:w-[150px] max-[900px]:gap-4 max-[600px]:w-[130px] max-[600px]:gap-3"
+                    >
+                        <div
+                            class="w-[222px] h-[296px] rounded-2xl bg-cover bg-center bg-no-repeat shrink-0 relative photo-card max-[1100px]:w-[180px] max-[900px]:w-[150px] max-[900px]:h-[220px] max-[600px]:w-[130px] max-[600px]:h-[190px]"
+                            style="background-image: url('/images/platform/photo-1.png')"
+                        >
+                        </div>
+                        <div
+                            class="w-[222px] h-[296px] rounded-2xl bg-cover bg-center bg-no-repeat shrink-0 relative photo-card max-[1100px]:w-[180px] max-[900px]:w-[150px] max-[900px]:h-[220px] max-[600px]:w-[130px] max-[600px]:h-[190px]"
+                            style="background-image: url('/images/platform/photo-2.png')"
+                        >
+                        </div>
+                        <div
+                            class="w-[222px] h-[296px] rounded-2xl bg-cover bg-center bg-no-repeat shrink-0 relative photo-card max-[1100px]:w-[180px] max-[900px]:w-[150px] max-[900px]:h-[220px] max-[600px]:w-[130px] max-[600px]:h-[190px]"
+                            style="background-image: url('/images/platform/photo-3.png')"
+                        >
+                        </div>
+                        <div
+                            class="w-[222px] h-[296px] rounded-2xl bg-cover bg-center bg-no-repeat shrink-0 relative photo-card max-[1100px]:w-[180px] max-[900px]:w-[150px] max-[900px]:h-[220px] max-[600px]:w-[130px] max-[600px]:h-[190px]"
+                            style="background-image: url('/images/platform/photo-4.png')"
+                        >
+                        </div>
+                    </div>
+
+                    <!-- Column 2: 3 images -->
+                    <div
+                        class="flex flex-col gap-6 w-[222px] shrink-0 max-[1100px]:w-[180px] max-[900px]:w-[150px] max-[900px]:gap-4 max-[600px]:w-[130px] max-[600px]:gap-3"
+                    >
+                        <div
+                            class="w-[222px] h-[296px] rounded-2xl bg-cover bg-center bg-no-repeat shrink-0 relative photo-card max-[1100px]:w-[180px] max-[900px]:w-[150px] max-[900px]:h-[220px] max-[600px]:w-[130px] max-[600px]:h-[190px]"
+                            style="background-image: url('/images/platform/photo-5.png')"
+                        >
+                        </div>
+                        <div
+                            class="w-[222px] h-[296px] rounded-2xl bg-cover bg-center bg-no-repeat shrink-0 relative max-[1100px]:w-[180px] max-[900px]:w-[150px] max-[900px]:h-[220px] max-[600px]:w-[130px] max-[600px]:h-[190px]"
+                            style="background-image: url('/images/platform/photo-6.png')"
+                        >
+                        </div>
+                        <div
+                            class="w-[222px] h-[296px] rounded-2xl bg-cover bg-center bg-no-repeat shrink-0 relative photo-card max-[1100px]:w-[180px] max-[900px]:w-[150px] max-[900px]:h-[220px] max-[600px]:w-[130px] max-[600px]:h-[190px]"
+                            style="background-image: url('/images/platform/photo-7.png')"
+                        >
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Content: scrollable column -->
+                <div
+                    class="flex flex-col flex-1 min-h-0 self-stretch gap-8 py-16 overflow-y-auto max-[900px]:py-0 max-[900px]:overflow-visible"
+                >
+                    <!-- Page heading -->
+                    <div class="flex flex-col gap-2">
+                        <h1
+                            class="font-bold text-[44px] leading-[1.1] text-primary m-0 max-[900px]:text-[32px] max-[600px]:text-[26px]"
+                        >
+                            Our mission
+                        </h1>
+                        <p
+                            class="font-medium text-[20px] leading-[1.5] text-secondary m-0 max-[900px]:text-[18px] max-[600px]:text-[16px]"
+                        >
+                            We're building Cabin because we miss the era of
+                            MySpace—before manipulative algorithms and oceans of
+                            unchecked misinformation flooded our feeds.
+                        </p>
+                    </div>
+
+                    <!-- Core features -->
+                    <div class="flex flex-col gap-4">
+                        <h2
+                            class="font-bold text-2xl leading-[1.2] text-primary m-0"
+                        >
+                            Core features
+                        </h2>
+
+                        <div class="flex flex-col gap-6">
+                            <!-- Row 1 -->
+                            <div class="flex flex-row max-[700px]:flex-col">
+                                <!-- AT Protocol -->
+                                <div
+                                    class="flex flex-col gap-4 flex-1 py-4 pr-6 max-[700px]:pr-0 max-[700px]:pb-6"
+                                >
+                                    <svg
+                                        width="40"
+                                        height="40"
+                                        viewBox="0 0 40 40"
+                                        fill="none"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                    >
+                                        <path
+                                            d="M20 6C12.2688 6 6 12.2688 6 20C6 27.7312 12.2688 34 20 34C20.55 34 21 34.45 21 35C21 35.55 20.55 36 20 36C11.1625 36 4 28.8375 4 20C4 11.1625 11.1625 4 20 4C28.8375 4 36 11.1625 36 20V21.5C36 24.5375 33.5375 27 30.5 27C28.4125 27 26.5938 25.8312 25.6625 24.1187C24.3875 25.8687 22.325 27 20 27C16.1312 27 13 23.8688 13 20C13 16.1312 16.1312 13 20 13C21.9562 13 23.7313 13.8063 25 15.1V15C25 14.45 25.45 14 26 14C26.55 14 27 14.45 27 15V21.5C27 23.4312 28.5688 25 30.5 25C32.4312 25 34 23.4312 34 21.5V20C34 12.2688 27.7312 6 20 6ZM25 20C25 17.2375 22.7625 15 20 15C17.2375 15 15 17.2375 15 20C15 22.7625 17.2375 25 20 25C22.7625 25 25 22.7625 25 20Z"
+                                            fill="#00BD7B"></path>
+                                    </svg>
+                                    <div class="flex flex-col gap-2">
+                                        <h3
+                                            class="font-semibold text-2xl leading-[1.2] text-primary m-0"
+                                        >
+                                            Cabin is fully integrated with AT
+                                            Protocol
+                                        </h3>
+                                        <p class="text-lg text-secondary m-0">
+                                            We're a decentralized social
+                                            platform. You have total control
+                                            over your data, forever.
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <!-- Algorithm -->
+                                <div
+                                    class="flex flex-col gap-4 flex-1 py-4 max-[700px]:pt-6"
+                                >
+                                    <svg
+                                        width="40"
+                                        height="40"
+                                        viewBox="0 0 40 40"
+                                        fill="none"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                    >
+                                        <path
+                                            d="M25.95 5.31872C26.125 4.79372 25.8437 4.23122 25.3187 4.05622C24.7937 3.88122 24.2312 4.16247 24.0562 4.68747L14.0562 34.6875C13.8812 35.2125 14.1625 35.775 14.6875 35.95C15.2125 36.125 15.775 35.8437 15.95 35.3187L25.95 5.31872ZM10.7062 12.2937C10.3187 11.9062 9.68124 11.9062 9.29374 12.2937L2.29374 19.2937C1.90624 19.6812 1.90624 20.3187 2.29374 20.7062L9.29374 27.7062C9.68124 28.0937 10.3187 28.0937 10.7062 27.7062C11.0937 27.3187 11.0937 26.6812 10.7062 26.2937L4.41249 20L10.7062 13.7062C11.0937 13.3187 11.0937 12.6812 10.7062 12.2937ZM29.2937 12.2937C28.9062 12.6812 28.9062 13.3187 29.2937 13.7062L35.5875 20L29.2937 26.2937C28.9062 26.6812 28.9062 27.3187 29.2937 27.7062C29.6812 28.0937 30.3187 28.0937 30.7062 27.7062L37.7062 20.7062C38.0937 20.3187 38.0937 19.6812 37.7062 19.2937L30.7062 12.2937C30.3187 11.9062 29.6812 11.9062 29.2937 12.2937Z"
+                                            fill="#00BD7B"></path>
+                                    </svg>
+
+                                    <div class="flex flex-col gap-2">
+                                        <h3
+                                            class="font-semibold text-2xl leading-[1.2] text-primary m-0"
+                                        >
+                                            Our algorithms are simple and
+                                            transparent
+                                        </h3>
+                                        <p class="text-lg text-secondary m-0">
+                                            See posts from your friends,
+                                            communities, and the things you
+                                            follow. That's it.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Row 2 -->
+                            <div class="flex flex-row max-[700px]:flex-col">
+                                <!-- Markdown -->
+                                <div
+                                    class="flex flex-col gap-4 flex-1 py-4 pr-6 max-[700px]:pr-0 max-[700px]:pb-6"
+                                >
+                                    <svg
+                                        width="40"
+                                        height="40"
+                                        viewBox="0 0 40 40"
+                                        fill="none"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                    >
+                                        <g clip-path="url(#clip0_3498_619)">
+                                            <path
+                                                d="M37.1125 7.69385H2.8875C1.29375 7.69385 0 8.9876 0 10.5751V29.4188C0 31.0126 1.29375 32.3063 2.8875 32.3063H37.1188C38.7125 32.3063 40.0063 31.0126 40 29.4251V10.5751C40 8.9876 38.7062 7.69385 37.1125 7.69385ZM21.1562 26.5376H17.3125V19.0376L13.4688 23.8438L9.625 19.0376V26.5376H5.76875V13.4626H9.6125L13.4563 18.2688L17.3 13.4626H21.1437V26.5376H21.1562ZM29.6125 26.7313L23.8438 20.0001H27.6875V13.4626H31.5312V20.0001H35.375L29.6125 26.7313Z"
+                                                fill="#00BD7B"></path>
+                                        </g>
+                                        <defs>
+                                            <clipPath id="clip0_3498_619">
+                                                <rect
+                                                    width="40"
+                                                    height="40"
+                                                    fill="white"></rect>
+                                            </clipPath>
+                                        </defs>
+                                    </svg>
+
+                                    <div class="flex flex-col gap-2">
+                                        <h3
+                                            class="font-semibold text-2xl leading-[1.2] text-primary m-0"
+                                        >
+                                            Write long-form content using
+                                            markdown
+                                        </h3>
+                                        <p class="text-lg text-secondary m-0">
+                                            Easily format your posts using
+                                            markdown. From bolding text to
+                                            creating lists and headings,
+                                            markdown makes it easy to write
+                                            content.
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <!-- Media -->
+                                <div
+                                    class="flex flex-col gap-4 flex-1 py-4 max-[700px]:pt-6"
+                                >
+                                    <svg
+                                        width="40"
+                                        height="40"
+                                        viewBox="0 0 40 40"
+                                        fill="none"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                    >
+                                        <path
+                                            d="M28 8H8C6.89375 8 6 8.89375 6 10V30C6 31.1063 6.89375 32 8 32H20.0875C20.4125 32.7063 20.8 33.375 21.25 34H8C5.79375 34 4 32.2062 4 30V10C4 7.79375 5.79375 6 8 6H28C30.2062 6 32 7.79375 32 10V15.0437C31.3438 14.9875 30.6562 14.9875 30 15.0437V10C30 8.89375 29.1063 8 28 8ZM22.1 16.6437L23.0125 18.05C22.5 18.5062 22.025 19.0062 21.6 19.55L20.425 17.7313C20.3312 17.5875 20.175 17.5 20.0063 17.5C19.8375 17.5 19.6812 17.5875 19.5875 17.7313L16.7375 22.1313C16.5562 22.4125 16.25 22.5812 15.9187 22.5875C15.5875 22.5937 15.275 22.4313 15.0813 22.1625L14.4187 21.2125C14.325 21.0812 14.175 21 14.0063 21C13.8375 21 13.6875 21.0812 13.5938 21.2125L10.0938 26.2125C9.9875 26.3625 9.975 26.5625 10.0625 26.7313C10.15 26.9 10.3125 27 10.5 27H19C19 27.6812 19.0563 28.35 19.1688 29H10.5C9.56875 29 8.7125 28.4812 8.28125 27.6562C7.85 26.8313 7.91875 25.8313 8.45 25.0688L11.95 20.0688C12.4187 19.4 13.1812 19 14 19C14.7063 19 15.375 19.3 15.85 19.8188L17.9062 16.6437C18.3688 15.9312 19.1563 15.5 20.0063 15.5C20.8563 15.5 21.6438 15.9312 22.1063 16.6437H22.1ZM12 13C11.45 13 11 13.45 11 14C11 14.55 11.45 15 12 15C12.55 15 13 14.55 13 14C13 13.45 12.55 13 12 13ZM15 14C15 15.6562 13.6562 17 12 17C10.3438 17 9 15.6562 9 14C9 12.3438 10.3438 11 12 11C13.6562 11 15 12.3438 15 14ZM38 27C38 23.1312 34.8688 20 31 20C27.1312 20 24 23.1312 24 27C24 30.8688 27.1312 34 31 34C34.8688 34 38 30.8688 38 27ZM22 27C22 22.0312 26.0312 18 31 18C35.9688 18 40 22.0312 40 27C40 31.9688 35.9688 36 31 36C26.0312 36 22 31.9688 22 27ZM32 23V26H35C35.55 26 36 26.45 36 27C36 27.55 35.55 28 35 28H32V31C32 31.55 31.55 32 31 32C30.45 32 30 31.55 30 31V28H27C26.45 28 26 27.55 26 27C26 26.45 26.45 26 27 26H30V23C30 22.45 30.45 22 31 22C31.55 22 32 22.45 32 23Z"
+                                            fill="#00BD7B"></path>
+                                    </svg>
+
+                                    <div class="flex flex-col gap-2">
+                                        <h3
+                                            class="font-semibold text-2xl leading-[1.2] text-primary m-0"
+                                        >
+                                            Post media, text, and polls to your
+                                            feed
+                                        </h3>
+                                        <p class="text-lg text-secondary m-0">
+                                            We're focused on perfecting the
+                                            fundamentals to give you the best
+                                            experience possible.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Row 3 -->
+                            <div class="flex flex-row max-[700px]:flex-col">
+                                <!-- Events -->
+                                <div
+                                    class="flex flex-col gap-4 flex-1 py-4 pr-6 max-[700px]:pr-0 max-[700px]:pb-6"
+                                >
+                                    <svg
+                                        width="40"
+                                        height="40"
+                                        viewBox="0 0 40 40"
+                                        fill="none"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                    >
+                                        <path
+                                            d="M12 5C12 4.45 11.55 4 11 4C10.45 4 10 4.45 10 5V8H8C5.79375 8 4 9.79375 4 12V30C4 32.2062 5.79375 34 8 34H18.0875C17.7937 33.3625 17.5563 32.6938 17.375 32H8C6.89375 32 6 31.1063 6 30V16H32V12C32 9.79375 30.2062 8 28 8H26V5C26 4.45 25.55 4 25 4C24.45 4 24 4.45 24 5V8H12V5ZM8 10H28C29.1063 10 30 10.8937 30 12V14H6V12C6 10.8937 6.89375 10 8 10ZM22 29C22 25.1312 25.1312 22 29 22C32.8688 22 36 25.1312 36 29C36 32.8688 32.8688 36 29 36C25.1312 36 22 32.8688 22 29ZM38 29C38 24.0312 33.9688 20 29 20C24.0312 20 20 24.0312 20 29C20 33.9688 24.0312 38 29 38C33.9688 38 38 33.9688 38 29ZM30 25C30 24.45 29.55 24 29 24C28.45 24 28 24.45 28 25V28H25C24.45 28 24 28.45 24 29C24 29.55 24.45 30 25 30H28V33C28 33.55 28.45 34 29 34C29.55 34 30 33.55 30 33V30H33C33.55 30 34 29.55 34 29C34 28.45 33.55 28 33 28H30V25Z"
+                                            fill="#00BD7B"></path>
+                                    </svg>
+
+                                    <div class="flex flex-col gap-2">
+                                        <h3
+                                            class="font-bold text-2xl leading-[1.2] text-primary m-0"
+                                        >
+                                            Create events for others to
+                                            participate in
+                                        </h3>
+                                        <p class="text-lg text-secondary m-0">
+                                            Create a book club. Organize a
+                                            protest. Or get the gang together
+                                            for a night of D&D.
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <!-- Community -->
+                                <div
+                                    class="flex flex-col gap-4 flex-1 py-4 max-[700px]:pt-6"
+                                >
+                                    <svg
+                                        width="40"
+                                        height="40"
+                                        viewBox="0 0 40 40"
+                                        fill="none"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                    >
+                                        <path
+                                            d="M20 17C22.7625 17 25 14.7625 25 12C25 9.2375 22.7625 7 20 7C17.2375 7 15 9.2375 15 12C15 14.7625 17.2375 17 20 17ZM20 5C23.8688 5 27 8.13125 27 12C27 15.8688 23.8688 19 20 19C16.1312 19 13 15.8688 13 12C13 8.13125 16.1312 5 20 5ZM18.5 24C14.3562 24 11 27.3562 11 31.5V33C11 33.55 10.55 34 10 34C9.45 34 9 33.55 9 33V31.5C9 26.2562 13.2562 22 18.5 22H21.5C26.7438 22 31 26.2562 31 31.5V33C31 33.55 30.55 34 30 34C29.45 34 29 33.55 29 33V31.5C29 27.3562 25.6438 24 21.5 24H18.5ZM26.9625 19.175C27.45 18.7 27.8937 18.175 28.275 17.6125C28.7937 17.8625 29.3813 18 30 18C32.2062 18 34 16.2062 34 14C34 11.7938 32.2062 10 30 10C29.9312 10 29.8687 10 29.8 10.0063C29.6625 9.33125 29.4563 8.675 29.1875 8.05625C29.45 8.01875 29.725 8 29.9937 8C33.3062 8 35.9938 10.6875 35.9938 14C35.9938 17.3125 33.3062 20 29.9937 20C28.8875 20 27.85 19.7 26.9562 19.175H26.9625ZM10 8C10.275 8 10.5437 8.01875 10.8062 8.05625C10.5375 8.675 10.3313 9.33125 10.1938 10.0063C10.125 10 10.0625 10 9.99375 10C7.7875 10 5.99375 11.7938 5.99375 14C5.99375 16.2062 7.7875 18 9.99375 18C10.6125 18 11.1937 17.8625 11.7125 17.6125C12.0937 18.1812 12.5375 18.7 13.025 19.175C12.1375 19.7 11.1 20 9.9875 20C6.675 20 3.9875 17.3125 3.9875 14C3.9875 10.6875 6.675 8 9.9875 8H10ZM9.3375 23C8.7375 23.6438 8.20625 24.35 7.75625 25.1125C4.4875 25.7 2 28.5625 2 32V33C2 33.55 1.55 34 1 34C0.45 34 0 33.55 0 33V32C0 27.0312 4.03125 23 9 23H9.3375ZM32.25 25.1125C31.8 24.3562 31.2688 23.6438 30.6688 23H31C35.9688 23 40 27.0312 40 32V33C40 33.55 39.55 34 39 34C38.45 34 38 33.55 38 33V32C38 28.5625 35.5188 25.7 32.2438 25.1125H32.25Z"
+                                            fill="#00BD7B"></path>
+                                    </svg>
+
+                                    <div class="flex flex-col gap-2">
+                                        <h3
+                                            class="font-bold text-2xl leading-[1.2] text-primary m-0"
+                                        >
+                                            Start a community, or join an
+                                            existing one
+                                        </h3>
+                                        <p class="text-lg text-secondary m-0">
+                                            Whether you're starting or joining a
+                                            community, strive to leave it better
+                                            than you found it. ❤️
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Early access -->
+                    <div class="flex flex-col gap-2">
+                        <h2
+                            class="font-bold text-2xl leading-[1.2] text-primary m-0"
+                        >
+                            Early access
+                        </h2>
+                        <p class="text-lg text-secondary m-0">
+                            We plan to launch Cabin by June 2026. Cabin will be
+                            available on web, iOS, iPadOS, and Android. If you'd
+                            like to be notified when we launch, <a
+                                href="/#waitlist"
+                                class="text-accent hover:text-accent underline transition-colors"
+                                >join the waitlist</a
+                            >.
+                        </p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <Footer />
+    </body>
+</html>
+
+<style>
+    .photo-card::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-radius: 16px;
+        background: rgba(18, 21, 38, 0.75);
+    }
+</style>

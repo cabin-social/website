@@ -1,85 +1,240 @@
 ---
-import { SITE_TITLE } from '../consts';
-import HeaderLink from './HeaderLink.astro';
+const pathname = Astro.url.pathname;
 ---
 
-<header>
-	<nav>
-		<h2><a href="/">{SITE_TITLE}</a></h2>
-		<div class="internal-links">
-			<HeaderLink href="/">Home</HeaderLink>
-			<HeaderLink href="/blog">Blog</HeaderLink>
-			<HeaderLink href="/about">About</HeaderLink>
-		</div>
-		<div class="social-links">
-			<a href="https://m.webtoo.ls/@astro" target="_blank">
-				<span class="sr-only">Follow Astro on Mastodon</span>
-				<svg viewBox="0 0 16 16" aria-hidden="true" width="32" height="32"
-					><path
-						fill="currentColor"
-						d="M11.19 12.195c2.016-.24 3.77-1.475 3.99-2.603.348-1.778.32-4.339.32-4.339 0-3.47-2.286-4.488-2.286-4.488C12.062.238 10.083.017 8.027 0h-.05C5.92.017 3.942.238 2.79.765c0 0-2.285 1.017-2.285 4.488l-.002.662c-.004.64-.007 1.35.011 2.091.083 3.394.626 6.74 3.78 7.57 1.454.383 2.703.463 3.709.408 1.823-.1 2.847-.647 2.847-.647l-.06-1.317s-1.303.41-2.767.36c-1.45-.05-2.98-.156-3.215-1.928a3.614 3.614 0 0 1-.033-.496s1.424.346 3.228.428c1.103.05 2.137-.064 3.188-.189zm1.613-2.47H11.13v-4.08c0-.859-.364-1.295-1.091-1.295-.804 0-1.207.517-1.207 1.541v2.233H7.168V5.89c0-1.024-.403-1.541-1.207-1.541-.727 0-1.091.436-1.091 1.296v4.079H3.197V5.522c0-.859.22-1.541.66-2.046.456-.505 1.052-.764 1.793-.764.856 0 1.504.328 1.933.983L8 4.39l.417-.695c.429-.655 1.077-.983 1.934-.983.74 0 1.336.259 1.791.764.442.505.661 1.187.661 2.046v4.203z"
-					></path></svg
-				>
-			</a>
-			<a href="https://twitter.com/astrodotbuild" target="_blank">
-				<span class="sr-only">Follow Astro on Twitter</span>
-				<svg viewBox="0 0 16 16" aria-hidden="true" width="32" height="32"
-					><path
-						fill="currentColor"
-						d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z"
-					></path></svg
-				>
-			</a>
-			<a href="https://github.com/withastro/astro" target="_blank">
-				<span class="sr-only">Go to Astro's GitHub repo</span>
-				<svg viewBox="0 0 16 16" aria-hidden="true" width="32" height="32"
-					><path
-						fill="currentColor"
-						d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"
-					></path></svg
-				>
-			</a>
-		</div>
-	</nav>
-</header>
-<style>
-	header {
-		margin: 0;
-		padding: 0 1em;
-		background: white;
-		box-shadow: 0 2px 8px rgba(var(--black), 5%);
-	}
-	h2 {
-		margin: 0;
-		font-size: 1em;
-	}
+<header class="bg-bg w-full sticky top-0 z-100">
+    <nav
+        class="flex items-center justify-between gap-[161px] px-16 py-4 max-w-7xl mx-auto max-[900px]:gap-0 max-[900px]:px-5"
+    >
+        <a
+            href="/"
+            class="flex items-center shrink-0 no-underline"
+            aria-label="Cabin home"
+        >
+            <svg
+                class="block w-29.5 h-6.5"
+                width="118"
+                height="26"
+                viewBox="0 0 118 26"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+            >
+                <g clip-path="url(#clip0_logo)">
+                    <path
+                        d="M28.1589 12.6921V10.4464C28.1589 7.89625 26.8018 5.5892 24.703 4.57107L16.3923 0.537047C14.9159 -0.179016 13.2237 -0.179016 11.7474 0.537047L6.96415 2.85854V0.0183532H2.64959V5.04042C0.999131 6.20899 -0.0192871 8.2633 -0.0192871 10.4464V21.0128C-0.0192871 23.7628 2.0259 26 4.53975 26H23.5999C26.1137 26 28.1589 23.7628 28.1589 21.0128V18.394H23.8444V21.0128C23.8444 21.4208 23.6357 21.629 23.5999 21.6459L4.56002 21.6483C4.50397 21.629 4.29527 21.4208 4.29527 21.0128V10.4464C4.29527 9.57268 4.70193 8.78802 5.30654 8.49437L13.6173 4.46035C13.9178 4.31473 14.2219 4.31473 14.5224 4.46035L22.8331 8.49437C23.4377 8.78802 23.8444 9.57268 23.8444 10.4464V12.6921H28.1589Z"
+                        fill="#00BD7B"></path>
+                    <path
+                        d="M35.6162 16.6275C35.6162 12.1885 39.2257 8.48583 43.9564 8.54589C46.9896 8.57591 49.7801 9.95394 51.1753 13.1066L46.656 15.5561C46.1706 14.5147 45.1997 13.7198 43.9564 13.7198C42.2276 13.7198 41.0751 15.0046 41.0751 16.6275C41.0751 18.2489 42.2276 19.5653 43.9564 19.5653C45.1997 19.5653 46.1706 18.7688 46.656 17.729L51.1753 20.1769C49.7801 23.3296 46.9896 24.7076 43.9564 24.7376C39.2257 24.7993 35.6162 21.065 35.6162 16.6275Z"
+                        fill="#00BD7B"></path>
+                    <path
+                        d="M52.6897 16.6275C52.6897 12.1885 56.2992 8.51587 61.0299 8.51587C65.8827 8.51587 69.3716 11.9451 69.3716 16.6275V24.311H64.215V23.1779C63.2441 24.1877 61.8802 24.7708 60.12 24.7708C55.6916 24.7693 52.6897 21.0951 52.6897 16.6275ZM63.9127 16.6576C63.9127 15.0346 62.7602 13.6882 61.0299 13.6882C59.3011 13.6882 58.1485 15.0346 58.1485 16.6576C58.1485 18.2489 59.3011 19.5954 61.0299 19.5954C62.7602 19.5969 63.9127 18.2489 63.9127 16.6576Z"
+                        fill="#00BD7B"></path>
+                    <path
+                        d="M72.3999 16.6876V1.96393H77.8603V9.4024C78.7999 8.88248 79.9227 8.54588 81.0454 8.54588C85.8685 8.54588 89.0834 11.7902 89.0834 16.6876C89.0834 21.1251 85.4739 24.7692 80.7432 24.7692C75.8888 24.7692 72.3999 21.3716 72.3999 16.6876ZM83.6229 16.6576C83.6229 15.0646 82.4704 13.7198 80.7416 13.7198C79.0128 13.7198 77.8603 15.0662 77.8603 16.6576C77.8603 18.2789 79.0128 19.5953 80.7416 19.5953C82.4704 19.5953 83.6229 18.2805 83.6229 16.6576Z"
+                        fill="#00BD7B"></path>
+                    <path
+                        d="M91.5654 4.0768C91.5654 2.27051 93.0515 0.770813 94.8414 0.770813C96.6312 0.770813 98.1173 2.27051 98.1173 4.0768C98.1173 5.88308 96.6312 7.38279 94.8414 7.38279C93.0515 7.38279 91.5654 5.88308 91.5654 4.0768ZM97.5708 9.00575V24.311H92.1119V9.00575H97.5708Z"
+                        fill="#00BD7B"></path>
+                    <path
+                        d="M106.669 17.4541V24.311H101.208V16.7808C101.208 12.2801 103.817 8.5459 109.428 8.5459C115.039 8.5459 117.648 12.2801 117.648 16.7808V24.311H112.189V17.4541C112.189 15.5261 111.431 13.9031 109.428 13.9031C107.427 13.9031 106.669 15.5245 106.669 17.4541Z"
+                        fill="#00BD7B"></path>
+                </g>
+                <defs>
+                    <clipPath id="clip0_logo">
+                        <rect width="118" height="26" fill="white"></rect>
+                    </clipPath>
+                </defs>
+            </svg>
+        </a>
 
-	h2 a,
-	h2 a.active {
-		text-decoration: none;
-	}
-	nav {
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-	}
-	nav a {
-		padding: 1em 0.5em;
-		color: var(--black);
-		border-bottom: 4px solid transparent;
-		text-decoration: none;
-	}
-	nav a.active {
-		text-decoration: none;
-		border-bottom-color: var(--accent);
-	}
-	.social-links,
-	.social-links a {
-		display: flex;
-	}
-	@media (max-width: 720px) {
-		.social-links {
-			display: none;
-		}
-	}
+        <div
+            class="flex items-center justify-end gap-12 flex-1 max-[900px]:hidden"
+        >
+            <a
+                href="/platform"
+                class:list={[
+                    "nav-link font-medium text-[18px] leading-normal text-secondary no-underline whitespace-nowrap transition-colors hover:text-primary",
+                    { active: pathname.startsWith("/platform") },
+                ]}>The platform</a
+            >
+
+            <a
+                href="/blog"
+                class:list={[
+                    "nav-link font-medium text-[18px] leading-normal text-secondary no-underline whitespace-nowrap transition-colors hover:text-primary",
+                    { active: pathname.startsWith("/blog") },
+                ]}>Blog</a
+            >
+
+            <a
+                href="/#waitlist"
+                class="inline-flex items-center justify-center px-4 py-3 bg-accent-dark text-white font-medium text-base leading-normal no-underline rounded-xl whitespace-nowrap shrink-0 border border-transparent transition-colors hover:bg-[#01593A] hover:border-[#01734B]"
+                >Join the waitlist</a
+            >
+        </div>
+
+        <!-- Hamburger button -->
+        <button
+            id="mobile-menu-btn"
+            class="hidden max-[900px]:flex items-center justify-center bg-transparent border-0 cursor-pointer p-1"
+            aria-label="Open menu"
+            aria-expanded="false"
+        >
+            <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+            >
+                <path
+                    d="M3 6H21M3 12H21M3 18H21"
+                    stroke="#D1D8FF"
+                    stroke-width="2"
+                    stroke-linecap="round"></path>
+            </svg>
+        </button>
+    </nav>
+</header>
+
+<!-- Overlay -->
+<div
+    id="drawer-overlay"
+    class="fixed inset-0 bg-black/50 z-[150] opacity-0 pointer-events-none transition-opacity duration-300"
+>
+</div>
+
+<!-- Mobile drawer -->
+<div
+    id="mobile-drawer"
+    class="fixed top-0 right-0 h-full w-[280px] bg-bg z-[200] flex flex-col translate-x-full transition-transform duration-300 ease-in-out"
+>
+    <!-- Drawer header -->
+    <div
+        class="flex items-center justify-between px-5 py-4 border-b border-border"
+    >
+        <a
+            href="/"
+            class="flex items-center shrink-0 no-underline"
+            aria-label="Cabin home"
+        >
+            <svg
+                width="88"
+                height="20"
+                viewBox="0 0 118 26"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+            >
+                <g clip-path="url(#clip0_drawer_logo)">
+                    <path
+                        d="M28.1589 12.6921V10.4464C28.1589 7.89625 26.8018 5.5892 24.703 4.57107L16.3923 0.537047C14.9159 -0.179016 13.2237 -0.179016 11.7474 0.537047L6.96415 2.85854V0.0183532H2.64959V5.04042C0.999131 6.20899 -0.0192871 8.2633 -0.0192871 10.4464V21.0128C-0.0192871 23.7628 2.0259 26 4.53975 26H23.5999C26.1137 26 28.1589 23.7628 28.1589 21.0128V18.394H23.8444V21.0128C23.8444 21.4208 23.6357 21.629 23.5999 21.6459L4.56002 21.6483C4.50397 21.629 4.29527 21.4208 4.29527 21.0128V10.4464C4.29527 9.57268 4.70193 8.78802 5.30654 8.49437L13.6173 4.46035C13.9178 4.31473 14.2219 4.31473 14.5224 4.46035L22.8331 8.49437C23.4377 8.78802 23.8444 9.57268 23.8444 10.4464V12.6921H28.1589Z"
+                        fill="#00BD7B"></path>
+                    <path
+                        d="M35.6162 16.6275C35.6162 12.1885 39.2257 8.48583 43.9564 8.54589C46.9896 8.57591 49.7801 9.95394 51.1753 13.1066L46.656 15.5561C46.1706 14.5147 45.1997 13.7198 43.9564 13.7198C42.2276 13.7198 41.0751 15.0046 41.0751 16.6275C41.0751 18.2489 42.2276 19.5653 43.9564 19.5653C45.1997 19.5653 46.1706 18.7688 46.656 17.729L51.1753 20.1769C49.7801 23.3296 46.9896 24.7076 43.9564 24.7376C39.2257 24.7993 35.6162 21.065 35.6162 16.6275Z"
+                        fill="#00BD7B"></path>
+                    <path
+                        d="M52.6897 16.6275C52.6897 12.1885 56.2992 8.51587 61.0299 8.51587C65.8827 8.51587 69.3716 11.9451 69.3716 16.6275V24.311H64.215V23.1779C63.2441 24.1877 61.8802 24.7708 60.12 24.7708C55.6916 24.7693 52.6897 21.0951 52.6897 16.6275ZM63.9127 16.6576C63.9127 15.0346 62.7602 13.6882 61.0299 13.6882C59.3011 13.6882 58.1485 15.0346 58.1485 16.6576C58.1485 18.2489 59.3011 19.5954 61.0299 19.5954C62.7602 19.5969 63.9127 18.2489 63.9127 16.6576Z"
+                        fill="#00BD7B"></path>
+                    <path
+                        d="M72.3999 16.6876V1.96393H77.8603V9.4024C78.7999 8.88248 79.9227 8.54588 81.0454 8.54588C85.8685 8.54588 89.0834 11.7902 89.0834 16.6876C89.0834 21.1251 85.4739 24.7692 80.7432 24.7692C75.8888 24.7692 72.3999 21.3716 72.3999 16.6876ZM83.6229 16.6576C83.6229 15.0646 82.4704 13.7198 80.7416 13.7198C79.0128 13.7198 77.8603 15.0662 77.8603 16.6576C77.8603 18.2789 79.0128 19.5953 80.7416 19.5953C82.4704 19.5953 83.6229 18.2805 83.6229 16.6576Z"
+                        fill="#00BD7B"></path>
+                    <path
+                        d="M91.5654 4.0768C91.5654 2.27051 93.0515 0.770813 94.8414 0.770813C96.6312 0.770813 98.1173 2.27051 98.1173 4.0768C98.1173 5.88308 96.6312 7.38279 94.8414 7.38279C93.0515 7.38279 91.5654 5.88308 91.5654 4.0768ZM97.5708 9.00575V24.311H92.1119V9.00575H97.5708Z"
+                        fill="#00BD7B"></path>
+                    <path
+                        d="M106.669 17.4541V24.311H101.208V16.7808C101.208 12.2801 103.817 8.5459 109.428 8.5459C115.039 8.5459 117.648 12.2801 117.648 16.7808V24.311H112.189V17.4541C112.189 15.5261 111.431 13.9031 109.428 13.9031C107.427 13.9031 106.669 15.5245 106.669 17.4541Z"
+                        fill="#00BD7B"></path>
+                </g>
+                <defs>
+                    <clipPath id="clip0_drawer_logo">
+                        <rect width="118" height="26" fill="white"></rect>
+                    </clipPath>
+                </defs>
+            </svg>
+        </a>
+        <button
+            id="drawer-close-btn"
+            class="flex items-center justify-center bg-transparent border-0 cursor-pointer p-1"
+            aria-label="Close menu"
+        >
+            <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+            >
+                <path
+                    d="M6 6L18 18M6 18L18 6"
+                    stroke="#D1D8FF"
+                    stroke-width="2"
+                    stroke-linecap="round"></path>
+            </svg>
+        </button>
+    </div>
+
+    <!-- Drawer nav links -->
+    <nav class="flex flex-col flex-1 px-5 py-6 gap-1">
+        <a
+            href="/platform"
+            class:list={[
+                "drawer-link font-medium text-[18px] leading-normal text-secondary no-underline px-3 py-3 rounded-xl transition-colors hover:text-primary hover:bg-white/5",
+                { "text-primary": pathname.startsWith("/platform") },
+            ]}>The platform</a
+        >
+        <a
+            href="/blog"
+            class:list={[
+                "drawer-link font-medium text-[18px] leading-normal text-secondary no-underline px-3 py-3 rounded-xl transition-colors hover:text-primary hover:bg-white/5",
+                { "text-primary": pathname.startsWith("/blog") },
+            ]}>Blog</a
+        >
+    </nav>
+
+    <!-- Drawer footer CTA -->
+    <div class="px-5 py-6 border-t border-border">
+        <a
+            href="/#waitlist"
+            class="inline-flex items-center justify-center w-full px-4 py-3 bg-accent-dark text-white font-medium text-base leading-normal no-underline rounded-xl border border-transparent transition-colors hover:bg-[#01593A] hover:border-[#01734B]"
+            >Join the waitlist</a
+        >
+    </div>
+</div>
+
+<style>
+    .nav-link.active {
+        color: #d1d8ff;
+    }
 </style>
+
+<script>
+    const menuBtn = document.getElementById("mobile-menu-btn");
+    const closeBtn = document.getElementById("drawer-close-btn");
+    const drawer = document.getElementById("mobile-drawer");
+    const overlay = document.getElementById("drawer-overlay");
+
+    function openDrawer() {
+        drawer?.classList.remove("translate-x-full");
+        overlay?.classList.remove("opacity-0", "pointer-events-none");
+        overlay?.classList.add("opacity-100");
+        document.body.style.overflow = "hidden";
+        menuBtn?.setAttribute("aria-expanded", "true");
+    }
+
+    function closeDrawer() {
+        drawer?.classList.add("translate-x-full");
+        overlay?.classList.add("opacity-0", "pointer-events-none");
+        overlay?.classList.remove("opacity-100");
+        document.body.style.overflow = "";
+        menuBtn?.setAttribute("aria-expanded", "false");
+    }
+
+    menuBtn?.addEventListener("click", openDrawer);
+    closeBtn?.addEventListener("click", closeDrawer);
+    overlay?.addEventListener("click", closeDrawer);
+
+    // Close drawer on nav link click
+    drawer?.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", closeDrawer);
+    });
+</script>

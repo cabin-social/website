@@ -1,0 +1,51 @@
+---
+
+---
+
+<button
+    id="scroll-indicator"
+    class="fixed bottom-32 right-8 z-50 hidden md:block bg-transparent border-none p-0 cursor-pointer opacity-100 transition-opacity hover:opacity-70"
+    aria-label="Scroll down"
+>
+    <svg
+        width="32"
+        height="32"
+        viewBox="0 0 32 32"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+    >
+        <path
+            d="M23.2 20.8V11.2C23.2 8.10495 20.695 5.59995 17.6 5.59995H14.4C11.305 5.59995 8.79999 8.10495 8.79999 11.2V20.8C8.79999 23.895 11.305 26.4 14.4 26.4H17.6C20.695 26.4 23.2 23.895 23.2 20.8ZM6.39999 11.2C6.39999 6.77995 9.97999 3.19995 14.4 3.19995H17.6C22.02 3.19995 25.6 6.77995 25.6 11.2V20.8C25.6 25.22 22.02 28.8 17.6 28.8H14.4C9.97999 28.8 6.39999 25.22 6.39999 20.8V11.2ZM16 7.99995C16.665 7.99995 17.2 8.53495 17.2 9.19995V11.6C17.2 12.265 16.665 12.8 16 12.8C15.335 12.8 14.8 12.265 14.8 11.6V9.19995C14.8 8.53495 15.335 7.99995 16 7.99995Z"
+            fill="#8E9CCB"></path>
+    </svg>
+</button>
+
+<script>
+    const btn = document.getElementById("scroll-indicator");
+    if (btn) {
+        btn.addEventListener("click", () => {
+            const candidates = document.querySelectorAll("main *");
+            let scrollable = null;
+            for (const el of candidates) {
+                if (el.scrollHeight > el.clientHeight) {
+                    const overflow = window.getComputedStyle(el).overflowY;
+                    if (overflow === "auto" || overflow === "scroll") {
+                        scrollable = el;
+                        break;
+                    }
+                }
+            }
+            if (scrollable) {
+                scrollable.scrollBy({
+                    top: window.innerHeight * 0.8,
+                    behavior: "smooth",
+                });
+            } else {
+                window.scrollBy({
+                    top: window.innerHeight * 0.8,
+                    behavior: "smooth",
+                });
+            }
+        });
+    }
+</script>

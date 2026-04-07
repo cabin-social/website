@@ -1,0 +1,232 @@
+---
+import BaseHead from "../components/BaseHead.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+
+const faqs = [
+    {
+        category: "General",
+        questions: [
+            {
+                q: "What is Cabin?",
+                a: "Cabin is an open-source, privacy-focused social platform built on AT Protocol. We're building a place where you can connect with the people you care about — without manipulative algorithms, data harvesting, or walls of misinformation.",
+            },
+            {
+                q: "When is Cabin launching?",
+                a: "We're planning to launch in June 2026. Cabin will be available on web, iOS, iPadOS, and Android at launch. Join the waitlist to get early access.",
+            },
+            {
+                q: "Is Cabin free to use?",
+                a: "Yes. Cabin will be free to use. We're still working out the details of our long-term sustainability model, but we're committed to never selling your data or gating core features behind a paywall.",
+            },
+        ],
+    },
+    {
+        category: "Privacy & Data",
+        questions: [
+            {
+                q: "Who owns my data on Cabin?",
+                a: "You do. Because Cabin is built on AT Protocol, your data lives on your Personal Data Server (PDS). You can take it with you at any time, to any compatible platform. We have no lock-in.",
+            },
+            {
+                q: "Does Cabin sell my data?",
+                a: "No, and we never will. Cabin is open-source — you can verify this yourself. Our business model will never depend on monetising your personal information.",
+            },
+            {
+                q: "Can I delete my account and data?",
+                a: "Yes, always. You can delete your account and all associated data at any time. Because your data lives on AT Protocol infrastructure, deletion is real and complete.",
+            },
+        ],
+    },
+    {
+        category: "AT Protocol & Decentralisation",
+        questions: [
+            {
+                q: "What is AT Protocol?",
+                a: "AT Protocol (Authenticated Transfer Protocol) is an open, decentralised protocol for social networking created by the team behind Bluesky. It gives users portable identities and data, meaning you're not tied to any single platform or company.",
+            },
+            {
+                q: "Can I use my Cabin account on other AT Protocol apps?",
+                a: "Yes. Your identity and data on AT Protocol are interoperable with any compatible application. Cabin is one app in a broader ecosystem, not a walled garden.",
+            },
+            {
+                q: "Do I need to understand decentralisation to use Cabin?",
+                a: "Not at all. The technical details are abstracted away. Cabin is designed to feel like any other social app — the decentralised underpinning just means you have more control if you want it.",
+            },
+        ],
+    },
+    {
+        category: "Features",
+        questions: [
+            {
+                q: "What can I post on Cabin?",
+                a: "You can post text (with full Markdown support), images, and polls. We're focused on getting the fundamentals right before expanding to more content types.",
+            },
+            {
+                q: "How does Cabin's feed work?",
+                a: "Cabin's default feed is simple and transparent — you see posts from the people, communities, and topics you follow, in chronological order. No engagement-optimised ranking, no algorithmic surprises.",
+            },
+            {
+                q: "Does Cabin have communities?",
+                a: "Yes. You can create or join communities around shared interests. Communities have their own feeds and can be moderated by their members.",
+            },
+            {
+                q: "Can I create events on Cabin?",
+                a: "Yes. Cabin supports events so you can organise meetups, book clubs, protests, game nights — whatever brings your community together.",
+            },
+        ],
+    },
+    {
+        category: "Open Source",
+        questions: [
+            {
+                q: "Is Cabin open source?",
+                a: "Yes. Cabin is fully open source. You can browse the code, contribute, or run your own instance. We believe transparency is a prerequisite for trust.",
+            },
+            {
+                q: "How can I contribute?",
+                a: "Head to our GitHub at github.com/cabin-social. We welcome contributions of all kinds — code, design, documentation, and bug reports.",
+            },
+        ],
+    },
+];
+---
+
+<!doctype html>
+<html lang="en" class="h-screen overflow-hidden">
+    <head>
+        <BaseHead
+            title="FAQ — Cabin"
+            description="Answers to common questions about Cabin, AT Protocol, privacy, and how it all works."
+        />
+    </head>
+    <body class="bg-bg h-full flex flex-col">
+        <Header />
+
+        <main
+            class="flex-1 min-h-0 w-full max-w-[1280px] mx-auto flex flex-col"
+        >
+            <section
+                class="flex flex-row items-stretch flex-1 min-h-0 gap-16 px-16 max-[1100px]:gap-10 max-[1100px]:px-10 max-[900px]:flex-col max-[900px]:overflow-y-auto max-[900px]:gap-8 max-[900px]:px-6 max-[900px]:py-10 max-[600px]:px-4 max-[600px]:py-6"
+            >
+                <!-- Photo grid -->
+                <div
+                    class="flex flex-row items-center gap-6 shrink-0 self-stretch min-h-0 overflow-hidden rounded-xl max-[900px]:h-[320px] max-[900px]:self-auto max-[900px]:w-full max-[900px]:gap-4 max-[600px]:h-[260px] max-[600px]:gap-3"
+                >
+                    <!-- Column 1: 4 images -->
+                    <div
+                        class="flex flex-col gap-6 w-[222px] shrink-0 max-[1100px]:w-[180px] max-[900px]:w-[150px] max-[900px]:gap-4 max-[600px]:w-[130px] max-[600px]:gap-3"
+                    >
+                        <div
+                            class="w-[222px] h-[296px] rounded-2xl bg-cover bg-center bg-no-repeat shrink-0 relative photo-card max-[1100px]:w-[180px] max-[900px]:w-[150px] max-[900px]:h-[220px] max-[600px]:w-[130px] max-[600px]:h-[190px]"
+                            style="background-image: url('/images/photo-1.png')"
+                        >
+                        </div>
+                        <div
+                            class="w-[222px] h-[296px] rounded-2xl bg-cover bg-center bg-no-repeat shrink-0 relative photo-card max-[1100px]:w-[180px] max-[900px]:w-[150px] max-[900px]:h-[220px] max-[600px]:w-[130px] max-[600px]:h-[190px]"
+                            style="background-image: url('/images/photo-2.png')"
+                        >
+                        </div>
+                        <div
+                            class="w-[222px] h-[296px] rounded-2xl bg-cover bg-center bg-no-repeat shrink-0 relative photo-card max-[1100px]:w-[180px] max-[900px]:w-[150px] max-[900px]:h-[220px] max-[600px]:w-[130px] max-[600px]:h-[190px]"
+                            style="background-image: url('/images/photo-3.png')"
+                        >
+                        </div>
+                        <div
+                            class="w-[222px] h-[296px] rounded-2xl bg-cover bg-center bg-no-repeat shrink-0 relative photo-card max-[1100px]:w-[180px] max-[900px]:w-[150px] max-[900px]:h-[220px] max-[600px]:w-[130px] max-[600px]:h-[190px]"
+                            style="background-image: url('/images/photo-4.png')"
+                        >
+                        </div>
+                    </div>
+
+                    <!-- Column 2: 3 images -->
+                    <div
+                        class="flex flex-col gap-6 w-[222px] shrink-0 max-[1100px]:w-[180px] max-[900px]:w-[150px] max-[900px]:gap-4 max-[600px]:w-[130px] max-[600px]:gap-3"
+                    >
+                        <div
+                            class="w-[222px] h-[296px] rounded-2xl bg-cover bg-center bg-no-repeat shrink-0 relative photo-card max-[1100px]:w-[180px] max-[900px]:w-[150px] max-[900px]:h-[220px] max-[600px]:w-[130px] max-[600px]:h-[190px]"
+                            style="background-image: url('/images/photo-5.png')"
+                        >
+                        </div>
+                        <div
+                            class="w-[222px] h-[296px] rounded-2xl bg-cover bg-center bg-no-repeat shrink-0 relative max-[1100px]:w-[180px] max-[900px]:w-[150px] max-[900px]:h-[220px] max-[600px]:w-[130px] max-[600px]:h-[190px]"
+                            style="background-image: url('/images/photo-6.png')"
+                        >
+                        </div>
+                        <div
+                            class="w-[222px] h-[296px] rounded-2xl bg-cover bg-center bg-no-repeat shrink-0 relative photo-card max-[1100px]:w-[180px] max-[900px]:w-[150px] max-[900px]:h-[220px] max-[600px]:w-[130px] max-[600px]:h-[190px]"
+                            style="background-image: url('/images/photo-7.png')"
+                        >
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ content: scrollable column -->
+                <div
+                    class="flex flex-col flex-1 min-h-0 self-stretch gap-6 py-16 overflow-y-auto max-[900px]:py-0 max-[900px]:overflow-visible"
+                >
+                    <h1
+                        class="font-bold text-[44px] leading-[1.1] text-primary m-0 max-[900px]:text-[32px] max-[600px]:text-[26px]"
+                    >
+                        FAQ
+                    </h1>
+
+                    {
+                        faqs.map((section) => (
+                            <div class="flex flex-col gap-1">
+                                <h2 class="font-bold text-xs uppercase tracking-widest text-secondary m-0 pb-3 border-b border-border">
+                                    {section.category}
+                                </h2>
+                                <dl class="flex flex-col">
+                                    {section.questions.map((item) => (
+                                        <details class="group border-b border-border last:border-b-0">
+                                            <summary class="flex items-center justify-between gap-6 cursor-pointer list-none py-4 text-primary font-medium text-base leading-snug select-none hover:text-accent transition-colors">
+                                                {item.q}
+                                                <svg
+                                                    class="shrink-0 text-secondary transition-transform group-open:rotate-180"
+                                                    width="16"
+                                                    height="16"
+                                                    viewBox="0 0 16 16"
+                                                    fill="none"
+                                                    xmlns="http://www.w3.org/2000/svg"
+                                                    aria-hidden="true"
+                                                >
+                                                    <path
+                                                        d="M3 6L8 11L13 6"
+                                                        stroke="currentColor"
+                                                        stroke-width="1.5"
+                                                        stroke-linecap="round"
+                                                        stroke-linejoin="round"
+                                                    />
+                                                </svg>
+                                            </summary>
+                                            <p class="text-secondary text-base leading-relaxed mt-0 mb-4 pr-8">
+                                                {item.a}
+                                            </p>
+                                        </details>
+                                    ))}
+                                </dl>
+                            </div>
+                        ))
+                    }
+                </div>
+            </section>
+        </main>
+
+        <Footer />
+    </body>
+</html>
+
+<style>
+    .photo-card::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-radius: 16px;
+        background: rgba(18, 21, 38, 0.75);
+    }
+
+    details > summary::-webkit-details-marker {
+        display: none;
+    }
+</style>
