@@ -24,12 +24,22 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
                 class="flex flex-row items-stretch flex-1 min-h-0 gap-16 px-16 overflow-hidden max-[1100px]:gap-10 max-[1100px]:px-10 max-[900px]:flex-col max-[900px]:h-auto max-[900px]:overflow-x-hidden max-[900px]:overflow-y-auto max-[900px]:gap-8 max-[900px]:px-5 max-[900px]:py-10 max-[900px]:items-center max-[600px]:py-6"
             >
                 <!-- Mobile hero image (hidden on desktop) -->
-                <img
-                    src="/images/mobile-hero-homepage.png"
-                    alt="Cabin app screenshots"
-                    class="hidden max-[900px]:block shrink-0 object-cover object-center"
-                    style="height: 248px; width: 100vw; margin-left: -1.25rem; margin-right: -1.25rem; max-width: none;"
-                />
+                <picture class="hidden max-[900px]:block shrink-0">
+                    <source
+                        srcset="/images/mobile-hero-homepage.avif"
+                        type="image/avif"
+                    />
+                    <source
+                        srcset="/images/mobile-hero-homepage.webp"
+                        type="image/webp"
+                    />
+                    <img
+                        src="/images/mobile-hero-homepage.png"
+                        alt="Cabin app screenshots"
+                        class="shrink-0 object-cover object-center"
+                        style="height: 248px; width: 100vw; margin-left: -1.25rem; margin-right: -1.25rem; max-width: none;"
+                    />
+                </picture>
 
                 <!-- Photo grid: two columns, clips vertically via overflow:hidden on section -->
                 <div
@@ -41,22 +51,22 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
                     >
                         <div
                             class="w-[222px] h-[296px] rounded-2xl bg-cover bg-center bg-no-repeat shrink-0 relative photo-card max-[1100px]:w-[180px] max-[900px]:w-[160px] max-[900px]:h-[240px] max-[600px]:w-[140px] max-[600px]:h-[210px]"
-                            style="background-image: url('/images/photo-1.png')"
+                            style="background-image: image-set(url('/images/photo-1.avif') type('image/avif'), url('/images/photo-1.webp') type('image/webp'), url('/images/photo-1.png'))"
                         >
                         </div>
                         <div
                             class="w-[222px] h-[296px] rounded-2xl bg-cover bg-center bg-no-repeat shrink-0 relative photo-card max-[1100px]:w-[180px] max-[900px]:w-[160px] max-[900px]:h-[240px] max-[600px]:w-[140px] max-[600px]:h-[210px]"
-                            style="background-image: url('/images/photo-2.png')"
+                            style="background-image: image-set(url('/images/photo-2.avif') type('image/avif'), url('/images/photo-2.webp') type('image/webp'), url('/images/photo-2.png'))"
                         >
                         </div>
                         <div
                             class="w-[222px] h-[296px] rounded-2xl bg-cover bg-center bg-no-repeat shrink-0 relative photo-card max-[1100px]:w-[180px] max-[900px]:w-[160px] max-[900px]:h-[240px] max-[600px]:w-[140px] max-[600px]:h-[210px]"
-                            style="background-image: url('/images/photo-3.png')"
+                            style="background-image: image-set(url('/images/photo-3.avif') type('image/avif'), url('/images/photo-3.webp') type('image/webp'), url('/images/photo-3.png'))"
                         >
                         </div>
                         <div
                             class="w-[222px] h-[296px] rounded-2xl bg-cover bg-center bg-no-repeat shrink-0 relative photo-card max-[1100px]:w-[180px] max-[900px]:w-[160px] max-[900px]:h-[240px] max-[600px]:w-[140px] max-[600px]:h-[210px]"
-                            style="background-image: url('/images/photo-4.png')"
+                            style="background-image: image-set(url('/images/photo-4.avif') type('image/avif'), url('/images/photo-4.webp') type('image/webp'), url('/images/photo-4.png'))"
                         >
                         </div>
                     </div>
@@ -67,17 +77,17 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
                     >
                         <div
                             class="w-[222px] h-[296px] rounded-2xl bg-cover bg-center bg-no-repeat shrink-0 relative photo-card max-[1100px]:w-[180px] max-[900px]:w-[160px] max-[900px]:h-[240px] max-[600px]:w-[140px] max-[600px]:h-[210px]"
-                            style="background-image: url('/images/photo-5.png')"
+                            style="background-image: image-set(url('/images/photo-5.avif') type('image/avif'), url('/images/photo-5.webp') type('image/webp'), url('/images/photo-5.png'))"
                         >
                         </div>
                         <div
                             class="w-[222px] h-[296px] rounded-2xl bg-cover bg-center bg-no-repeat shrink-0 relative max-[1100px]:w-[180px] max-[900px]:w-[160px] max-[900px]:h-[240px] max-[600px]:w-[140px] max-[600px]:h-[210px]"
-                            style="background-image: url('/images/photo-6.png')"
+                            style="background-image: image-set(url('/images/photo-6.avif') type('image/avif'), url('/images/photo-6.webp') type('image/webp'), url('/images/photo-6.png'))"
                         >
                         </div>
                         <div
                             class="w-[222px] h-[296px] rounded-2xl bg-cover bg-center bg-no-repeat shrink-0 relative photo-card max-[1100px]:w-[180px] max-[900px]:w-[160px] max-[900px]:h-[240px] max-[600px]:w-[140px] max-[600px]:h-[210px]"
-                            style="background-image: url('/images/photo-7.png')"
+                            style="background-image: image-set(url('/images/photo-7.avif') type('image/avif'), url('/images/photo-7.webp') type('image/webp'), url('/images/photo-7.png'))"
                         >
                         </div>
                     </div>

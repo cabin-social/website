@@ -4,7 +4,11 @@ description: "Well hello there! My name is John Jackson, and I co-founded Cabin 
 pubDate: "April 5, 2026"
 heroImage: '../../assets/blog-placeholder-1.jpg'
 ---
-![A preview of Cabin's media upload experience](../../assets/mobile.png)
+<picture>
+  <source srcset="../../assets/mobile.avif" type="image/avif" />
+  <source srcset="../../assets/mobile.webp" type="image/webp" />
+  <img src="../../assets/mobile.png" alt="A preview of Cabin's media upload experience" />
+</picture>
 Well hello there! My name is John Jackson, and I co-founded Cabin because, quite frankly, I'm disgusted with the state of social media. Most major social platforms have a single priority: growing their revenue. And don't get me wrong, I understand that revenue is important to the success of these platforms, but we've ventured far beyond the realm of ethical profit, and well into the land of toxic capitalism.
 
 Platforms earn most of their revenue through ads. This means they're incentivized to keep users engaged as much as possible to maximize ad views. Some of the real-world consequences of this:
@@ -30,15 +34,27 @@ Cabin is designed to be everything we loved about MySpace, with a modern twistâ€
 ### Cabin's features
 I realize not everyone was alive when MySpace was at its peak, which would probably leave you wondering what can be expected from Cabin. Fear not, as I have come prepared with images.
 
-![A preview of Cabin's "Post" editor](../../assets/markdown.png)
+<picture>
+  <source srcset="../../assets/markdown.avif" type="image/avif" />
+  <source srcset="../../assets/markdown.webp" type="image/webp" />
+  <img src="../../assets/markdown.png" alt="A preview of Cabin's 'Post' editor" />
+</picture>
 #### Markdown support, with a thoughtfully-designed editor
 We're making it easy to write (and consume) long-form content by implementing support for markdown. For the less tech savy folks, markdown is just a lightweight formatting language. You'll be able to easily embed links, create lists, style text, and plenty more.
 
-![A preview of Cabin's polling feature](../../assets/poll.png)
+<picture>
+  <source srcset="../../assets/poll.avif" type="image/avif" />
+  <source srcset="../../assets/poll.webp" type="image/webp" />
+  <img src="../../assets/poll.png" alt="A preview of Cabin's polling feature" />
+</picture>
 #### Polls, for asking the real questions
 Whether you're trying to prove a point to your spouse or figure out vacation locations for the Fram's next trip, we've got you covered. I'm personally most excited for this feature because it will help us gather important feedback from users.
 
-![A preview of Cabin's media upload experience](../../assets/media.png)
+<picture>
+  <source srcset="../../assets/media.avif" type="image/avif" />
+  <source srcset="../../assets/media.webp" type="image/webp" />
+  <img src="../../assets/media.png" alt="A preview of Cabin's media upload experience" />
+</picture>
 #### Share images and videos
 Share all the beautiful moments you've captured. We'll scrub the metadata on your media to maintain your privacy. Don't worry, though, you'll be able to toggle automatic scrubbing.
 
