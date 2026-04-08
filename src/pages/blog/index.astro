@@ -13,7 +13,10 @@ const posts = (await getCollection("blog")).sort(
 ---
 
 <!doctype html>
-<html lang="en" class="h-screen overflow-hidden max-[900px]:h-auto max-[900px]:overflow-auto">
+<html
+    lang="en"
+    class="h-screen overflow-hidden max-[900px]:h-auto max-[900px]:overflow-auto"
+>
     <head>
         <BaseHead
             title={`Blog — ${SITE_TITLE}`}
@@ -48,6 +51,14 @@ const posts = (await getCollection("blog")).sort(
                                         href={`/blog/${post.id}/`}
                                         class="block group no-underline"
                                     >
+                                        {post.data.heroImage && (
+                                            <img
+                                                src={post.data.heroImage.src}
+                                                alt=""
+                                                class="w-full rounded-lg object-fill mb-4"
+                                                style="min-height: 400px; max-height: 600px;"
+                                            />
+                                        )}
                                         <p class="text-secondary text-[16px] m-0 mb-1">
                                             <FormattedDate
                                                 date={post.data.pubDate}
