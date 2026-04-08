@@ -1,7 +1,10 @@
 ---
 import { type CollectionEntry, getCollection, render } from "astro:content";
 import BlogPost from "../../layouts/BlogPost.astro";
-import Spacer from "../../components/Spacer.astro";
+import Spacer8 from "../../components/Spacer8.astro";
+import Spacer16 from "../../components/Spacer16.astro";
+import Spacer24 from "../../components/Spacer24.astro";
+import Spacer32 from "../../components/Spacer32.astro";
 
 export async function getStaticPaths() {
     const posts = await getCollection("blog");
@@ -17,5 +20,5 @@ const { Content } = await render(post);
 ---
 
 <BlogPost {...post.data}>
-    <Content components={{ Spacer }} />
+    <Content components={{ Spacer8, Spacer16, Spacer24, Spacer32 }} />
 </BlogPost>
